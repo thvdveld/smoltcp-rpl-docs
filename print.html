@@ -83,7 +83,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded affix "><a href="about_smoltcp.html">About smoltcp</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><a href="rpl.html">RPL</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><a href="about_project.html">About the project</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="about_smoltcp.html">About smoltcp</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><a href="rpl.html">RPL</a></li><li class="chapter-item expanded "><a href="mop0.html"><strong aria-hidden="true">1.</strong> MOP0</a></li><li class="chapter-item expanded "><a href="mop1.html"><strong aria-hidden="true">2.</strong> MOP1</a></li><li class="chapter-item expanded "><a href="mop2.html"><strong aria-hidden="true">3.</strong> MOP2</a></li><li class="chapter-item expanded "><a href="mop3.html"><strong aria-hidden="true">4.</strong> MOP3</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><a href="about_project.html">About the project</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -146,6 +146,35 @@
                     <main>
                         <h1 id="smoltcp"><a class="header" href="#smoltcp">Smoltcp</a></h1>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="routing-protocol-for-low-power-and-lossy-networks"><a class="header" href="#routing-protocol-for-low-power-and-lossy-networks">Routing Protocol for Low-Power and Lossy Networks</a></h1>
+<p>A Wireless Sensor Network (WSN) is a Low-Power and Lossy Network (LLN) 
+and is composed of constrained devices, actuators and sensors.
+These devices are connected via a sink node to the Internet and to an end user.
+These networks can be composed of hundreds of these tiny battery powered devices
+with short radio transmission range.
+Thus, intermediate nodes act as relay nodes transmitting data towards the sink (root) node
+using a multi-hop path.
+Given the low-power and lossy radio links, the battery supplied nodes,
+and the multi-hop mesh topologies, routing issues are very challenging for LLNs and WSNs.</p>
+<p>An effective routing solution that overcomes some of the challenges posed by WSNs was
+developed by the IETF <em>Routing over Low power and Lossy Networks</em> working group,
+which proposed 
+<a href="https://datatracker.ietf.org/doc/html/rfc6550"><strong>IPv6 Routing protocol for Low-power and Lossy Networks (RPL)</strong></a>.</p>
+<p>RPL provides support for <em>Point to Point (<strong>P2P</strong>)</em>, <em>Multipoint to Point (<strong>M2P</strong>)</em>
+and <em>Point to Multipoint (<strong>P2M</strong>)</em> traffic.
+<strong>P2P</strong> communication takes place between two nodes.
+In <strong>M2P</strong> communication, the info is sent from multiple nodes towards a central node.
+In <strong>P2M</strong> communication, the info is sent from a central node towards multiple nodes.
+To ensure these types of traffic, RPL provisions <strong>upward routes</strong> and <strong>downward routes</strong>.
+The upward routes are the ones that head toward the root.
+The downward routes are the ones that start at the root and head towards the other
+nodes in the network.</p>
+<h2 id="destination-oriented-directed-acyclic-graph-dodag"><a class="header" href="#destination-oriented-directed-acyclic-graph-dodag">Destination Oriented Directed Acyclic Graph (DODAG)</a></h2>
+<p><img src="./binary_tree.svg" alt="DODAG example" /></p>
+<!--<p><img src="binary_tree.svg" alt="DODAG example" style="width:100%"/></p>-->
+<div style="break-before: page; page-break-before: always;"></div><h1 id="mop0"><a class="header" href="#mop0">MOP0</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="mop1"><a class="header" href="#mop1">MOP1</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="mop2"><a class="header" href="#mop2">MOP2</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="mop3"><a class="header" href="#mop3">MOP3</a></h1>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="about-the-project"><a class="header" href="#about-the-project">About the project</a></h1>
 
                     </main>
