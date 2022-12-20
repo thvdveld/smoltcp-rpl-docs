@@ -1,0 +1,6 @@
+[book]
+authors = ["Thibaut Vandervelden"]
+language = "en"
+multilingual = false
+src = "src"
+title = "Using smoltcp RPL"
