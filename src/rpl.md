@@ -27,5 +27,5 @@ nodes in the network.
 
 ## Destination Oriented Directed Acyclic Graph (DODAG)
 
-![DODAG example](./binary_tree.svg)
+![DODAG example](assets/binary_tree.svg)
 <!--<p><img src="binary_tree.svg" alt="DODAG example" style="width:100%"/></p>-->
