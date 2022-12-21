@@ -145,24 +145,24 @@
                     <main>
                         <h1 id="mode-of-operation-0-no-downward-routes-maintained"><a class="header" href="#mode-of-operation-0-no-downward-routes-maintained">Mode of Operation 0: no downward routes maintained</a></h1>
 <p>First, we have the network that just woke up:</p>
-<p><img src="assets/rpl_mop_0/rpl0.webp" alt="Empty RPL network" /></p>
+<p><img src="assets/rpl_mop_0/rpl0.svg" alt="Empty RPL network" /></p>
 <p>Then, one node decided that he wants to join a RPL network.
 For that it sends a <em>DODAG Information Solicitation (DIS)</em> message.
 This message is sent to the <em>all-RPL-node</em> IPv6 multicast address (<code>ff02::a1</code>).
 This means that all nodes in the radio range of the sending node will receive it.</p>
-<p><img src="assets/rpl_mop_0/rpl1.webp" alt="Empty RPL network" /></p>
+<p><img src="assets/rpl_mop_0/rpl1.svg" alt="Empty RPL network" /></p>
 <p>Only the root node has information about the RPL DODAG structure.
 Therefore, it is the only one that can respond with a <em>DODAG Information Object (DIO)</em> packet.
 It is also using the <code>ff02::a1</code> multicast address.</p>
-<p><img src="assets/rpl_mop_0/rpl2.webp" alt="Empty RPL network" /></p>
+<p><img src="assets/rpl_mop_0/rpl2.svg" alt="Empty RPL network" /></p>
 <p>The nodes that receive the DIO message and did not yet joined a RPL network
 will join this network.
 They do that by selecting the root node (the sender of the DIO packet) as their parent.</p>
-<p><img src="assets/rpl_mop_0/rpl3.webp" alt="Empty RPL network" /></p>
+<p><img src="assets/rpl_mop_0/rpl3.svg" alt="Empty RPL network" /></p>
 <p>Because the nodes have selected a parent, they can start sending DIO packets as well.</p>
-<p><img src="assets/rpl_mop_0/rpl4.webp" alt="Empty RPL network" /></p>
+<p><img src="assets/rpl_mop_0/rpl4.svg" alt="Empty RPL network" /></p>
 <p>Some UDP:</p>
-<p><img src="assets/rpl_mop_0/rpl5.webp" alt="Empty RPL network" /></p>
+<p><img src="assets/rpl_mop_0/rpl5.svg" alt="Empty RPL network" /></p>
 
                     </main>
 
