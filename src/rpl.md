@@ -26,6 +26,3 @@ The downward routes are the ones that start at the root and head towards the oth
 nodes in the network.
 
 ## Destination Oriented Directed Acyclic Graph (DODAG)
-
-![DODAG example](assets/binary_tree.svg)
-<!--<p><img src="binary_tree.svg" alt="DODAG example" style="width:100%"/></p>-->
