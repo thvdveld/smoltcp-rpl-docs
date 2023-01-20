@@ -49,5 +49,55 @@ A **RPL instance** is a group of DODAGs that have the same RPL instance ID and s
 identified by a DODAG ID. The **DODAG version number** is a counter that is incremented by the root node 
 whenever a new version of the DODAG is created.
 
+## Control Messages and Modes of Operation ##
+
+The DODAG is created with the assistance of control messages, specifically ICMPv6 messages. 
+These messages are used to maintain both upward and downward routes within the DODAG. 
+The four types of control messages that RPL uses to construct the DODAG are:
+
+• DODAG Information Object (DIO)
+
+• Destination Advertisement Object (DAO)
+
+• Destination Advertisement Object Acknowledgment (DAO-ACK)
+
+• DODAG Information Solicitation (DIS).
+
+The exchange of control messages during the construction of the DODAG may vary depending on the mode of operation that is set for RPL.
+In some modes of operation, some of these messages may not be sent at all. 
+The mode of operation determines the specific message exchange that occurs during the construction of the DODAG.
+
+There are 4 modes of operation defined in RPL standard:
+
+**• MOP 0 = no downward routes maintained**
+
+In this MOP, DAO messages are disabled and the DODAG only maintains upward routes. 
+This means that nodes will not transmit or will ignore the DAO messages. 
+However, DIO and DIS messages are still sent. In this MOP, only M2P communication is possible.
+
+**• MOP 1 = non storing mode**
+
+In this MOP, both upward and downward routes are supported within the DODAG. 
+Thus, DIO, DIS, and DAO messages are issued. 
+As this is a non-storing mode, the DAO messages are sent to the root. 
+In this MOP, all three types of communication are possible: M2P, P2M, and P2P. 
+However, multicast is not supported in this MOP.
+
+**• MOP 2 = storing mode with no multicast support**
+
+In this MOP, support is provided for both upward and downward routes within the DODAG. 
+This is achieved through the issuance of DIO, DIS, and DAO messages. 
+As this is a storing mode, the DAO messages are sent to the preferred parent. 
+In this MOP, all three types of communication are possible: M2P, P2M, and P2P.
+However, multicast is not supported in this MOP.
+
+**• MOP 3 = storing mode with multicast support**
+
+This MOP is similar to MOP2, but includes support for multicast. 
+
+The root and nodes that are already part of a DODAG advertise this MOP. 
+The MOP is included in the DIO messages. 
+In order to join the network, nodes must support the MOP advertised in the DIO messages, 
+otherwise, they can only join the network as leaf nodes.
 
 
