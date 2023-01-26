@@ -147,29 +147,79 @@
                         <h1 id="smoltcp"><a class="header" href="#smoltcp">Smoltcp</a></h1>
 <p>smoltcp is a standalone, event-driven TCP/IP stack that is designed for bare-metal, real-time systems. Its design goals are simplicity and robustness. Its design anti-goals include complicated compile-time computations, such as macro or type tricks, even at cost of performance degradation.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="routing-protocol-for-low-power-and-lossy-networks"><a class="header" href="#routing-protocol-for-low-power-and-lossy-networks">Routing Protocol for Low-Power and Lossy Networks</a></h1>
-<p>A Wireless Sensor Network (WSN) is a Low-Power and Lossy Network (LLN) 
-and is composed of constrained devices, actuators and sensors.
-These devices are connected via a sink node to the Internet and to an end user.
-These networks can be composed of hundreds of these tiny battery powered devices
-with short radio transmission range.
-Thus, intermediate nodes act as relay nodes transmitting data towards the sink (root) node
-using a multi-hop path.
-Given the low-power and lossy radio links, the battery supplied nodes,
-and the multi-hop mesh topologies, routing issues are very challenging for LLNs and WSNs.</p>
-<p>An effective routing solution that overcomes some of the challenges posed by WSNs was
-developed by the IETF <em>Routing over Low power and Lossy Networks</em> working group,
-which proposed 
-<a href="https://datatracker.ietf.org/doc/html/rfc6550"><strong>IPv6 Routing protocol for Low-power and Lossy Networks (RPL)</strong></a>.</p>
-<p>RPL provides support for <em>Point to Point (<strong>P2P</strong>)</em>, <em>Multipoint to Point (<strong>M2P</strong>)</em>
-and <em>Point to Multipoint (<strong>P2M</strong>)</em> traffic.
-<strong>P2P</strong> communication takes place between two nodes.
-In <strong>M2P</strong> communication, the info is sent from multiple nodes towards a central node.
-In <strong>P2M</strong> communication, the info is sent from a central node towards multiple nodes.
-To ensure these types of traffic, RPL provisions <strong>upward routes</strong> and <strong>downward routes</strong>.
-The upward routes are the ones that head toward the root.
-The downward routes are the ones that start at the root and head towards the other
-nodes in the network.</p>
+<p>A Wireless Sensor Network (WSN) is a type of Low-Power and Lossy Network (LLN) 
+that consists of small, constrained devices equipped with sensors and/or actuators. 
+These devices are connected to the Internet and an end user through a central node 
+known as the sink node. 
+WSNs may include hundreds of these tiny, battery-powered devices that communicate 
+with each other using short-range radio transmissions. 
+In order to transmit data from one device to another, intermediate nodes act as relay nodes, 
+forwarding the data along a multi-hop path towards the sink node. 
+The use of low-power, lossy radio links, battery-powered nodes, 
+and mesh topologies creates significant routing challenges for LLNs and WSNs.</p>
+<p><img src="assets/rpl_intro/rpl_intro2.svg" alt="Empty RPL network" /></p>
+<p>To address these challenges, the IETF Routing over Low-Power and Lossy Networks working group developed 
+<a href="https://datatracker.ietf.org/doc/html/rfc6550"><strong>IPv6 Routing protocol for Low-power and Lossy Networks (RPL)</strong></a>. RPL supports <em>Point to Point (<strong>P2P</strong>)</em>, <em>Multipoint to Point (<strong>M2P</strong>)</em> and <em>Point to Multipoint (<strong>P2M</strong>)</em> traffic. 
+<strong>P2P</strong> communication occurs between two nodes, <strong>M2P</strong> communication involves 
+data being sent from multiple nodes to a central node, and <strong>P2M</strong> communication 
+involves data being sent from a central node to multiple nodes. RPL uses <strong>upward</strong> 
+and <strong>downward routes</strong> to facilitate these different types of traffic. Upward routes 
+lead towards the root of the network, while downward routes start at the root and lead 
+towards other nodes in the network.</p>
 <h2 id="destination-oriented-directed-acyclic-graph-dodag"><a class="header" href="#destination-oriented-directed-acyclic-graph-dodag">Destination Oriented Directed Acyclic Graph (DODAG)</a></h2>
+<p>RPL specifies how to construct a Directed Acyclic Graph (DAG) rooted at a single destination, 
+known as a Destination-Oriented DAG (DODAG), using an objective function and a set of metrics and constraints. 
+The objective function evaluates a combination of metrics and constraints to determine 
+the &quot;best&quot; path for packets to follow.</p>
+<h2 id="general-concepts"><a class="header" href="#general-concepts">General Concepts</a></h2>
+<p>In a WSN, the <strong>neighbors</strong> of a particular node are all the nodes that can be reached via single hop radio links.
+In the example below, the neighbors of node 3 are: node 1, node 2, node 4, and node 5. 
+The <strong>parents</strong> of a node are all its neighbors that are part of a possible route to the sink node. 
+In the example below the parents of node 3 are node 1 and node 2. The <strong>preferred parent</strong> 
+of a node is the neighbor that is on the best route from the node to the sink, such as node 1 for node 3.</p>
+<p><img src="assets/rpl_intro/rpl_intro1.svg" alt="Empty RPL network" /></p>
+<p>In a network using RPL, the <strong>rank</strong> of each node is a measure of its distance from the root node. 
+This rank is determined using <strong>routing metrics</strong>, which include characteristics of both 
+the <strong>links</strong> (such as throughput, latency, link reliability, expected transmission count, 
+link quality level) and the <strong>nodes</strong> (such as energy state). 
+These metrics are used in <strong>objective functions</strong> to calculate the cost of a route between nodes. </p>
+<p>A <strong>RPL instance</strong> is a group of DODAGs that have the same RPL instance ID and share a common root node, 
+identified by a DODAG ID. The <strong>DODAG version number</strong> is a counter that is incremented by the root node 
+whenever a new version of the DODAG is created.</p>
+<h2 id="control-messages-and-modes-of-operation"><a class="header" href="#control-messages-and-modes-of-operation">Control Messages and Modes of Operation</a></h2>
+<p>The DODAG is created with the assistance of control messages, specifically ICMPv6 messages. 
+These messages are used to maintain both upward and downward routes within the DODAG. 
+The four types of control messages that RPL uses to construct the DODAG are:</p>
+<p>• DODAG Information Object (DIO)</p>
+<p>• Destination Advertisement Object (DAO)</p>
+<p>• Destination Advertisement Object Acknowledgment (DAO-ACK)</p>
+<p>• DODAG Information Solicitation (DIS).</p>
+<p>The exchange of control messages during the construction of the DODAG may vary depending on the mode of operation that is set for RPL.
+In some modes of operation, some of these messages may not be sent at all. 
+The mode of operation determines the specific message exchange that occurs during the construction of the DODAG.</p>
+<p>There are 4 modes of operation defined in RPL standard:</p>
+<p><strong>• MOP 0 = no downward routes maintained</strong></p>
+<p>In this MOP, DAO messages are disabled and the DODAG only maintains upward routes. 
+This means that nodes will not transmit or will ignore the DAO messages. 
+However, DIO and DIS messages are still sent. In this MOP, only M2P communication is possible.</p>
+<p><strong>• MOP 1 = non storing mode</strong></p>
+<p>In this MOP, both upward and downward routes are supported within the DODAG. 
+Thus, DIO, DIS, and DAO messages are issued. 
+As this is a non-storing mode, the DAO messages are sent to the root. 
+In this MOP, all three types of communication are possible: M2P, P2M, and P2P. 
+However, multicast is not supported in this MOP.</p>
+<p><strong>• MOP 2 = storing mode with no multicast support</strong></p>
+<p>In this MOP, support is provided for both upward and downward routes within the DODAG. 
+This is achieved through the issuance of DIO, DIS, and DAO messages. 
+As this is a storing mode, the DAO messages are sent to the preferred parent. 
+In this MOP, all three types of communication are possible: M2P, P2M, and P2P.
+However, multicast is not supported in this MOP.</p>
+<p><strong>• MOP 3 = storing mode with multicast support</strong></p>
+<p>This MOP is similar to MOP2, but includes support for multicast. </p>
+<p>The root and nodes that are already part of a DODAG advertise this MOP. 
+The MOP is included in the DIO messages. 
+In order to join the network, nodes must support the MOP advertised in the DIO messages, 
+otherwise, they can only join the network as leaf nodes.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="mode-of-operation-0-no-downward-routes-maintained"><a class="header" href="#mode-of-operation-0-no-downward-routes-maintained">Mode of Operation 0: no downward routes maintained</a></h1>
 <p>First, we have the network that just woke up:</p>
 <p><img src="assets/rpl_mop_0/rpl0.svg" alt="Empty RPL network" /></p>
