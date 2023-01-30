@@ -170,9 +170,9 @@ The objective function evaluates a combination of metrics and constraints to det
 the &quot;best&quot; path for packets to follow.</p>
 <h2 id="general-concepts"><a class="header" href="#general-concepts">General Concepts</a></h2>
 <p>In a WSN, the <strong>neighbors</strong> of a particular node are all the nodes that can be reached via single hop radio links.
-In the example below, the neighbors of node 3 are: node 1, node 2, node 4, and node 5. 
-The <strong>parents</strong> of a node are all its neighbors that are part of a possible route to the sink node. 
-In the example below the parents of node 3 are node 1 and node 2. The <strong>preferred parent</strong> 
+In the example below, the neighbors of node 3 are: node 1, 2, 4, and 5. </p>
+<p>The <strong>parents</strong> of a node are all its neighbors that are part of a possible route to the sink node. 
+In the example below the parents of node 3 are node 1 and 2. The <strong>preferred parent</strong> 
 of a node is the neighbor that is on the best route from the node to the sink, such as node 1 for node 3.</p>
 <p><img src="assets/rpl_intro/rpl_intro1.svg" alt="Empty RPL network" /></p>
 <p>In a network using RPL, the <strong>rank</strong> of each node is a measure of its distance from the root node. 
@@ -183,14 +183,21 @@ These metrics are used in <strong>objective functions</strong> to calculate the 
 <p>A <strong>RPL instance</strong> is a group of DODAGs that have the same RPL instance ID and share a common root node, 
 identified by a DODAG ID. The <strong>DODAG version number</strong> is a counter that is incremented by the root node 
 whenever a new version of the DODAG is created.</p>
-<h2 id="control-messages-and-modes-of-operation"><a class="header" href="#control-messages-and-modes-of-operation">Control Messages and Modes of Operation</a></h2>
+<h2 id="control-messages-upward-and-downward-routes--modes-of-operation"><a class="header" href="#control-messages-upward-and-downward-routes--modes-of-operation">Control Messages, Upward and Downward Routes,  Modes of Operation</a></h2>
 <p>The DODAG is created with the assistance of control messages, specifically ICMPv6 messages. 
-These messages are used to maintain both upward and downward routes within the DODAG. 
 The four types of control messages that RPL uses to construct the DODAG are:</p>
 <p>• DODAG Information Object (DIO)</p>
 <p>• Destination Advertisement Object (DAO)</p>
 <p>• Destination Advertisement Object Acknowledgment (DAO-ACK)</p>
 <p>• DODAG Information Solicitation (DIS).</p>
+<p>RPL uses two types of routes to enable communication within a network: <strong>upward routes</strong> and <strong>downward routes</strong>. 
+<strong>Upward routes</strong> are used for M2P communication and are discovered and maintained using DIO messages. 
+<strong>Downward routes</strong>, on the other hand, enable P2M and P2P communication and are established using DAO messages.</p>
+<p>RPL supports two modes of downward traffic: <strong>storing</strong> and <strong>non-storing</strong>. In the <strong>storing (fully stateful) mode</strong>, 
+each node maintains a downward <strong>routing table</strong> and traffic travels only as far as a common parent node. 
+In the <strong>non-storing (fully source routed) mode</strong>, all traffic is sent to the root node, which then uses <strong>source routes</strong> to send 
+the traffic to its destination. This mode does not require each node to maintain a routing table, but it increases the dependency 
+on the root node and the latency of the communication.</p>
 <p>The exchange of control messages during the construction of the DODAG may vary depending on the mode of operation that is set for RPL.
 In some modes of operation, some of these messages may not be sent at all. 
 The mode of operation determines the specific message exchange that occurs during the construction of the DODAG.</p>

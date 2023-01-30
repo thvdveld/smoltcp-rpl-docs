@@ -144,24 +144,58 @@
                 <div id="content" class="content">
                     <main>
                         <h1 id="mode-of-operation-0-no-downward-routes-maintained"><a class="header" href="#mode-of-operation-0-no-downward-routes-maintained">Mode of Operation 0: no downward routes maintained</a></h1>
-<p>First, we have the network that just woke up:</p>
+<p>First, there are constrained devices (nodes) that just woke up:</p>
 <p><img src="assets/rpl_mop_0/rpl0.svg" alt="Empty RPL network" /></p>
 <p>Then, one node decided that he wants to join a RPL network.
 For that it sends a <em>DODAG Information Solicitation (DIS)</em> message.
 This message is sent to the <em>all-RPL-node</em> IPv6 multicast address (<code>ff02::a1</code>).
 This means that all nodes in the radio range of the sending node will receive it.</p>
+<p>In the image below, node 1 is the one that decided to join a RPL network. The root node (R) 
+and nodes 2 and 3 are in its radio range. </p>
 <p><img src="assets/rpl_mop_0/rpl1.svg" alt="Empty RPL network" /></p>
-<p>Only the root node has information about the RPL DODAG structure.
+<p>In the begining, only the root node has information about the RPL DODAG.
 Therefore, it is the only one that can respond with a <em>DODAG Information Object (DIO)</em> packet.
-It is also using the <code>ff02::a1</code> multicast address.</p>
+The root node is also using the <code>ff02::a1</code> multicast address. Thus, the <em>DIO</em> message will be received
+by all the nodes in its radio range, including node 1.</p>
 <p><img src="assets/rpl_mop_0/rpl2.svg" alt="Empty RPL network" /></p>
-<p>The nodes that receive the DIO message and did not yet joined a RPL network
+<p>The nodes that received the <em>DIO</em> message and did not yet join a RPL network
 will join this network.
-They do that by selecting the root node (the sender of the DIO packet) as their parent.</p>
+They do that by selecting the root node (the sender of the <em>DIO</em> packet) as their parent. 
+The nodes that join the network will also set their rank. The rank is computed based on the information received 
+in the <em>DIO</em> message and link/node metrics with the help of the objective function.</p>
 <p><img src="assets/rpl_mop_0/rpl3.svg" alt="Empty RPL network" /></p>
-<p>Because the nodes have selected a parent, they can start sending DIO packets as well.</p>
+<p>Because the nodes have selected a parent, they can start sending <em>DIO</em> packets as well. As stated before the <em>DIO</em> messages
+are sent via the <em>all-RPL-node</em> IPv6 multicast address. This means that all the nodes in the radio range of a node will receive
+the <em>DIO</em> message. When node 1 is sending the <em>DIO</em> message, the root, its current parent, will also receive it. 
+The root node will ignore this message. This is because all nodes in a DODAG must ignore <em>DIO</em> messages from nodes 
+with a higher rank, which guarantees optimal route selection and avoids loops.</p>
 <p><img src="assets/rpl_mop_0/rpl4.svg" alt="Empty RPL network" /></p>
-<p>Some UDP:</p>
+<h2 id="maintenance-of-a-rpl-network"><a class="header" href="#maintenance-of-a-rpl-network">Maintenance of a RPL network</a></h2>
+<p>The <em>DIO</em> messages will be sent by nodes even after the DODAG is formed. The goal of sending <em>DIO</em> messages for the whole 
+life of a RPL network is to maintain or upgrade the formed DODAG. However, the constant generation of control messages 
+can consume a lot of energy. To preserve resources, the sending of control messages is minimized and only done when necessary,
+through the use of the <strong>Trickle Timer algorithm</strong>.</p>
+<p>The <strong>Trickle Timer algorithm</strong> monitors the consistency of packet exchange in the network. If the pattern is consistent 
+and free of redundant or outdated data, the Trickle Timer decreases the rate of sending <em>DIO</em> messages exponentially.
+However, if there are any inconsistencies in the network, the next <em>DIO</em> message is rescheduled and sent at the shortest 
+possible time interval. In other words, this algorithm ensures that <em>DIOs</em> are aggressively advertised when the 
+network is unstable and advertised at a slower pace when it is stable.</p>
+<p>There are four parameters that control the functioning of the Trickle Timer:</p>
+<p><strong>• Imin</strong>, which represents the minimum time interval between two <em>DIO</em> messages</p>
+<p><strong>• Imax</strong>, which represents the maximun time interval between two <em>DIO</em> message</p>
+<p><strong>• k</strong>, which represents the redundancy constant (the number of redundant control messages)</p>
+<p><strong>• I</strong>, which represents the size of the current time-interval</p>
+<p>At the start, <em>I</em> is set to a random value between <em>Imin</em> and <em>2 x Imin</em>. <em>DIO</em> messages are sent when <em>I</em> expires and if the
+counter (c) that keeps track of the consistent received messages is smaller than <em>k</em>. 
+If the network is stable, <em>I</em> is doubled until it reaches <em>Imax</em>. However, if inconsistencies are detected in the network, 
+<em>I</em> is reset to a value between <em>Imin</em> and <em>2 x Imin</em>. This ensures efficient use of resources while still being able to ensure
+the maintainance of the network.</p>
+<h2 id="m2p-communication"><a class="header" href="#m2p-communication">M2P communication</a></h2>
+<p>In <strong>MOP 0</strong>, the network is configured such that only upward routes are established. This means that 
+any node in the network can transmit messages to the root node or any other node on its path towards the root, 
+but not to other nodes in the network. The default route, represented by the parent of the node, is used to
+transmit data packets in an upward direction. For example, node 5 can transmit messages to the root node 
+or to nodes 2 and 5 (which are on the path towards the root) but cannot send messages to any other nodes within the network.</p>
 <p><img src="assets/rpl_mop_0/rpl5.svg" alt="Empty RPL network" /></p>
 
                     </main>

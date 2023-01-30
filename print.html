@@ -173,9 +173,9 @@ The objective function evaluates a combination of metrics and constraints to det
 the &quot;best&quot; path for packets to follow.</p>
 <h2 id="general-concepts"><a class="header" href="#general-concepts">General Concepts</a></h2>
 <p>In a WSN, the <strong>neighbors</strong> of a particular node are all the nodes that can be reached via single hop radio links.
-In the example below, the neighbors of node 3 are: node 1, node 2, node 4, and node 5. 
-The <strong>parents</strong> of a node are all its neighbors that are part of a possible route to the sink node. 
-In the example below the parents of node 3 are node 1 and node 2. The <strong>preferred parent</strong> 
+In the example below, the neighbors of node 3 are: node 1, 2, 4, and 5. </p>
+<p>The <strong>parents</strong> of a node are all its neighbors that are part of a possible route to the sink node. 
+In the example below the parents of node 3 are node 1 and 2. The <strong>preferred parent</strong> 
 of a node is the neighbor that is on the best route from the node to the sink, such as node 1 for node 3.</p>
 <p><img src="assets/rpl_intro/rpl_intro1.svg" alt="Empty RPL network" /></p>
 <p>In a network using RPL, the <strong>rank</strong> of each node is a measure of its distance from the root node. 
@@ -186,14 +186,21 @@ These metrics are used in <strong>objective functions</strong> to calculate the 
 <p>A <strong>RPL instance</strong> is a group of DODAGs that have the same RPL instance ID and share a common root node, 
 identified by a DODAG ID. The <strong>DODAG version number</strong> is a counter that is incremented by the root node 
 whenever a new version of the DODAG is created.</p>
-<h2 id="control-messages-and-modes-of-operation"><a class="header" href="#control-messages-and-modes-of-operation">Control Messages and Modes of Operation</a></h2>
+<h2 id="control-messages-upward-and-downward-routes--modes-of-operation"><a class="header" href="#control-messages-upward-and-downward-routes--modes-of-operation">Control Messages, Upward and Downward Routes,  Modes of Operation</a></h2>
 <p>The DODAG is created with the assistance of control messages, specifically ICMPv6 messages. 
-These messages are used to maintain both upward and downward routes within the DODAG. 
 The four types of control messages that RPL uses to construct the DODAG are:</p>
 <p>• DODAG Information Object (DIO)</p>
 <p>• Destination Advertisement Object (DAO)</p>
 <p>• Destination Advertisement Object Acknowledgment (DAO-ACK)</p>
 <p>• DODAG Information Solicitation (DIS).</p>
+<p>RPL uses two types of routes to enable communication within a network: <strong>upward routes</strong> and <strong>downward routes</strong>. 
+<strong>Upward routes</strong> are used for M2P communication and are discovered and maintained using DIO messages. 
+<strong>Downward routes</strong>, on the other hand, enable P2M and P2P communication and are established using DAO messages.</p>
+<p>RPL supports two modes of downward traffic: <strong>storing</strong> and <strong>non-storing</strong>. In the <strong>storing (fully stateful) mode</strong>, 
+each node maintains a downward <strong>routing table</strong> and traffic travels only as far as a common parent node. 
+In the <strong>non-storing (fully source routed) mode</strong>, all traffic is sent to the root node, which then uses <strong>source routes</strong> to send 
+the traffic to its destination. This mode does not require each node to maintain a routing table, but it increases the dependency 
+on the root node and the latency of the communication.</p>
 <p>The exchange of control messages during the construction of the DODAG may vary depending on the mode of operation that is set for RPL.
 In some modes of operation, some of these messages may not be sent at all. 
 The mode of operation determines the specific message exchange that occurs during the construction of the DODAG.</p>
@@ -221,28 +228,102 @@ The MOP is included in the DIO messages.
 In order to join the network, nodes must support the MOP advertised in the DIO messages, 
 otherwise, they can only join the network as leaf nodes.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="mode-of-operation-0-no-downward-routes-maintained"><a class="header" href="#mode-of-operation-0-no-downward-routes-maintained">Mode of Operation 0: no downward routes maintained</a></h1>
-<p>First, we have the network that just woke up:</p>
+<p>First, there are constrained devices (nodes) that just woke up:</p>
 <p><img src="assets/rpl_mop_0/rpl0.svg" alt="Empty RPL network" /></p>
 <p>Then, one node decided that he wants to join a RPL network.
 For that it sends a <em>DODAG Information Solicitation (DIS)</em> message.
 This message is sent to the <em>all-RPL-node</em> IPv6 multicast address (<code>ff02::a1</code>).
 This means that all nodes in the radio range of the sending node will receive it.</p>
+<p>In the image below, node 1 is the one that decided to join a RPL network. The root node (R) 
+and nodes 2 and 3 are in its radio range. </p>
 <p><img src="assets/rpl_mop_0/rpl1.svg" alt="Empty RPL network" /></p>
-<p>Only the root node has information about the RPL DODAG structure.
+<p>In the begining, only the root node has information about the RPL DODAG.
 Therefore, it is the only one that can respond with a <em>DODAG Information Object (DIO)</em> packet.
-It is also using the <code>ff02::a1</code> multicast address.</p>
+The root node is also using the <code>ff02::a1</code> multicast address. Thus, the <em>DIO</em> message will be received
+by all the nodes in its radio range, including node 1.</p>
 <p><img src="assets/rpl_mop_0/rpl2.svg" alt="Empty RPL network" /></p>
-<p>The nodes that receive the DIO message and did not yet joined a RPL network
+<p>The nodes that received the <em>DIO</em> message and did not yet join a RPL network
 will join this network.
-They do that by selecting the root node (the sender of the DIO packet) as their parent.</p>
+They do that by selecting the root node (the sender of the <em>DIO</em> packet) as their parent. 
+The nodes that join the network will also set their rank. The rank is computed based on the information received 
+in the <em>DIO</em> message and link/node metrics with the help of the objective function.</p>
 <p><img src="assets/rpl_mop_0/rpl3.svg" alt="Empty RPL network" /></p>
-<p>Because the nodes have selected a parent, they can start sending DIO packets as well.</p>
+<p>Because the nodes have selected a parent, they can start sending <em>DIO</em> packets as well. As stated before the <em>DIO</em> messages
+are sent via the <em>all-RPL-node</em> IPv6 multicast address. This means that all the nodes in the radio range of a node will receive
+the <em>DIO</em> message. When node 1 is sending the <em>DIO</em> message, the root, its current parent, will also receive it. 
+The root node will ignore this message. This is because all nodes in a DODAG must ignore <em>DIO</em> messages from nodes 
+with a higher rank, which guarantees optimal route selection and avoids loops.</p>
 <p><img src="assets/rpl_mop_0/rpl4.svg" alt="Empty RPL network" /></p>
-<p>Some UDP:</p>
+<h2 id="maintenance-of-a-rpl-network"><a class="header" href="#maintenance-of-a-rpl-network">Maintenance of a RPL network</a></h2>
+<p>The <em>DIO</em> messages will be sent by nodes even after the DODAG is formed. The goal of sending <em>DIO</em> messages for the whole 
+life of a RPL network is to maintain or upgrade the formed DODAG. However, the constant generation of control messages 
+can consume a lot of energy. To preserve resources, the sending of control messages is minimized and only done when necessary,
+through the use of the <strong>Trickle Timer algorithm</strong>.</p>
+<p>The <strong>Trickle Timer algorithm</strong> monitors the consistency of packet exchange in the network. If the pattern is consistent 
+and free of redundant or outdated data, the Trickle Timer decreases the rate of sending <em>DIO</em> messages exponentially.
+However, if there are any inconsistencies in the network, the next <em>DIO</em> message is rescheduled and sent at the shortest 
+possible time interval. In other words, this algorithm ensures that <em>DIOs</em> are aggressively advertised when the 
+network is unstable and advertised at a slower pace when it is stable.</p>
+<p>There are four parameters that control the functioning of the Trickle Timer:</p>
+<p><strong>• Imin</strong>, which represents the minimum time interval between two <em>DIO</em> messages</p>
+<p><strong>• Imax</strong>, which represents the maximun time interval between two <em>DIO</em> message</p>
+<p><strong>• k</strong>, which represents the redundancy constant (the number of redundant control messages)</p>
+<p><strong>• I</strong>, which represents the size of the current time-interval</p>
+<p>At the start, <em>I</em> is set to a random value between <em>Imin</em> and <em>2 x Imin</em>. <em>DIO</em> messages are sent when <em>I</em> expires and if the
+counter (c) that keeps track of the consistent received messages is smaller than <em>k</em>. 
+If the network is stable, <em>I</em> is doubled until it reaches <em>Imax</em>. However, if inconsistencies are detected in the network, 
+<em>I</em> is reset to a value between <em>Imin</em> and <em>2 x Imin</em>. This ensures efficient use of resources while still being able to ensure
+the maintainance of the network.</p>
+<h2 id="m2p-communication"><a class="header" href="#m2p-communication">M2P communication</a></h2>
+<p>In <strong>MOP 0</strong>, the network is configured such that only upward routes are established. This means that 
+any node in the network can transmit messages to the root node or any other node on its path towards the root, 
+but not to other nodes in the network. The default route, represented by the parent of the node, is used to
+transmit data packets in an upward direction. For example, node 5 can transmit messages to the root node 
+or to nodes 2 and 5 (which are on the path towards the root) but cannot send messages to any other nodes within the network.</p>
 <p><img src="assets/rpl_mop_0/rpl5.svg" alt="Empty RPL network" /></p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="mode-of-operation-1-downward-routes-non-storing-mode"><a class="header" href="#mode-of-operation-1-downward-routes-non-storing-mode">Mode of Operation 1: downward routes (non-storing mode)</a></h1>
+<p>In <strong>MOP 1</strong> the message exchange for building a network starts the same way as it does in MOP 0:
+a node that wants to join a network will send a <em>DIS</em> message and the nodes that are already
+part of the network will respond with a <em>DIO</em> message.</p>
+<p>In <strong>MOP 1</strong> after receiving a <em>DIO</em> message and selecting the parent and setting the rank,
+the node will answer with a <em>DAO</em> message. In <strong>MOP 1</strong> this message is sent to the root. 
+The <em>DAO</em> message contains information about the parent of the node. The address of the 
+preferred parent is transmitted in the <strong>Transit Information RPL option</strong> of the <em>DAO</em> message.</p>
+<p><img src="assets/rpl_mop_1/rpl_mop1_1.svg" alt="Empty RPL network" /></p>
+<p>The node receiving the <em>DAO</em> message can answer with a <em>DAO-ACK</em> message. </p>
+<h2 id="p2m-and-p2p-communication"><a class="header" href="#p2m-and-p2p-communication">P2M and P2P communication</a></h2>
+<p>In <strong>MOP 1</strong>, the network is configured such that both upward and downward routes are established. This means that 
+the root can send data packets to the nodes in the network and that any node in the network can transmit messages to any other node. </p>
+<p>When forwarding the packet upward the default route is used, until the packet is received by the root. In non-storing mode the root is the only node that has knowledge about all the children-parent relationships 
+in the network. Based on this information the root adds a new header to the packet, the <strong>source
+routing header (SRH)</strong>. In the address field of the SRH the path that the packet needs to follow
+toward the destination is inserted.</p>
+<p><img src="assets/rpl_mop_1/rpl_mop1_2.svg" alt="Empty RPL network" /></p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="mode-of-operation-2-downward-routes-storing-mode-without-multicast"><a class="header" href="#mode-of-operation-2-downward-routes-storing-mode-without-multicast">Mode of Operation 2: downward routes (storing mode, without multicast)</a></h1>
+<p>In <strong>MOP 2</strong> the message exchange for building a network starts the same way as it does in MOP 0: 
+a node that wants to join a network will send a <em>DIS</em> message and the nodes that are already 
+part of the network will respond with a <em>DIO</em> message.</p>
+<p>In <strong>MOP 2</strong> after receiving a <em>DIO</em> message and selecting the parent and setting the rank, 
+the node will answer with a <em>DAO</em> message. In <strong>MOP 2</strong> this message is sent to the preferred parent. 
+Based on the uinformation received through the <em>DAO</em> messages, all the nodes in the network 
+will store a routing table containing information on how to reach all their descendants 
+(all the nodes in their subtree). </p>
+<p><img src="assets/rpl_mop_2/rpl_mop2_1.svg" alt="Empty RPL network" /></p>
+<p>The node receiving the <em>DAO</em> message can answer with a <em>DAO-ACK</em> message. </p>
+<h2 id="p2m-and-p2p-communication-1"><a class="header" href="#p2m-and-p2p-communication-1">P2M and P2P communication</a></h2>
+<p>In <strong>MOP 2</strong>, the network is configured such that both upward and downward routes are established. This means that 
+the root can send data packets to the nodes in the network and that any node in the network can transmit messages to any other node. </p>
+<p>When forwarding the packet upward the default route is used, until the packet is received by a common ancestor
+of the sender and receiver. The common ancestor will redirect the packet based on the information stored in its
+routing table.</p>
+<p><img src="assets/rpl_mop_2/rpl_mop2_2.svg" alt="Empty RPL network" /></p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="mode-of-operation-3-downward-routes-storing-mode-with-multicast"><a class="header" href="#mode-of-operation-3-downward-routes-storing-mode-with-multicast">Mode of Operation 3: downward routes (storing mode, with multicast)</a></h1>
+<p>In <strong>MOP 3</strong> the message exchange for building a network starts the same way as it does in MOP 0: 
+a node that wants to join a network will send a <em>DIS</em> message and the nodes that are already 
+part of the network will respond with a <em>DIO</em> message.</p>
+<p>In <strong>MOP 3</strong> after receiving a <em>DIO</em> message and selecting the parent and setting the rank, 
+the node will answer with a <em>DAO</em> message with the address of the sender in the RPL Target Option. In <strong>MOP 3</strong> this message is sent to the preferred parent and is then propagated towards the root. If the node is part of a multicast group (node 6 in the picture below), a second <strong>DAO</strong> message is sent to the preferred parent and propagated to the root. This message will contain in the RPL Target Option the multicast group address. This allows the root to know which nodes are part of a multicast group. </p>
+<p><img src="assets/rpl_mop_3/rpl_mop3_1.svg" alt="Empty RPL network" /></p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="about-the-project"><a class="header" href="#about-the-project">About the project</a></h1>
 
                     </main>
