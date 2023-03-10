@@ -1,6 +1,7 @@
 # Using smoltcp
 
-> For now, we assume that the final setup is going to be a stack using the RPL routing protocol, using 6LoWPAN over an IEEE802.15.4 network.
+> We're assuming that the final system configuration will use a stack with RPL routing protocol, 
+using 6LoWPAN to convey IPv6 packets over an IEEE802.15.4 network.
 
 ## 1. Adding `smoltcp` to your `Cargo.toml`
 To be able to use `smoltcp` in your project, you must add it as a dependency in your `Cargo.toml` file.
@@ -115,4 +116,4 @@ loop {
 
 ## 5. You're all set 🎉 (for now)
 
-That's it! There is nothing more that needs to be done, if you want a TCP/IP stack without sockets.
+That's it! There is nothing more that needs to be done, if you want a simple TCP/IP stack without sockets.
