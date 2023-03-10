@@ -1,16 +1,29 @@
 # Summary
 
-[About smoltcp](./about_smoltcp.md)
+[Introduction](./introduction.md)
+
+ ---
+
+# Using smoltcp
+
+- [Setting up a basic stack](./usign_smoltcp.md)
+- [Adding sockets]()
+- [Adding RPL]()
+- [Adding DNS]()
+
+- [Feature flags]()
 
 ---
 
-[RPL](./rpl.md)
+# Protocols
 
-- [MOP0](./mop0.md)
-- [MOP1](./mop1.md)
-- [MOP2](./mop2.md)
-- [MOP3](./mop3.md)
-- [RPL in smoltcp](./rpl_smoltcp.md)
+- [6LoWPAN]()
+
+- [RPL](./rpl_introduction.md)
+    - [MOP0](./mop0.md)
+    - [MOP1](./mop1.md)
+    - [MOP2](./mop2.md)
+    - [MOP3](./mop3.md)
 ---
 
-[About the project](./about_project.md)
+[About](./about.md)
