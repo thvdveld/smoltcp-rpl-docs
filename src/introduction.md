@@ -1,7 +1,6 @@
 # Introduction
 
-This website serves as a documentation on how to use [smoltcp](https://github.com/smoltcp-rs/smoltcp), 
-especially on how to use the Routing Protocol for Low-power and lossy networks (RPL).
+This website provides comprehensive documentation on how to use [smoltcp](https://github.com/smoltcp-rs/smoltcp) with the Routing Protocol for Low-power and Lossy Networks (RPL).
 
 # Smoltcp
 
@@ -15,6 +14,6 @@ usually because no one implemented them yet.
 # RPL
 
 The RPL protocol ([RFC6550](https://datatracker.ietf.org/doc/html/rfc6550))
-is used in networks that usually consist of low power devices and
-where the network is generally susceptible for packet loss.
+is designed for networks that usually consist of low power devices and
+where the network is generally susceptible to packet loss.
 Read [here](./rpl_introduction.md) if you want to know more about how the protocol works.
