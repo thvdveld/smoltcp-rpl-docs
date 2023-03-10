@@ -1,6 +1,7 @@
 # Mode of Operation 0: no downward routes maintained
 
-First, there are constrained devices (nodes) that just woke up:
+First, there are constrained devices (nodes) that just woke up. One of this constrained devices
+is assigned to be the root:
 
 ![Empty RPL network](assets/rpl_mop_0/rpl0.svg)
 
@@ -61,7 +62,7 @@ There are four parameters that control the functioning of the Trickle Timer:
 
 **• I**, which represents the size of the current time-interval
 
-At the start, *I* is set to a random value between *Imin* and *2 x Imin*. *DIO* messages are sent when *I* expires and if the
+In the beginning, *I* is set to a random value between *Imin* and *2 x Imin*. *DIO* messages are sent when *I* expires and if the
 counter (c) that keeps track of the consistent received messages is smaller than *k*. 
 If the network is stable, *I* is doubled until it reaches *Imax*. However, if inconsistencies are detected in the network, 
 *I* is reset to a value between *Imin* and *2 x Imin*. This ensures efficient use of resources while still being able to ensure
@@ -73,6 +74,6 @@ In **MOP 0**, the network is configured such that only upward routes are establi
 any node in the network can transmit messages to the root node or any other node on its path towards the root, 
 but not to other nodes in the network. The default route, represented by the parent of the node, is used to
 transmit data packets in an upward direction. For example, node 5 can transmit messages to the root node 
-or to nodes 2 and 5 (which are on the path towards the root) but cannot send messages to any other nodes within the network.
+or to nodes 2 and 1 (which are on the path towards the root) but cannot send messages to any other nodes within the network.
 
 ![Empty RPL network](assets/rpl_mop_0/rpl5.svg)
