@@ -148,7 +148,8 @@
                 <div id="content" class="content">
                     <main>
                         <h1 id="mode-of-operation-0-no-downward-routes-maintained"><a class="header" href="#mode-of-operation-0-no-downward-routes-maintained">Mode of Operation 0: no downward routes maintained</a></h1>
-<p>First, there are constrained devices (nodes) that just woke up:</p>
+<p>First, there are constrained devices (nodes) that just woke up. One of this constrained devices
+is assigned to be the root:</p>
 <p><img src="assets/rpl_mop_0/rpl0.svg" alt="Empty RPL network" /></p>
 <p>Then, one node decided that he wants to join a RPL network.
 For that it sends a <em>DODAG Information Solicitation (DIS)</em> message.
@@ -189,7 +190,7 @@ network is unstable and advertised at a slower pace when it is stable.</p>
 <p><strong>• Imax</strong>, which represents the maximun time interval between two <em>DIO</em> message</p>
 <p><strong>• k</strong>, which represents the redundancy constant (the number of redundant control messages)</p>
 <p><strong>• I</strong>, which represents the size of the current time-interval</p>
-<p>At the start, <em>I</em> is set to a random value between <em>Imin</em> and <em>2 x Imin</em>. <em>DIO</em> messages are sent when <em>I</em> expires and if the
+<p>In the beginning, <em>I</em> is set to a random value between <em>Imin</em> and <em>2 x Imin</em>. <em>DIO</em> messages are sent when <em>I</em> expires and if the
 counter (c) that keeps track of the consistent received messages is smaller than <em>k</em>. 
 If the network is stable, <em>I</em> is doubled until it reaches <em>Imax</em>. However, if inconsistencies are detected in the network, 
 <em>I</em> is reset to a value between <em>Imin</em> and <em>2 x Imin</em>. This ensures efficient use of resources while still being able to ensure
@@ -199,7 +200,7 @@ the maintainance of the network.</p>
 any node in the network can transmit messages to the root node or any other node on its path towards the root, 
 but not to other nodes in the network. The default route, represented by the parent of the node, is used to
 transmit data packets in an upward direction. For example, node 5 can transmit messages to the root node 
-or to nodes 2 and 5 (which are on the path towards the root) but cannot send messages to any other nodes within the network.</p>
+or to nodes 2 and 1 (which are on the path towards the root) but cannot send messages to any other nodes within the network.</p>
 <p><img src="assets/rpl_mop_0/rpl5.svg" alt="Empty RPL network" /></p>
 
                     </main>
