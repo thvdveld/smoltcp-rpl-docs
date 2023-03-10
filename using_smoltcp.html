@@ -149,7 +149,8 @@
                     <main>
                         <h1 id="using-smoltcp"><a class="header" href="#using-smoltcp">Using smoltcp</a></h1>
 <blockquote>
-<p>For now, we assume that the final setup is going to be a stack using the RPL routing protocol, using 6LoWPAN over an IEEE802.15.4 network.</p>
+<p>We're assuming that the final system configuration will use a stack with RPL routing protocol, 
+using 6LoWPAN to convey IPv6 packets over an IEEE802.15.4 network.</p>
 </blockquote>
 <h2 id="1-adding-smoltcp-to-your-cargotoml"><a class="header" href="#1-adding-smoltcp-to-your-cargotoml">1. Adding <code>smoltcp</code> to your <code>Cargo.toml</code></a></h2>
 <p>To be able to use <code>smoltcp</code> in your project, you must add it as a dependency in your <code>Cargo.toml</code> file.
@@ -250,7 +251,7 @@ Calling <code>poll</code> after that duration might be harmful for the stack.</p
 }
 <span class="boring">}</span></code></pre></pre>
 <h2 id="5-youre-all-set--for-now"><a class="header" href="#5-youre-all-set--for-now">5. You're all set 🎉 (for now)</a></h2>
-<p>That's it! There is nothing more that needs to be done, if you want a TCP/IP stack without sockets.</p>
+<p>That's it! There is nothing more that needs to be done, if you want a simple TCP/IP stack without sockets.</p>
 
                     </main>
 

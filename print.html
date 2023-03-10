@@ -164,7 +164,8 @@ where the network is generally susceptible to packet loss.
 Read <a href="./rpl_introduction.html">here</a> if you want to know more about how the protocol works.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="using-smoltcp"><a class="header" href="#using-smoltcp">Using smoltcp</a></h1>
 <blockquote>
-<p>For now, we assume that the final setup is going to be a stack using the RPL routing protocol, using 6LoWPAN over an IEEE802.15.4 network.</p>
+<p>We're assuming that the final system configuration will use a stack with RPL routing protocol, 
+using 6LoWPAN to convey IPv6 packets over an IEEE802.15.4 network.</p>
 </blockquote>
 <h2 id="1-adding-smoltcp-to-your-cargotoml"><a class="header" href="#1-adding-smoltcp-to-your-cargotoml">1. Adding <code>smoltcp</code> to your <code>Cargo.toml</code></a></h2>
 <p>To be able to use <code>smoltcp</code> in your project, you must add it as a dependency in your <code>Cargo.toml</code> file.
@@ -265,7 +266,7 @@ Calling <code>poll</code> after that duration might be harmful for the stack.</p
 }
 <span class="boring">}</span></code></pre></pre>
 <h2 id="5-youre-all-set--for-now"><a class="header" href="#5-youre-all-set--for-now">5. You're all set 🎉 (for now)</a></h2>
-<p>That's it! There is nothing more that needs to be done, if you want a TCP/IP stack without sockets.</p>
+<p>That's it! There is nothing more that needs to be done, if you want a simple TCP/IP stack without sockets.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="routing-protocol-for-low-power-and-lossy-networks"><a class="header" href="#routing-protocol-for-low-power-and-lossy-networks">Routing Protocol for Low-Power and Lossy Networks</a></h1>
 <p>A Wireless Sensor Network (WSN) is a type of Low-Power and Lossy Network (LLN) 
 that consists of small, constrained devices equipped with sensors and/or actuators. 
