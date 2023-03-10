@@ -23,7 +23,7 @@ features = [
 ## 2. Implementing `smoltcp::phy::Device` for your platform
 
 `smoltcp` needs to be able to accept incoming packets and transmit packets.
-To be able for `smoltcp` to do this, a connection needs to be made between the TCP/IP stack and the hardware.
+For `smoltcp` to do this, a connection needs to be made between the TCP/IP stack and the hardware.
 This is done by implementing the [`smoltcp::phy::Device`](https://docs.rs/smoltcp/latest/smoltcp/phy/trait.Device.html) trait for the hardware:
 
 ```rust
@@ -98,8 +98,8 @@ Polling the stack transmits packets that were queued or handles received packets
 If a packet is processed by the stack, the readiness of sockets might have changed.
 Therefore, it is possible that the stack needs to be polled multiple times.
 The [`poll_delay`](https://docs.rs/smoltcp/latest/smoltcp/iface/struct.Interface.html#method.poll_delay) function returns an _advisory wait_ time for calling `poll` the next time. 
-Calling `poll` before that time is only wasting energy, but is not harmful for the stack,
-but might be when `poll` is called after that duration.
+Calling `poll` before that time is only wasting energy, but is not harmful for the stack.
+Calling `poll` after that duration might be harmful for the stack.
 
 ```rust
 loop {

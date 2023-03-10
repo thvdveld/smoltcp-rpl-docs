@@ -6,7 +6,7 @@
 
 # Using smoltcp
 
-- [Setting up a basic stack](./usign_smoltcp.md)
+- [Setting up a basic stack](./using_smoltcp.md)
 - [Adding sockets]()
 - [Adding RPL]()
 - [Adding DNS]()
