@@ -87,7 +87,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded affix "><a href="introduction.html">Introduction</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">Using smoltcp</li><li class="chapter-item expanded "><a href="usign_smoltcp.html"><strong aria-hidden="true">1.</strong> Setting up a basic stack</a></li><li class="chapter-item expanded "><div><strong aria-hidden="true">2.</strong> Adding sockets</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.</strong> Adding RPL</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">4.</strong> Adding DNS</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">5.</strong> Feature flags</div></li><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">Protocols</li><li class="chapter-item expanded "><div><strong aria-hidden="true">6.</strong> 6LoWPAN</div></li><li class="chapter-item expanded "><a href="rpl_introduction.html"><strong aria-hidden="true">7.</strong> RPL</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="mop0.html"><strong aria-hidden="true">7.1.</strong> MOP0</a></li><li class="chapter-item expanded "><a href="mop1.html"><strong aria-hidden="true">7.2.</strong> MOP1</a></li><li class="chapter-item expanded "><a href="mop2.html"><strong aria-hidden="true">7.3.</strong> MOP2</a></li><li class="chapter-item expanded "><a href="mop3.html"><strong aria-hidden="true">7.4.</strong> MOP3</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><a href="about.html">About</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="introduction.html">Introduction</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">Using smoltcp</li><li class="chapter-item expanded "><a href="using_smoltcp.html"><strong aria-hidden="true">1.</strong> Setting up a basic stack</a></li><li class="chapter-item expanded "><div><strong aria-hidden="true">2.</strong> Adding sockets</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.</strong> Adding RPL</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">4.</strong> Adding DNS</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">5.</strong> Feature flags</div></li><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">Protocols</li><li class="chapter-item expanded "><div><strong aria-hidden="true">6.</strong> 6LoWPAN</div></li><li class="chapter-item expanded "><a href="rpl_introduction.html"><strong aria-hidden="true">7.</strong> RPL</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="mop0.html"><strong aria-hidden="true">7.1.</strong> MOP0</a></li><li class="chapter-item expanded "><a href="mop1.html"><strong aria-hidden="true">7.2.</strong> MOP1</a></li><li class="chapter-item expanded "><a href="mop2.html"><strong aria-hidden="true">7.3.</strong> MOP2</a></li><li class="chapter-item expanded "><a href="mop3.html"><strong aria-hidden="true">7.4.</strong> MOP3</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><a href="about.html">About</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -183,7 +183,7 @@ features = [
 <!--More information about the feature flags can be found [here](./feature_flags.md).-->
 <h2 id="2-implementing-smoltcpphydevice-for-your-platform"><a class="header" href="#2-implementing-smoltcpphydevice-for-your-platform">2. Implementing <code>smoltcp::phy::Device</code> for your platform</a></h2>
 <p><code>smoltcp</code> needs to be able to accept incoming packets and transmit packets.
-To be able for <code>smoltcp</code> to do this, a connection needs to be made between the TCP/IP stack and the hardware.
+For <code>smoltcp</code> to do this, a connection needs to be made between the TCP/IP stack and the hardware.
 This is done by implementing the <a href="https://docs.rs/smoltcp/latest/smoltcp/phy/trait.Device.html"><code>smoltcp::phy::Device</code></a> trait for the hardware:</p>
 <pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
 </span><span class="boring">fn main() {
@@ -251,8 +251,8 @@ Polling the stack transmits packets that were queued or handles received packets
 If a packet is processed by the stack, the readiness of sockets might have changed.
 Therefore, it is possible that the stack needs to be polled multiple times.
 The <a href="https://docs.rs/smoltcp/latest/smoltcp/iface/struct.Interface.html#method.poll_delay"><code>poll_delay</code></a> function returns an <em>advisory wait</em> time for calling <code>poll</code> the next time. 
-Calling <code>poll</code> before that time is only wasting energy, but is not harmful for the stack,
-but might be when <code>poll</code> is called after that duration.</p>
+Calling <code>poll</code> before that time is only wasting energy, but is not harmful for the stack.
+Calling <code>poll</code> after that duration might be harmful for the stack.</p>
 <pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
 </span><span class="boring">fn main() {
 </span>loop {
