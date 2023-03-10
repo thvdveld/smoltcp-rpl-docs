@@ -7,36 +7,8 @@
    viewBox="0 0 336.13704 340.50784"
    version="1.1"
    id="svg1375"
-   inkscape:export-filename="rpl_tree_1.webp"
-   inkscape:export-xdpi="96"
-   inkscape:export-ydpi="96"
-   inkscape:version="1.2.2 (b0a8486541, 2022-12-01)"
-   sodipodi:docname="rpl_mop_0.svg"
-   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns="http://www.w3.org/2000/svg"
    xmlns:svg="http://www.w3.org/2000/svg">
-  <sodipodi:namedview
-     id="namedview1377"
-     pagecolor="#ffffff"
-     bordercolor="#666666"
-     borderopacity="1.0"
-     inkscape:showpageshadow="2"
-     inkscape:pageopacity="0.0"
-     inkscape:pagecheckerboard="0"
-     inkscape:deskcolor="#d1d1d1"
-     inkscape:document-units="mm"
-     showgrid="false"
-     inkscape:zoom="0.58989824"
-     inkscape:cx="2978.4798"
-     inkscape:cy="232.24344"
-     inkscape:window-width="2556"
-     inkscape:window-height="1387"
-     inkscape:window-x="0"
-     inkscape:window-y="0"
-     inkscape:window-maximized="1"
-     inkscape:current-layer="layer1"
-     showguides="false" />
   <defs
      id="defs1372">
     <marker
@@ -45,18 +17,29 @@
        refX="1"
        refY="0"
        orient="auto-start-reverse"
-       inkscape:stockid="Sketch"
        markerWidth="7.5655537"
        markerHeight="6.7364779"
        viewBox="0 0 7.5655539 6.7364778"
-       inkscape:isstock="true"
-       inkscape:collect="always"
        preserveAspectRatio="xMidYMid">
       <path
          style="fill:none;stroke:context-stroke;stroke-width:0.4;stroke-linecap:round"
          d="m -4.5421538,-3.2452189 3.83900644,2.60235235 0.56348102,0.59255887 L -2.4921466,1.1808717 -4.4106004,2.139946 -4.5795251,2.8245356 -4.703996,3.0734773 -4.3128019,2.6822832 -3.9749524,2.3088707 0.66603196,-0.12720162 0.02589622,-0.32279868 -1.7613224,-0.60366199 -3.580874,-2.0472634 -4.3186004,-2.392437 l -1.2937699,-0.2549423 2.1825172,0.042166 0.6996091,1.0554873 1.4406512,0.1145833 1.20879971,0.91674665 1.53333299,0.47138389 -1.85995289,1.23785256 -2.03832621,0.9224332 -1.5469949,0.9779853"
-         id="path22096-7-2-8-8-6-4-2"
-         sodipodi:nodetypes="ccc" />
+         id="path22096-7-2-8-8-6-4-2" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="Sketch-5-1-1-3-1-1-9_Fnone_S-000000"
+       refX="1"
+       refY="0"
+       orient="auto-start-reverse"
+       markerWidth="7.5655537"
+       markerHeight="6.7364779"
+       viewBox="0 0 7.5655539 6.7364778"
+       preserveAspectRatio="xMidYMid">
+      <path
+         style="fill:none;stroke:#000000;stroke-width:0.4;stroke-linecap:round"
+         d="m -4.5421538,-3.2452189 3.83900644,2.60235235 0.56348102,0.59255887 L -2.4921466,1.1808717 -4.4106004,2.139946 -4.5795251,2.8245356 -4.703996,3.0734773 -4.3128019,2.6822832 -3.9749524,2.3088707 0.66603196,-0.12720162 0.02589622,-0.32279868 -1.7613224,-0.60366199 -3.580874,-2.0472634 -4.3186004,-2.392437 l -1.2937699,-0.2549423 2.1825172,0.042166 0.6996091,1.0554873 1.4406512,0.1145833 1.20879971,0.91674665 1.53333299,0.47138389 -1.85995289,1.23785256 -2.03832621,0.9224332 -1.5469949,0.9779853"
+         id="path1139" />
     </marker>
     <marker
        style="overflow:visible"
@@ -64,18 +47,29 @@
        refX="1"
        refY="0"
        orient="auto-start-reverse"
-       inkscape:stockid="Sketch"
        markerWidth="7.5655537"
        markerHeight="6.7364779"
        viewBox="0 0 7.5655539 6.7364778"
-       inkscape:isstock="true"
-       inkscape:collect="always"
        preserveAspectRatio="xMidYMid">
       <path
          style="fill:none;stroke:context-stroke;stroke-width:0.4;stroke-linecap:round"
          d="m -4.5421538,-3.2452189 3.83900644,2.60235235 0.56348102,0.59255887 L -2.4921466,1.1808717 -4.4106004,2.139946 -4.5795251,2.8245356 -4.703996,3.0734773 -4.3128019,2.6822832 -3.9749524,2.3088707 0.66603196,-0.12720162 0.02589622,-0.32279868 -1.7613224,-0.60366199 -3.580874,-2.0472634 -4.3186004,-2.392437 l -1.2937699,-0.2549423 2.1825172,0.042166 0.6996091,1.0554873 1.4406512,0.1145833 1.20879971,0.91674665 1.53333299,0.47138389 -1.85995289,1.23785256 -2.03832621,0.9224332 -1.5469949,0.9779853"
-         id="path22096-7-2-8-8-1-1"
-         sodipodi:nodetypes="ccc" />
+         id="path22096-7-2-8-8-1-1" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="Sketch-5-1-1-3-6-1_Fnone_S-000000"
+       refX="1"
+       refY="0"
+       orient="auto-start-reverse"
+       markerWidth="7.5655537"
+       markerHeight="6.7364779"
+       viewBox="0 0 7.5655539 6.7364778"
+       preserveAspectRatio="xMidYMid">
+      <path
+         style="fill:none;stroke:#000000;stroke-width:0.4;stroke-linecap:round"
+         d="m -4.5421538,-3.2452189 3.83900644,2.60235235 0.56348102,0.59255887 L -2.4921466,1.1808717 -4.4106004,2.139946 -4.5795251,2.8245356 -4.703996,3.0734773 -4.3128019,2.6822832 -3.9749524,2.3088707 0.66603196,-0.12720162 0.02589622,-0.32279868 -1.7613224,-0.60366199 -3.580874,-2.0472634 -4.3186004,-2.392437 l -1.2937699,-0.2549423 2.1825172,0.042166 0.6996091,1.0554873 1.4406512,0.1145833 1.20879971,0.91674665 1.53333299,0.47138389 -1.85995289,1.23785256 -2.03832621,0.9224332 -1.5469949,0.9779853"
+         id="path1142" />
     </marker>
     <marker
        style="overflow:visible"
@@ -83,18 +77,29 @@
        refX="1"
        refY="0"
        orient="auto-start-reverse"
-       inkscape:stockid="Sketch"
        markerWidth="7.5655537"
        markerHeight="6.7364779"
        viewBox="0 0 7.5655539 6.7364778"
-       inkscape:isstock="true"
-       inkscape:collect="always"
        preserveAspectRatio="xMidYMid">
       <path
          style="fill:none;stroke:context-stroke;stroke-width:0.4;stroke-linecap:round"
          d="m -4.5421538,-3.2452189 3.83900644,2.60235235 0.56348102,0.59255887 L -2.4921466,1.1808717 -4.4106004,2.139946 -4.5795251,2.8245356 -4.703996,3.0734773 -4.3128019,2.6822832 -3.9749524,2.3088707 0.66603196,-0.12720162 0.02589622,-0.32279868 -1.7613224,-0.60366199 -3.580874,-2.0472634 -4.3186004,-2.392437 l -1.2937699,-0.2549423 2.1825172,0.042166 0.6996091,1.0554873 1.4406512,0.1145833 1.20879971,0.91674665 1.53333299,0.47138389 -1.85995289,1.23785256 -2.03832621,0.9224332 -1.5469949,0.9779853"
-         id="path22096-7-2-8-8-6-4-2-8"
-         sodipodi:nodetypes="ccc" />
+         id="path22096-7-2-8-8-6-4-2-8" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="Sketch-5-1-1-3-1-1-9-7_Fnone_S-ff3700"
+       refX="1"
+       refY="0"
+       orient="auto-start-reverse"
+       markerWidth="7.5655537"
+       markerHeight="6.7364779"
+       viewBox="0 0 7.5655539 6.7364778"
+       preserveAspectRatio="xMidYMid">
+      <path
+         style="fill:none;stroke:#ff3700;stroke-width:0.4;stroke-linecap:round"
+         d="m -4.5421538,-3.2452189 3.83900644,2.60235235 0.56348102,0.59255887 L -2.4921466,1.1808717 -4.4106004,2.139946 -4.5795251,2.8245356 -4.703996,3.0734773 -4.3128019,2.6822832 -3.9749524,2.3088707 0.66603196,-0.12720162 0.02589622,-0.32279868 -1.7613224,-0.60366199 -3.580874,-2.0472634 -4.3186004,-2.392437 l -1.2937699,-0.2549423 2.1825172,0.042166 0.6996091,1.0554873 1.4406512,0.1145833 1.20879971,0.91674665 1.53333299,0.47138389 -1.85995289,1.23785256 -2.03832621,0.9224332 -1.5469949,0.9779853"
+         id="path1145" />
     </marker>
     <marker
        style="overflow:visible"
@@ -102,45 +107,50 @@
        refX="1"
        refY="0"
        orient="auto-start-reverse"
-       inkscape:stockid="Sketch"
        markerWidth="7.5655537"
        markerHeight="6.7364779"
        viewBox="0 0 7.5655539 6.7364778"
-       inkscape:isstock="true"
-       inkscape:collect="always"
        preserveAspectRatio="xMidYMid">
       <path
          style="fill:none;stroke:context-stroke;stroke-width:0.4;stroke-linecap:round"
          d="m -4.5421538,-3.2452189 3.83900644,2.60235235 0.56348102,0.59255887 L -2.4921466,1.1808717 -4.4106004,2.139946 -4.5795251,2.8245356 -4.703996,3.0734773 -4.3128019,2.6822832 -3.9749524,2.3088707 0.66603196,-0.12720162 0.02589622,-0.32279868 -1.7613224,-0.60366199 -3.580874,-2.0472634 -4.3186004,-2.392437 l -1.2937699,-0.2549423 2.1825172,0.042166 0.6996091,1.0554873 1.4406512,0.1145833 1.20879971,0.91674665 1.53333299,0.47138389 -1.85995289,1.23785256 -2.03832621,0.9224332 -1.5469949,0.9779853"
-         id="path22096-7-2-8-8-6-4-2-8-1"
-         sodipodi:nodetypes="ccc" />
+         id="path22096-7-2-8-8-6-4-2-8-1" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="Sketch-5-1-1-3-1-1-9-7-2_Fnone_S-ff3700"
+       refX="1"
+       refY="0"
+       orient="auto-start-reverse"
+       markerWidth="7.5655537"
+       markerHeight="6.7364779"
+       viewBox="0 0 7.5655539 6.7364778"
+       preserveAspectRatio="xMidYMid">
+      <path
+         style="fill:none;stroke:#ff3700;stroke-width:0.4;stroke-linecap:round"
+         d="m -4.5421538,-3.2452189 3.83900644,2.60235235 0.56348102,0.59255887 L -2.4921466,1.1808717 -4.4106004,2.139946 -4.5795251,2.8245356 -4.703996,3.0734773 -4.3128019,2.6822832 -3.9749524,2.3088707 0.66603196,-0.12720162 0.02589622,-0.32279868 -1.7613224,-0.60366199 -3.580874,-2.0472634 -4.3186004,-2.392437 l -1.2937699,-0.2549423 2.1825172,0.042166 0.6996091,1.0554873 1.4406512,0.1145833 1.20879971,0.91674665 1.53333299,0.47138389 -1.85995289,1.23785256 -2.03832621,0.9224332 -1.5469949,0.9779853"
+         id="path1148" />
     </marker>
   </defs>
   <g
-     inkscape:label="Layer 1"
-     inkscape:groupmode="layer"
      id="layer1"
      transform="translate(-528.30372,453.75477)">
     <path
        style="fill:none;stroke:#000000;stroke-width:0.7;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:0.21, 0.56;stroke-dashoffset:0;stroke-opacity:1"
        d="m 612.80592,-290.15247 -40.94967,1.20212"
-       id="path91722-7-2-2-6-6-8"
-       sodipodi:nodetypes="cc" />
+       id="path91722-7-2-2-6-6-8" />
     <path
        style="fill:none;stroke:#000000;stroke-width:0.7;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:0.21, 0.56;stroke-dashoffset:0;stroke-opacity:1"
        d="m 805.8473,-288.35507 -40.94967,1.20212"
-       id="path91722-7-2-2-6-6-8-9"
-       sodipodi:nodetypes="cc" />
+       id="path91722-7-2-2-6-6-8-9" />
     <path
        style="fill:none;stroke:#000000;stroke-width:0.7;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:0.21, 0.56;stroke-dashoffset:0;stroke-opacity:1"
        d="m 777.942,-356.4336 34.86455,-7.45453"
-       id="path91722-0-6-8-6"
-       sodipodi:nodetypes="cc" />
+       id="path91722-0-6-8-6" />
     <path
        style="fill:none;stroke:#000000;stroke-width:0.7;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:0.21, 0.56;stroke-dashoffset:0;stroke-opacity:1"
        d="M 732.15234,-356.21287 777.942,-356.4336"
-       id="path91722-4-6-74-4"
-       sodipodi:nodetypes="cc" />
+       id="path91722-4-6-74-4" />
     <path
        style="fill:none;stroke:#000000;stroke-width:0.7;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:0.21, 0.56;stroke-dashoffset:0;stroke-opacity:1"
        d="M 757.4696,-325.77699 777.942,-356.4336"
@@ -148,32 +158,27 @@
     <path
        style="fill:none;stroke:#000000;stroke-width:0.7;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:0.21, 0.56;stroke-dashoffset:0;stroke-opacity:1"
        d="m 765.59435,-287.82728 -8.12475,-37.94971"
-       id="path91722-7-2-4-2"
-       sodipodi:nodetypes="cc" />
+       id="path91722-7-2-4-2" />
     <path
        style="fill:none;stroke:#000000;stroke-width:0.7;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:0.21, 0.56;stroke-dashoffset:0;stroke-opacity:1"
        d="m 584.86627,-358.05937 34.86455,-7.45453"
-       id="path91722-0-6-8"
-       sodipodi:nodetypes="cc" />
+       id="path91722-0-6-8" />
     <path
        style="fill:none;stroke:#000000;stroke-width:0.7;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:0.21, 0.56;stroke-dashoffset:0;stroke-opacity:1"
        d="m 539.07661,-357.83864 45.78966,-0.22073"
-       id="path91722-4-6-74"
-       sodipodi:nodetypes="cc" />
+       id="path91722-4-6-74" />
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:10.5833px;line-height:0.35;font-family:sans-serif;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
        x="630.36664"
        y="-385.90985"
        id="text67680-3-3-1-9-3-9-3-5"><tspan
-         sodipodi:role="line"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.64444px;font-family:'JetBrainsMono Nerd Font';-inkscape-font-specification:'JetBrainsMono Nerd Font, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.264583"
          x="630.36664"
          y="-385.90985"
          id="tspan82832-9-0-8">DIS<tspan
    style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52778px;font-family:'JetBrainsMono Nerd Font';-inkscape-font-specification:'JetBrainsMono Nerd Font, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal"
    id="tspan82834-5-2-2" /></tspan><tspan
-         sodipodi:role="line"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.64444px;font-family:'JetBrainsMono Nerd Font';-inkscape-font-specification:'JetBrainsMono Nerd Font, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.264583"
          x="630.36664"
          y="-381.78705"
@@ -183,13 +188,11 @@
     <path
        style="fill:none;stroke:#000000;stroke-width:0.5;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:4, 0.5;stroke-dashoffset:0;stroke-opacity:1"
        d="m 528.30433,-265.19088 336.13649,0.2593"
-       id="path99043-1"
-       sodipodi:nodetypes="cc" />
+       id="path99043-1" />
     <path
-       style="fill:none;stroke:#000000;stroke-width:0.580249;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#Sketch-5-1-1-3-6-1)"
+       style="fill:none;stroke:#000000;stroke-width:0.580249;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#Sketch-5-1-1-3-6-1_Fnone_S-000000)"
        d="m 626.09256,-395.38794 c 3.65786,12.80035 -0.83252,15.10645 -4.04406,21.41854 -0.18511,0.36382 -0.36447,0.74183 -0.53614,1.13694"
-       id="path47519-3-5-8-5-2-9"
-       sodipodi:nodetypes="csc" />
+       id="path47519-3-5-8-5-2-9" />
     <path
        id="path1283-9-04"
        style="fill:#008200;fill-opacity:0.159158;stroke:#008200;stroke-width:0.9;stroke-linecap:round;stroke-dasharray:5.4, 5.4;stroke-opacity:0.984387"
@@ -209,15 +212,13 @@
     <path
        style="fill:none;stroke:#000000;stroke-width:0.7;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:0.21, 0.56;stroke-dashoffset:0;stroke-opacity:1"
        d="m 572.51862,-289.45305 -8.12475,-37.94971"
-       id="path91722-7-2-4"
-       sodipodi:nodetypes="cc" />
+       id="path91722-7-2-4" />
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:10.5833px;line-height:1.25;font-family:sans-serif;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
        x="583.41241"
        y="-356.09134"
        id="text67680-1-9"><tspan
-         sodipodi:role="line"
          id="tspan67678-33-02"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.64444px;font-family:'JetBrainsMono Nerd Font';-inkscape-font-specification:'JetBrainsMono Nerd Font, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.264583"
          x="583.41241"
@@ -232,7 +233,6 @@
        x="562.96222"
        y="-325.43497"
        id="text67680-3-0-8"><tspan
-         sodipodi:role="line"
          id="tspan67678-3-0-3"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.64444px;font-family:'JetBrainsMono Nerd Font';-inkscape-font-specification:'JetBrainsMono Nerd Font, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.264583"
          x="562.96222"
@@ -243,7 +243,6 @@
        x="618.43787"
        y="-363.51764"
        id="text67680-3-3-0-80"><tspan
-         sodipodi:role="line"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.64444px;font-family:'JetBrainsMono Nerd Font';-inkscape-font-specification:'JetBrainsMono Nerd Font, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.264583"
          x="618.43787"
          y="-363.51764"
@@ -261,7 +260,6 @@
          x="80.905861"
          y="21.838703"
          id="text67680-3-3-4-4-1"><tspan
-           sodipodi:role="line"
            style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.64444px;font-family:'JetBrainsMono Nerd Font';-inkscape-font-specification:'JetBrainsMono Nerd Font, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.264583"
            x="80.905861"
            y="21.838703"
@@ -277,7 +275,6 @@
        x="612.1189"
        y="-288.71536"
        id="text67680-3-3-9-8-2"><tspan
-         sodipodi:role="line"
          id="tspan67678-3-2-9-5-5"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.64444px;font-family:'JetBrainsMono Nerd Font';-inkscape-font-specification:'JetBrainsMono Nerd Font, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.264583"
          x="612.1189"
@@ -295,7 +292,6 @@
          x="129.56567"
          y="101.64288"
          id="text67680-3-3-8-8-99"><tspan
-           sodipodi:role="line"
            id="tspan67678-3-2-3-6-3"
            style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.64444px;font-family:'JetBrainsMono Nerd Font';-inkscape-font-specification:'JetBrainsMono Nerd Font, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.264583"
            x="129.56567"
@@ -311,7 +307,6 @@
        x="571.1748"
        y="-287.45679"
        id="text67680-3-3-5-0-0"><tspan
-         sodipodi:role="line"
          id="tspan67678-3-2-43-6-5"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.64444px;font-family:'JetBrainsMono Nerd Font';-inkscape-font-specification:'JetBrainsMono Nerd Font, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.264583"
          x="571.1748"
@@ -323,7 +318,6 @@
        y="-435.38257"
        id="text67680-3-3-1-2-4-02"
        transform="rotate(-0.9286505)"><tspan
-         sodipodi:role="line"
          id="tspan67678-3-2-5-7-3-9"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.64444px;font-family:'JetBrainsMono Nerd Font';-inkscape-font-specification:'JetBrainsMono Nerd Font, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#008200;fill-opacity:0.988235;stroke-width:0.264583"
          x="626.71252"
@@ -342,7 +336,6 @@
          y="22.008612"
          id="text67680-3-3-1-2-4-0-86"
          transform="rotate(-0.9286505)"><tspan
-           sodipodi:role="line"
            id="tspan67678-3-2-5-7-3-4-8"
            style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.64444px;font-family:'JetBrainsMono Nerd Font';-inkscape-font-specification:'JetBrainsMono Nerd Font, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#0030f2;fill-opacity:0.988235;stroke-width:0.264583"
            x="333.90375"
@@ -354,12 +347,10 @@
        x="824.85577"
        y="-381.61688"
        id="text67680-3-3-1-9-3-9-3-0-3"><tspan
-         sodipodi:role="line"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.64444px;font-family:'JetBrainsMono Nerd Font';-inkscape-font-specification:'JetBrainsMono Nerd Font, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.264583"
          x="824.85577"
          y="-381.61688"
          id="tspan82832-9-0-1-83">DIO</tspan><tspan
-         sodipodi:role="line"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.64444px;font-family:'JetBrainsMono Nerd Font';-inkscape-font-specification:'JetBrainsMono Nerd Font, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.264583"
          x="824.85577"
          y="-377.49408"
@@ -367,10 +358,9 @@
            style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52778px;font-family:'JetBrainsMono Nerd Font';-inkscape-font-specification:'JetBrainsMono Nerd Font, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal"
            id="tspan82841-0-4-0-3">(ff02::a1)</tspan></tspan></text>
     <path
-       style="fill:none;stroke:#000000;stroke-width:0.7;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#Sketch-5-1-1-3-1-1-9)"
+       style="fill:none;stroke:#000000;stroke-width:0.7;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#Sketch-5-1-1-3-1-1-9_Fnone_S-000000)"
        d="m 812.1674,-368.90544 c 6.76767,-6.64235 13.48092,-9.5363 6.02647,-24.73446"
-       id="path47519-3-5-8-5-0-2-7"
-       sodipodi:nodetypes="cc" />
+       id="path47519-3-5-8-5-0-2-7" />
     <path
        id="path111-5-2-3-1-1-9"
        style="fill:#ffffff;stroke:#000000;stroke-dasharray:1, 1"
@@ -389,7 +379,6 @@
        x="775.85638"
        y="-354.37595"
        id="text67680-1-7-3"><tspan
-         sodipodi:role="line"
          id="tspan67678-33-0-3"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.64444px;font-family:'JetBrainsMono Nerd Font';-inkscape-font-specification:'JetBrainsMono Nerd Font, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.264583"
          x="775.85638"
@@ -400,7 +389,6 @@
        x="755.40613"
        y="-323.71957"
        id="text67680-3-0-6-7"><tspan
-         sodipodi:role="line"
          id="tspan67678-3-0-2-3"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.64444px;font-family:'JetBrainsMono Nerd Font';-inkscape-font-specification:'JetBrainsMono Nerd Font, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.264583"
          x="755.40613"
@@ -411,7 +399,6 @@
        x="810.88177"
        y="-361.80225"
        id="text67680-3-3-0-8-2"><tspan
-         sodipodi:role="line"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.64444px;font-family:'JetBrainsMono Nerd Font';-inkscape-font-specification:'JetBrainsMono Nerd Font, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.264583"
          x="810.88177"
          y="-361.80225"
@@ -429,7 +416,6 @@
          x="80.905861"
          y="21.838703"
          id="text67680-3-3-4-4-2-6"><tspan
-           sodipodi:role="line"
            style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.64444px;font-family:'JetBrainsMono Nerd Font';-inkscape-font-specification:'JetBrainsMono Nerd Font, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.264583"
            x="80.905861"
            y="21.838703"
@@ -445,7 +431,6 @@
        x="804.56281"
        y="-286.99994"
        id="text67680-3-3-9-8-8-9"><tspan
-         sodipodi:role="line"
          id="tspan67678-3-2-9-5-1-6"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.64444px;font-family:'JetBrainsMono Nerd Font';-inkscape-font-specification:'JetBrainsMono Nerd Font, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.264583"
          x="804.56281"
@@ -463,7 +448,6 @@
          x="129.56567"
          y="101.64288"
          id="text67680-3-3-8-8-9-1"><tspan
-           sodipodi:role="line"
            id="tspan67678-3-2-3-6-7-0"
            style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.64444px;font-family:'JetBrainsMono Nerd Font';-inkscape-font-specification:'JetBrainsMono Nerd Font, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.264583"
            x="129.56567"
@@ -479,7 +463,6 @@
        x="763.61877"
        y="-285.74139"
        id="text67680-3-3-5-0-8-8"><tspan
-         sodipodi:role="line"
          id="tspan67678-3-2-43-6-8-7"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.64444px;font-family:'JetBrainsMono Nerd Font';-inkscape-font-specification:'JetBrainsMono Nerd Font, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.264583"
          x="763.61877"
@@ -490,7 +473,6 @@
        x="571.43188"
        y="-366.52658"
        id="text98677-60"><tspan
-         sodipodi:role="line"
          id="tspan98675-70"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52778px;font-family:'JetBrainsMono Nerd Font';-inkscape-font-specification:'JetBrainsMono Nerd Font, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.264583"
          x="571.43188"
@@ -501,7 +483,6 @@
        x="532.17261"
        y="-368.09753"
        id="text98677-4-04-0-5-1"><tspan
-         sodipodi:role="line"
          id="tspan98675-3-5-1-4-0"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52778px;font-family:'JetBrainsMono Nerd Font';-inkscape-font-specification:'JetBrainsMono Nerd Font, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.264583"
          x="532.17261"
@@ -512,7 +493,6 @@
        x="557.20038"
        y="-338.54755"
        id="text98677-4-0-8-7-1-1"><tspan
-         sodipodi:role="line"
          id="tspan98675-3-9-2-7-2-3"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52778px;font-family:'JetBrainsMono Nerd Font';-inkscape-font-specification:'JetBrainsMono Nerd Font, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.264583"
          x="557.20038"
@@ -524,7 +504,6 @@
        y="87.653053"
        id="text98677-4-6-8-7-0-7"
        transform="rotate(-38.37145)"><tspan
-         sodipodi:role="line"
          id="tspan98675-3-6-6-8-4-7"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52778px;font-family:'JetBrainsMono Nerd Font';-inkscape-font-specification:'JetBrainsMono Nerd Font, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.264583"
          x="707.50562"
@@ -535,7 +514,6 @@
        x="606.69415"
        y="-300.42712"
        id="text98677-4-0-8-8-8-3-7-2"><tspan
-         sodipodi:role="line"
          id="tspan98675-3-9-2-5-0-9-9-6"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52778px;font-family:'JetBrainsMono Nerd Font';-inkscape-font-specification:'JetBrainsMono Nerd Font, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.264583"
          x="606.69415"
@@ -547,7 +525,6 @@
        y="298.36319"
        id="text98677-4-0-8-8-3-8-1-4"
        transform="rotate(-55.501164)"><tspan
-         sodipodi:role="line"
          id="tspan98675-3-9-2-5-4-9-4-5"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52778px;font-family:'JetBrainsMono Nerd Font';-inkscape-font-specification:'JetBrainsMono Nerd Font, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.264583"
          x="555.41101"
@@ -558,7 +535,6 @@
        x="763.91541"
        y="-364.68967"
        id="text98677-60-2"><tspan
-         sodipodi:role="line"
          id="tspan98675-70-0"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52778px;font-family:'JetBrainsMono Nerd Font';-inkscape-font-specification:'JetBrainsMono Nerd Font, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.264583"
          x="763.91541"
@@ -569,7 +545,6 @@
        x="724.65613"
        y="-366.26062"
        id="text98677-4-04-0-5-1-2"><tspan
-         sodipodi:role="line"
          id="tspan98675-3-5-1-4-0-9"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52778px;font-family:'JetBrainsMono Nerd Font';-inkscape-font-specification:'JetBrainsMono Nerd Font, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.264583"
          x="724.65613"
@@ -580,7 +555,6 @@
        x="749.6839"
        y="-336.71063"
        id="text98677-4-0-8-7-1-1-0"><tspan
-         sodipodi:role="line"
          id="tspan98675-3-9-2-7-2-3-9"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52778px;font-family:'JetBrainsMono Nerd Font';-inkscape-font-specification:'JetBrainsMono Nerd Font, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.264583"
          x="749.6839"
@@ -592,7 +566,6 @@
        y="208.57874"
        id="text98677-4-6-8-7-0-7-9"
        transform="rotate(-38.37145)"><tspan
-         sodipodi:role="line"
          id="tspan98675-3-6-6-8-4-7-4"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52778px;font-family:'JetBrainsMono Nerd Font';-inkscape-font-specification:'JetBrainsMono Nerd Font, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.264583"
          x="857.27271"
@@ -603,7 +576,6 @@
        x="799.17767"
        y="-298.59021"
        id="text98677-4-0-8-8-8-3-7-2-5"><tspan
-         sodipodi:role="line"
          id="tspan98675-3-9-2-5-0-9-9-6-1"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52778px;font-family:'JetBrainsMono Nerd Font';-inkscape-font-specification:'JetBrainsMono Nerd Font, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.264583"
          x="799.17767"
@@ -615,7 +587,6 @@
        y="458.03629"
        id="text98677-4-0-8-8-3-8-1-4-0"
        transform="rotate(-55.501164)"><tspan
-         sodipodi:role="line"
          id="tspan98675-3-9-2-5-4-9-4-5-3"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52778px;font-family:'JetBrainsMono Nerd Font';-inkscape-font-specification:'JetBrainsMono Nerd Font, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.264583"
          x="662.91821"
@@ -623,18 +594,15 @@
     <path
        style="fill:none;stroke:#000000;stroke-width:0.7;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:0.21, 0.56;stroke-dashoffset:0;stroke-opacity:1"
        d="m 616.60863,-121.22674 -40.94967,1.20212"
-       id="path91722-7-2-2-6-6-8-9-8"
-       sodipodi:nodetypes="cc" />
+       id="path91722-7-2-2-6-6-8-9-8" />
     <path
        style="fill:none;stroke:#000000;stroke-width:0.7;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:0.21, 0.56;stroke-dashoffset:0;stroke-opacity:1"
        d="m 588.70333,-189.30527 34.86455,-7.45453"
-       id="path91722-0-6-8-6-6"
-       sodipodi:nodetypes="cc" />
+       id="path91722-0-6-8-6-6" />
     <path
        style="fill:none;stroke:#000000;stroke-width:0.7;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:0.21, 0.56;stroke-dashoffset:0;stroke-opacity:1"
        d="m 542.91367,-189.08454 45.78966,-0.22073"
-       id="path91722-4-6-74-4-0"
-       sodipodi:nodetypes="cc" />
+       id="path91722-4-6-74-4-0" />
     <path
        style="fill:none;stroke:#000000;stroke-width:0.7;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:0.21, 0.56;stroke-dashoffset:0;stroke-opacity:1"
        d="m 568.23093,-158.64866 20.4724,-30.65661"
@@ -642,25 +610,21 @@
     <path
        style="fill:none;stroke:#000000;stroke-width:0.7;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:0.21, 0.56;stroke-dashoffset:0;stroke-opacity:1"
        d="m 576.35568,-120.69895 -8.12475,-37.94971"
-       id="path91722-7-2-4-2-6"
-       sodipodi:nodetypes="cc" />
+       id="path91722-7-2-4-2-6" />
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:10.5833px;line-height:0.35;font-family:sans-serif;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
        x="632.46881"
        y="-213.97433"
        id="text67680-3-3-1-9-3-9-3-0-3-7"><tspan
-         sodipodi:role="line"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.64444px;font-family:'JetBrainsMono Nerd Font';-inkscape-font-specification:'JetBrainsMono Nerd Font, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.264583"
          x="632.46881"
          y="-213.97433"
          id="tspan82832-9-0-1-83-5">DAO</tspan><tspan
-         sodipodi:role="line"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.23333px;font-family:'JetBrainsMono Nerd Font';-inkscape-font-specification:'JetBrainsMono Nerd Font, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.264583"
          x="632.46881"
          y="-209.85153"
          id="tspan16444">(::209:9:9:9)</tspan><tspan
-         sodipodi:role="line"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.64444px;font-family:'JetBrainsMono Nerd Font';-inkscape-font-specification:'JetBrainsMono Nerd Font, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.264583"
          x="632.46881"
          y="-205.60912"
@@ -671,17 +635,14 @@
        x="604.00623"
        y="-179.62347"
        id="text67680-3-3-1-9-3-9-3-0-3-7-5"><tspan
-         sodipodi:role="line"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.64444px;font-family:'JetBrainsMono Nerd Font';-inkscape-font-specification:'JetBrainsMono Nerd Font, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.264583"
          x="604.00623"
          y="-179.62347"
          id="tspan82832-9-0-1-83-5-1">DAO</tspan><tspan
-         sodipodi:role="line"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.23333px;font-family:'JetBrainsMono Nerd Font';-inkscape-font-specification:'JetBrainsMono Nerd Font, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.264583"
          x="604.00623"
          y="-175.50067"
          id="tspan16444-7">(::209:9:9:9)</tspan><tspan
-         sodipodi:role="line"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.64444px;font-family:'JetBrainsMono Nerd Font';-inkscape-font-specification:'JetBrainsMono Nerd Font, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.264583"
          x="604.00623"
          y="-171.25826"
@@ -700,7 +661,6 @@
        x="586.61774"
        y="-187.24762"
        id="text67680-1-7-3-8"><tspan
-         sodipodi:role="line"
          id="tspan67678-33-0-3-3"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.64444px;font-family:'JetBrainsMono Nerd Font';-inkscape-font-specification:'JetBrainsMono Nerd Font, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.264583"
          x="586.61774"
@@ -711,16 +671,14 @@
        x="566.16748"
        y="-156.59125"
        id="text67680-3-0-6-7-7"><tspan
-         sodipodi:role="line"
          id="tspan67678-3-0-2-3-9"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.64444px;font-family:'JetBrainsMono Nerd Font';-inkscape-font-specification:'JetBrainsMono Nerd Font, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.264583"
          x="566.16748"
          y="-156.59125">1</tspan></text>
     <path
-       style="fill:none;stroke:#ff3700;stroke-width:0.7;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#Sketch-5-1-1-3-1-1-9-7-2)"
+       style="fill:none;stroke:#ff3700;stroke-width:0.7;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#Sketch-5-1-1-3-1-1-9-7-2_Fnone_S-ff3700)"
        d="m 620.90886,-195.15992 c 0.0592,13.35373 -17.20601,9.77804 -25.37252,8.5983"
-       id="path47519-3-5-8-5-0-2-7-8-7"
-       sodipodi:nodetypes="cc" />
+       id="path47519-3-5-8-5-0-2-7-8-7" />
     <path
        id="path111-5-2-3-6-0-5-0-3"
        style="fill:#ffffff;stroke:#000000;stroke-dasharray:1, 1"
@@ -732,7 +690,6 @@
        y="-190.79274"
        id="text67680-3-3-0-8-2-3"
        transform="scale(0.98006317,1.0203424)"><tspan
-         sodipodi:role="line"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6.07903px;font-family:'JetBrainsMono Nerd Font';-inkscape-font-specification:'JetBrainsMono Nerd Font, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.284954"
          x="634.10333"
          y="-190.79274"
@@ -747,7 +704,6 @@
        x="615.32416"
        y="-119.87162"
        id="text67680-3-3-9-8-8-9-0"><tspan
-         sodipodi:role="line"
          id="tspan67678-3-2-9-5-1-6-9"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.64444px;font-family:'JetBrainsMono Nerd Font';-inkscape-font-specification:'JetBrainsMono Nerd Font, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.264583"
          x="615.32416"
@@ -765,7 +721,6 @@
          x="129.56567"
          y="101.64288"
          id="text67680-3-3-8-8-9-1-5"><tspan
-           sodipodi:role="line"
            id="tspan67678-3-2-3-6-7-0-8"
            style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.64444px;font-family:'JetBrainsMono Nerd Font';-inkscape-font-specification:'JetBrainsMono Nerd Font, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.264583"
            x="129.56567"
@@ -781,7 +736,6 @@
        x="574.38013"
        y="-118.61308"
        id="text67680-3-3-5-0-8-8-3"><tspan
-         sodipodi:role="line"
          id="tspan67678-3-2-43-6-8-7-7"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.64444px;font-family:'JetBrainsMono Nerd Font';-inkscape-font-specification:'JetBrainsMono Nerd Font, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.264583"
          x="574.38013"
@@ -792,7 +746,6 @@
        x="574.67676"
        y="-197.56134"
        id="text98677-60-2-1"><tspan
-         sodipodi:role="line"
          id="tspan98675-70-0-3"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52778px;font-family:'JetBrainsMono Nerd Font';-inkscape-font-specification:'JetBrainsMono Nerd Font, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.264583"
          x="574.67676"
@@ -803,7 +756,6 @@
        x="535.41748"
        y="-199.13229"
        id="text98677-4-04-0-5-1-2-8"><tspan
-         sodipodi:role="line"
          id="tspan98675-3-5-1-4-0-9-0"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52778px;font-family:'JetBrainsMono Nerd Font';-inkscape-font-specification:'JetBrainsMono Nerd Font, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.264583"
          x="535.41748"
@@ -814,7 +766,6 @@
        x="560.44525"
        y="-169.58231"
        id="text98677-4-0-8-7-1-1-0-9"><tspan
-         sodipodi:role="line"
          id="tspan98675-3-9-2-7-2-3-9-7"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52778px;font-family:'JetBrainsMono Nerd Font';-inkscape-font-specification:'JetBrainsMono Nerd Font, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.264583"
          x="560.44525"
@@ -826,7 +777,6 @@
        y="222.13657"
        id="text98677-4-6-8-7-0-7-9-9"
        transform="rotate(-38.37145)"><tspan
-         sodipodi:role="line"
          id="tspan98675-3-6-6-8-4-7-4-9"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52778px;font-family:'JetBrainsMono Nerd Font';-inkscape-font-specification:'JetBrainsMono Nerd Font, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.264583"
          x="605.16296"
@@ -837,7 +787,6 @@
        x="609.93903"
        y="-131.4619"
        id="text98677-4-0-8-8-8-3-7-2-5-3"><tspan
-         sodipodi:role="line"
          id="tspan98675-3-9-2-5-0-9-9-6-1-2"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52778px;font-family:'JetBrainsMono Nerd Font';-inkscape-font-specification:'JetBrainsMono Nerd Font, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.264583"
          x="609.93903"
@@ -849,7 +798,6 @@
        y="396.73727"
        id="text98677-4-0-8-8-3-8-1-4-0-4"
        transform="rotate(-55.501164)"><tspan
-         sodipodi:role="line"
          id="tspan98675-3-9-2-5-4-9-4-5-3-3"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52778px;font-family:'JetBrainsMono Nerd Font';-inkscape-font-specification:'JetBrainsMono Nerd Font, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.264583"
          x="417.99869"
@@ -860,7 +808,6 @@
        x="621.84375"
        y="-243.76367"
        id="text98677-4-0-8-8-7"><tspan
-         sodipodi:role="line"
          id="tspan98675-3-9-2-5-1"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52778px;font-family:'JetBrainsMono Nerd Font';-inkscape-font-specification:'JetBrainsMono Nerd Font, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.264583"
          x="621.84375"
@@ -872,28 +819,23 @@
     <path
        style="fill:none;stroke:#000000;stroke-width:0.7;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:0.21, 0.56;stroke-dashoffset:0;stroke-opacity:1"
        d="m 773.35847,-124.67072 -8.1248,-37.94972"
-       id="path91722-7-2-2-9"
-       sodipodi:nodetypes="cc" />
+       id="path91722-7-2-2-9" />
     <path
        style="fill:none;stroke:#000000;stroke-width:0.7;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:0.21, 0.56;stroke-dashoffset:0;stroke-opacity:1"
        d="m 814.30817,-125.87285 -40.9497,1.20213"
-       id="path91722-7-2-2-6-4"
-       sodipodi:nodetypes="cc" />
+       id="path91722-7-2-2-6-4" />
     <path
        style="fill:none;stroke:#000000;stroke-width:0.7;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:0.21, 0.56;stroke-dashoffset:0;stroke-opacity:1"
        d="m 820.57067,-200.73159 5.6818,-36.64727"
-       id="path91722-7-0-8-1"
-       sodipodi:nodetypes="cc" />
+       id="path91722-7-0-8-1" />
     <path
        style="fill:none;stroke:#000000;stroke-width:0.7;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:0.21, 0.56;stroke-dashoffset:0;stroke-opacity:1"
        d="m 739.91647,-193.05632 45.7896,-0.22074"
-       id="path91722-4-6-7-5"
-       sodipodi:nodetypes="cc" />
+       id="path91722-4-6-7-5" />
     <path
        style="fill:none;stroke:#000000;stroke-width:0.7;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:0.21, 0.56;stroke-dashoffset:0;stroke-opacity:1"
        d="m 785.70607,-193.27706 34.8646,-7.45453"
-       id="path91722-0-6-4-41"
-       sodipodi:nodetypes="cc" />
+       id="path91722-0-6-4-41" />
     <path
        id="path111-5-2-3-1-1-8-8-6-5"
        style="fill:#ffffff;stroke:#000000;stroke-dasharray:1, 1"
@@ -912,7 +854,6 @@
        x="783.90826"
        y="-191.21677"
        id="text67680-1-7-2-6-4-9"><tspan
-         sodipodi:role="line"
          id="tspan67678-33-0-7-6-9-8"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.64444px;font-family:'JetBrainsMono Nerd Font';-inkscape-font-specification:'JetBrainsMono Nerd Font, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.264583"
          x="783.90826"
@@ -923,7 +864,6 @@
        x="763.45807"
        y="-160.56039"
        id="text67680-3-0-6-8-5-7-3"><tspan
-         sodipodi:role="line"
          id="tspan67678-3-0-2-6-3-9-8"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.64444px;font-family:'JetBrainsMono Nerd Font';-inkscape-font-specification:'JetBrainsMono Nerd Font, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.264583"
          x="763.45807"
@@ -934,7 +874,6 @@
        x="818.93365"
        y="-198.6431"
        id="text67680-3-3-0-8-7-7-75-5"><tspan
-         sodipodi:role="line"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.64444px;font-family:'JetBrainsMono Nerd Font';-inkscape-font-specification:'JetBrainsMono Nerd Font, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.264583"
          x="818.93365"
          y="-198.6431"
@@ -952,7 +891,6 @@
          x="80.905861"
          y="21.838703"
          id="text67680-3-3-4-4-2-4-26-8-7"><tspan
-           sodipodi:role="line"
            style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.64444px;font-family:'JetBrainsMono Nerd Font';-inkscape-font-specification:'JetBrainsMono Nerd Font, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.264583"
            x="80.905861"
            y="21.838703"
@@ -968,7 +906,6 @@
        x="812.61469"
        y="-123.84077"
        id="text67680-3-3-9-8-8-2-7-5-4"><tspan
-         sodipodi:role="line"
          id="tspan67678-3-2-9-5-1-2-5-2-6"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.64444px;font-family:'JetBrainsMono Nerd Font';-inkscape-font-specification:'JetBrainsMono Nerd Font, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.264583"
          x="812.61469"
@@ -986,7 +923,6 @@
          x="129.56567"
          y="101.64288"
          id="text67680-3-3-8-8-9-6-1-27-3"><tspan
-           sodipodi:role="line"
            id="tspan67678-3-2-3-6-7-5-2-3-34"
            style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.64444px;font-family:'JetBrainsMono Nerd Font';-inkscape-font-specification:'JetBrainsMono Nerd Font, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.264583"
            x="129.56567"
@@ -1002,7 +938,6 @@
        x="771.67059"
        y="-122.58223"
        id="text67680-3-3-5-0-8-4-0-23-3"><tspan
-         sodipodi:role="line"
          id="tspan67678-3-2-43-6-8-3-15-8-9"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.64444px;font-family:'JetBrainsMono Nerd Font';-inkscape-font-specification:'JetBrainsMono Nerd Font, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.264583"
          x="771.67059"
@@ -1013,7 +948,6 @@
        x="732.75226"
        y="-201.31216"
        id="text98677-4-04-0-7"><tspan
-         sodipodi:role="line"
          id="tspan98675-3-5-1-2"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52778px;font-family:'JetBrainsMono Nerd Font';-inkscape-font-specification:'JetBrainsMono Nerd Font, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.264583"
          x="732.75226"
@@ -1024,7 +958,6 @@
        x="757.78009"
        y="-171.76218"
        id="text98677-4-0-8-7-5"><tspan
-         sodipodi:role="line"
          id="tspan98675-3-9-2-7-8"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52778px;font-family:'JetBrainsMono Nerd Font';-inkscape-font-specification:'JetBrainsMono Nerd Font, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.264583"
          x="757.78009"
@@ -1035,7 +968,6 @@
        x="819.00238"
        y="-246.34325"
        id="text98677-4-0-8-8-8-9"><tspan
-         sodipodi:role="line"
          id="tspan98675-3-9-2-5-0-0"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52778px;font-family:'JetBrainsMono Nerd Font';-inkscape-font-specification:'JetBrainsMono Nerd Font, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.264583"
          x="819.00238"
@@ -1046,7 +978,6 @@
        x="807.07404"
        y="-134.54094"
        id="text98677-4-0-8-8-8-3-2"><tspan
-         sodipodi:role="line"
          id="tspan98675-3-9-2-5-0-9-4"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52778px;font-family:'JetBrainsMono Nerd Font';-inkscape-font-specification:'JetBrainsMono Nerd Font, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.264583"
          x="807.07404"
@@ -1058,7 +989,6 @@
        y="417.06451"
        id="text98677-4-0-8-8-3-8-7"
        transform="rotate(-42.052764)"><tspan
-         sodipodi:role="line"
          id="tspan98675-3-9-2-5-4-9-6"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52778px;font-family:'JetBrainsMono Nerd Font';-inkscape-font-specification:'JetBrainsMono Nerd Font, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.264583"
          x="647.64996"
@@ -1070,16 +1000,14 @@
        y="342.92459"
        id="text98677-4-6-8-7-5"
        transform="rotate(-38.37145)"><tspan
-         sodipodi:role="line"
          id="tspan98675-3-6-6-8-7"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52778px;font-family:'JetBrainsMono Nerd Font';-inkscape-font-specification:'JetBrainsMono Nerd Font, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.264583"
          x="761.22729"
          y="342.92459">R(512)</tspan></text>
     <path
-       style="fill:none;stroke:#ff3700;stroke-width:0.7;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#Sketch-5-1-1-3-1-1-9-7)"
+       style="fill:none;stroke:#ff3700;stroke-width:0.7;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#Sketch-5-1-1-3-1-1-9-7_Fnone_S-ff3700)"
        d="m 628.9552,-226.51157 c 7.14992,11.54062 0.46941,14.3108 -3.3622,23.17327"
-       id="path47519-3-5-8-5-0-2-7-8"
-       sodipodi:nodetypes="cc" />
+       id="path47519-3-5-8-5-0-2-7-8" />
     <g
        id="g82337-2-5-5-8"
        transform="translate(546.36259,-253.21632)">
@@ -1093,7 +1021,6 @@
          x="80.905861"
          y="21.838703"
          id="text67680-3-3-4-4-2-6-4"><tspan
-           sodipodi:role="line"
            style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.64444px;font-family:'JetBrainsMono Nerd Font';-inkscape-font-specification:'JetBrainsMono Nerd Font, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.264583"
            x="80.905861"
            y="21.838703"
