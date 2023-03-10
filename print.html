@@ -446,6 +446,9 @@ part of the network will respond with a <em>DIO</em> message.</p>
 the node will answer with a <em>DAO</em> message with the address of the sender in the RPL Target Option. In <strong>MOP 3</strong> this message is sent to the preferred parent and is then propagated towards the root. If the node is part of a multicast group (node 6 in the picture below), a second <strong>DAO</strong> message is sent to the preferred parent and propagated to the root. This message will contain in the RPL Target Option the multicast group address. This allows the root to know which nodes are part of a multicast group. </p>
 <p><img src="assets/rpl_mop_3/rpl_mop3_1.svg" alt="Empty RPL network" /></p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="about-the-project"><a class="header" href="#about-the-project">About the project</a></h1>
+<p>The goal of this project is to add the RPL protocol to the <code>smoltcp</code> Rust library.
+The project is funded by <a href="https://nlnet.nl/thema/NGIAssure.html">NLnet NGI Assure</a>.
+More information about the project can be found on <a href="https://nlnet.nl/project/Smoltcp/">their website</a>.</p>
 
                     </main>
 
