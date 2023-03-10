@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>About smoltcp - Using smoltcp RPL</title>
+        <title>Introduction - Using smoltcp RPL</title>
 
 
         <!-- Custom HTML head -->
@@ -35,6 +35,7 @@
         <script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     </head>
     <body>
+    <div id="body-container">
         <!-- Provide site root to javascript -->
         <script>
             var path_to_root = "";
@@ -72,10 +73,12 @@
         <!-- Hide / unhide sidebar before it is displayed -->
         <script>
             var html = document.querySelector('html');
-            var sidebar = 'hidden';
+            var sidebar = null;
             if (document.body.clientWidth >= 1080) {
                 try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
                 sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
             }
             html.classList.remove('sidebar-visible');
             html.classList.add("sidebar-" + sidebar);
@@ -83,7 +86,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded affix "><a href="about_smoltcp.html" class="active">About smoltcp</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><a href="rpl.html">RPL</a></li><li class="chapter-item expanded "><a href="mop0.html"><strong aria-hidden="true">1.</strong> MOP0</a></li><li class="chapter-item expanded "><a href="mop1.html"><strong aria-hidden="true">2.</strong> MOP1</a></li><li class="chapter-item expanded "><a href="mop2.html"><strong aria-hidden="true">3.</strong> MOP2</a></li><li class="chapter-item expanded "><a href="mop3.html"><strong aria-hidden="true">4.</strong> MOP3</a></li><li class="chapter-item expanded "><a href="rpl_smoltcp.html"><strong aria-hidden="true">5.</strong> RPL in smoltcp</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><a href="about_project.html">About the project</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="introduction.html" class="active">Introduction</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">Using smoltcp</li><li class="chapter-item expanded "><a href="usign_smoltcp.html"><strong aria-hidden="true">1.</strong> Setting up a basic stack</a></li><li class="chapter-item expanded "><div><strong aria-hidden="true">2.</strong> Adding sockets</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.</strong> Adding RPL</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">4.</strong> Adding DNS</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">5.</strong> Feature flags</div></li><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">Protocols</li><li class="chapter-item expanded "><div><strong aria-hidden="true">6.</strong> 6LoWPAN</div></li><li class="chapter-item expanded "><a href="rpl_introduction.html"><strong aria-hidden="true">7.</strong> RPL</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="mop0.html"><strong aria-hidden="true">7.1.</strong> MOP0</a></li><li class="chapter-item expanded "><a href="mop1.html"><strong aria-hidden="true">7.2.</strong> MOP1</a></li><li class="chapter-item expanded "><a href="mop2.html"><strong aria-hidden="true">7.3.</strong> MOP2</a></li><li class="chapter-item expanded "><a href="mop3.html"><strong aria-hidden="true">7.4.</strong> MOP3</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><a href="about.html">About</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -144,15 +147,28 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="smoltcp"><a class="header" href="#smoltcp">Smoltcp</a></h1>
-<p>smoltcp is a standalone, event-driven TCP/IP stack that is designed for bare-metal, real-time systems. Its design goals are simplicity and robustness. Its design anti-goals include complicated compile-time computations, such as macro or type tricks, even at cost of performance degradation.</p>
+                        <h1 id="introduction"><a class="header" href="#introduction">Introduction</a></h1>
+<p>This website serves as a documentation on how to use <a href="https://github.com/smoltcp-rs/smoltcp">smoltcp</a>, 
+especially on how to use the Routing Protocol for Low-power and lossy networks (RPL).</p>
+<h1 id="smoltcp"><a class="header" href="#smoltcp">Smoltcp</a></h1>
+<p><a href="https://github.com/smoltcp-rs/smoltcp">smoltcp</a> is a standalone, event-driven TCP/IP stack that is designed for bare-metal, real-time systems.
+Its design goals are simplicity and robustness.
+Its design anti-goals include complicated compile-time computations,
+such as macro or type tricks, even at cost of performance degradation.
+<strong>smoltcp</strong> is missing many widely deployed features,
+usually because no one implemented them yet.</p>
+<h1 id="rpl"><a class="header" href="#rpl">RPL</a></h1>
+<p>The RPL protocol (<a href="https://datatracker.ietf.org/doc/html/rfc6550">RFC6550</a>)
+is used in networks that usually consist of low power devices and
+where the network is generally susceptible for packet loss.
+Read <a href="./rpl_introduction.html">here</a> if you want to know more about how the protocol works.</p>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
 
-                            <a rel="next" href="rpl.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next" href="usign_smoltcp.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
 
@@ -163,7 +179,7 @@
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
 
-                    <a rel="next" href="rpl.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a rel="next" href="usign_smoltcp.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
             </nav>
@@ -189,5 +205,6 @@
         <!-- Custom JS scripts -->
 
 
+    </div>
     </body>
 </html>

@@ -36,6 +36,7 @@
         <script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     </head>
     <body>
+    <div id="body-container">
         <!-- Provide site root to javascript -->
         <script>
             var path_to_root = "";
@@ -73,10 +74,12 @@
         <!-- Hide / unhide sidebar before it is displayed -->
         <script>
             var html = document.querySelector('html');
-            var sidebar = 'hidden';
+            var sidebar = null;
             if (document.body.clientWidth >= 1080) {
                 try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
                 sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
             }
             html.classList.remove('sidebar-visible');
             html.classList.add("sidebar-" + sidebar);
@@ -84,7 +87,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded affix "><a href="about_smoltcp.html">About smoltcp</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><a href="rpl.html">RPL</a></li><li class="chapter-item expanded "><a href="mop0.html"><strong aria-hidden="true">1.</strong> MOP0</a></li><li class="chapter-item expanded "><a href="mop1.html"><strong aria-hidden="true">2.</strong> MOP1</a></li><li class="chapter-item expanded "><a href="mop2.html"><strong aria-hidden="true">3.</strong> MOP2</a></li><li class="chapter-item expanded "><a href="mop3.html"><strong aria-hidden="true">4.</strong> MOP3</a></li><li class="chapter-item expanded "><a href="rpl_smoltcp.html"><strong aria-hidden="true">5.</strong> RPL in smoltcp</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><a href="about_project.html">About the project</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="introduction.html">Introduction</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">Using smoltcp</li><li class="chapter-item expanded "><a href="usign_smoltcp.html"><strong aria-hidden="true">1.</strong> Setting up a basic stack</a></li><li class="chapter-item expanded "><div><strong aria-hidden="true">2.</strong> Adding sockets</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.</strong> Adding RPL</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">4.</strong> Adding DNS</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">5.</strong> Feature flags</div></li><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">Protocols</li><li class="chapter-item expanded "><div><strong aria-hidden="true">6.</strong> 6LoWPAN</div></li><li class="chapter-item expanded "><a href="rpl_introduction.html"><strong aria-hidden="true">7.</strong> RPL</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="mop0.html"><strong aria-hidden="true">7.1.</strong> MOP0</a></li><li class="chapter-item expanded "><a href="mop1.html"><strong aria-hidden="true">7.2.</strong> MOP1</a></li><li class="chapter-item expanded "><a href="mop2.html"><strong aria-hidden="true">7.3.</strong> MOP2</a></li><li class="chapter-item expanded "><a href="mop3.html"><strong aria-hidden="true">7.4.</strong> MOP3</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><a href="about.html">About</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -145,8 +148,125 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="smoltcp"><a class="header" href="#smoltcp">Smoltcp</a></h1>
-<p>smoltcp is a standalone, event-driven TCP/IP stack that is designed for bare-metal, real-time systems. Its design goals are simplicity and robustness. Its design anti-goals include complicated compile-time computations, such as macro or type tricks, even at cost of performance degradation.</p>
+                        <h1 id="introduction"><a class="header" href="#introduction">Introduction</a></h1>
+<p>This website serves as a documentation on how to use <a href="https://github.com/smoltcp-rs/smoltcp">smoltcp</a>, 
+especially on how to use the Routing Protocol for Low-power and lossy networks (RPL).</p>
+<h1 id="smoltcp"><a class="header" href="#smoltcp">Smoltcp</a></h1>
+<p><a href="https://github.com/smoltcp-rs/smoltcp">smoltcp</a> is a standalone, event-driven TCP/IP stack that is designed for bare-metal, real-time systems.
+Its design goals are simplicity and robustness.
+Its design anti-goals include complicated compile-time computations,
+such as macro or type tricks, even at cost of performance degradation.
+<strong>smoltcp</strong> is missing many widely deployed features,
+usually because no one implemented them yet.</p>
+<h1 id="rpl"><a class="header" href="#rpl">RPL</a></h1>
+<p>The RPL protocol (<a href="https://datatracker.ietf.org/doc/html/rfc6550">RFC6550</a>)
+is used in networks that usually consist of low power devices and
+where the network is generally susceptible for packet loss.
+Read <a href="./rpl_introduction.html">here</a> if you want to know more about how the protocol works.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="using-smoltcp"><a class="header" href="#using-smoltcp">Using smoltcp</a></h1>
+<blockquote>
+<p>For now, we assume that the final setup is going to be a stack using the RPL routing protocol, using 6LoWPAN over an IEEE802.15.4 network.</p>
+</blockquote>
+<h2 id="1-adding-smoltcp-to-your-cargotoml"><a class="header" href="#1-adding-smoltcp-to-your-cargotoml">1. Adding <code>smoltcp</code> to your <code>Cargo.toml</code></a></h2>
+<p>To be able to use <code>smoltcp</code> in your project, you must add it as a dependency in your <code>Cargo.toml</code> file.
+However, <code>smoltcp</code> uses a lot of feature flags for configuration and therefore the correct ones need to be added.
+For a IEEE802.15.4 device using 6LoWPAN and RPL, the following is added in the <code>Cargo.toml</code> file:</p>
+<pre><code class="language-toml">[dependencies.smoltcp]
+version = &quot;0.9&quot;
+default-features = false
+features = [
+	&quot;medium-ieee802154&quot;,
+	&quot;proto-sixlowpan&quot;,
+	&quot;proto-rpl&quot;
+]
+</code></pre>
+<!--More information about the feature flags can be found [here](./feature_flags.md).-->
+<h2 id="2-implementing-smoltcpphydevice-for-your-platform"><a class="header" href="#2-implementing-smoltcpphydevice-for-your-platform">2. Implementing <code>smoltcp::phy::Device</code> for your platform</a></h2>
+<p><code>smoltcp</code> needs to be able to accept incoming packets and transmit packets.
+To be able for <code>smoltcp</code> to do this, a connection needs to be made between the TCP/IP stack and the hardware.
+This is done by implementing the <a href="https://docs.rs/smoltcp/latest/smoltcp/phy/trait.Device.html"><code>smoltcp::phy::Device</code></a> trait for the hardware:</p>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span><span class="boring">extern crate smoltcp;
+</span><span class="boring">use smoltcp::phy::DeviceCapabilities;
+</span>pub trait RxToken {
+    fn consume&lt;R, F&gt;(self, f: F) -&gt; R
+    where
+        F: FnOnce(&amp;mut [u8]) -&gt; R;
+}
+
+pub trait TxToken {
+    fn consume&lt;R, F&gt;(self, len: usize, f: F) -&gt; R
+    where
+        F: FnOnce(&amp;mut [u8]) -&gt; R;
+}
+
+pub trait Device {
+    type RxToken&lt;'a&gt;: RxToken
+    where
+        Self: 'a;
+    type TxToken&lt;'a&gt;: TxToken
+    where
+        Self: 'a;
+
+    fn receive(&amp;mut self, timestamp: Instant) -&gt; Option&lt;(Self::RxToken&lt;'_&gt;, Self::TxToken&lt;'_&gt;)&gt;;
+
+    fn transmit(&amp;mut self, timestamp: Instant) -&gt; Option&lt;Self::TxToken&lt;'_&gt;&gt;;
+
+    fn capabilities(&amp;self) -&gt; DeviceCapabilities;
+}
+<span class="boring">}</span></code></pre></pre>
+<h2 id="3-setting-up-the-smoltcp-stack"><a class="header" href="#3-setting-up-the-smoltcp-stack">3. Setting up the <code>smoltcp</code> stack</a></h2>
+<p>Once you have the <code>Device</code> trait implemented, an <a href="https://docs.rs/smoltcp/latest/smoltcp/iface/struct.Interface.html"><code>Interface</code></a> can be created:</p>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">extern crate smoltcp;
+</span><span class="boring">use smoltcp::wire::Ieee802154Address;
+</span><span class="boring">fn main() {
+</span>let ll_addr = Ieee802154Address::Extended([0x1, 0x2, 0x3, 0x4, 0x5, 0x6 0x7, 0x8]);
+
+// Create the device:
+let mut device = MyDevice::new(ll_addr);
+
+// Create the config for RPL:
+let mut rpl_config = smoltcp::iface::RplConfig::new();
+
+// Create the configuration for the stack:
+let mut config = smoltcp::iface::Config::new();
+config.hardware_addr =	Some(ll_addr.into());
+config.pan_id = Some(Ieee802154Pan(0xbeef));
+
+// Add the RPL config:
+config.rpl = rpl_config;
+
+// Create the sockets:
+let mut sockets_buffer = [SocketStorage::EMPTY; 1];
+let mut sockets = SocketSet::new(&amp;mut sockets_buffer[..]);
+
+// Create the interface:
+let mut iface = smoltcp::iface::Interface::new(config, device)?;
+
+<span class="boring">}</span></code></pre></pre>
+<h2 id="4-polling-the-smoltcp-stack"><a class="header" href="#4-polling-the-smoltcp-stack">4. Polling the <code>smoltcp</code> stack</a></h2>
+<p>After the interface is created, the stack is ready to be polled (by calling the <a href="https://docs.rs/smoltcp/latest/smoltcp/iface/struct.Interface.html#method.poll"><code>poll</code></a> function on the interface).
+Polling the stack transmits packets that were queued or handles received packets queued by the device.
+If a packet is processed by the stack, the readiness of sockets might have changed.
+Therefore, it is possible that the stack needs to be polled multiple times.
+The <a href="https://docs.rs/smoltcp/latest/smoltcp/iface/struct.Interface.html#method.poll_delay"><code>poll_delay</code></a> function returns an <em>advisory wait</em> time for calling <code>poll</code> the next time. 
+Calling <code>poll</code> before that time is only wasting energy, but is not harmful for the stack,
+but might be when <code>poll</code> is called after that duration.</p>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>loop {
+	iface.poll(Instant::now(), device, sockets);
+
+	match iface.poll_at(Instant::now()) {
+		Some(Instant::ZERO) =&gt; continue,
+		Some(d) =&gt; sleep(d),
+		None =&gt; sleep_until_new_packet(),
+	}
+}
+<span class="boring">}</span></code></pre></pre>
+<h2 id="5-youre-all-set--for-now"><a class="header" href="#5-youre-all-set--for-now">5. You're all set 🎉 (for now)</a></h2>
+<p>That's it! There is nothing more that needs to be done, if you want a TCP/IP stack without sockets.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="routing-protocol-for-low-power-and-lossy-networks"><a class="header" href="#routing-protocol-for-low-power-and-lossy-networks">Routing Protocol for Low-Power and Lossy Networks</a></h1>
 <p>A Wireless Sensor Network (WSN) is a type of Low-Power and Lossy Network (LLN) 
 that consists of small, constrained devices equipped with sensors and/or actuators. 
@@ -325,16 +445,6 @@ part of the network will respond with a <em>DIO</em> message.</p>
 <p>In <strong>MOP 3</strong> after receiving a <em>DIO</em> message and selecting the parent and setting the rank, 
 the node will answer with a <em>DAO</em> message with the address of the sender in the RPL Target Option. In <strong>MOP 3</strong> this message is sent to the preferred parent and is then propagated towards the root. If the node is part of a multicast group (node 6 in the picture below), a second <strong>DAO</strong> message is sent to the preferred parent and propagated to the root. This message will contain in the RPL Target Option the multicast group address. This allows the root to know which nodes are part of a multicast group. </p>
 <p><img src="assets/rpl_mop_3/rpl_mop3_1.svg" alt="Empty RPL network" /></p>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="rpl-in-smoltcp"><a class="header" href="#rpl-in-smoltcp">RPL in smoltcp</a></h1>
-<h3 id="how-to-use-the-library"><a class="header" href="#how-to-use-the-library">How to use the library?</a></h3>
-<h3 id="how-to-use-the-simulator"><a class="header" href="#how-to-use-the-simulator">How to use the simulator?</a></h3>
-<h3 id="how-to-use-on-hardware-zolertia-re-mote"><a class="header" href="#how-to-use-on-hardware-zolertia-re-mote">How to use on hardware (Zolertia RE-Mote)?</a></h3>
-<p>The Zoul module is a ready-to-integrate solution for IoT applications and products, providing a significant reduction in development and certification costs, and a quicker time-to-market. It combines the CC2538 System-on-Chip and CC1200 sub-1GHz radio interface in a single module format for fast reuse in different formats and form-factors, with a competitive market price.</p>
-<p>The Zoul offers deep sleep support with RAM retention for ultra-low energy consumption, and native USB support (CDC-ACM) and SLIP over UART for improved border router performance. The module also supports DMA transfers for increased performance, making data transfers between RAM and RF, and RAM and USB, faster.</p>
-<p>The CC2538 System-on-Chip includes a range of hardware support, including standard Cortex M3 peripherals (NVIC, SCB, SysTick), sleep timer, SysTick, RF (2.4GHz), UART, watchdog, USB, uDMA controller, random number generator, low power modes, and general-purpose timers. The CC2538 also features an ADC, cryptoprocessor with AES-ECB/CBC/CTR/CBC-MAC/GCM/CCM-128/192/256 and SHA-256, public key accelerator, flash-based port of Coffee, PWM, LEDs, buttons, and built-in core temperature and battery sensor.</p>
-<p>The Zoul module provides a comprehensive and flexible hardware solution for IoT applications and products, making it a valuable investment for companies looking to upgrade to an IoT-connected solution.</p>
-<p>Both the Zolertia Firefly and the RE-Mote are using the zoul module.</p>
-<p>The RE-Mote is a lightweight and powerful IoT hardware development platform that allows for seamless connectivity for indoor and outdoor applications. It features a multiband antenna for easy data transmission and a double radio interface for both short and long range connectivity. The device is small and industry-certified, and has ultra low-power operation for long battery life. It comes equipped with a built-in battery charger and can be powered from 3-28V. It also includes a micro-SD card for easy data storage and retrieval and is compatible with popular platforms such as Raspberry Pi, Beagle Bone, and Intel Edison. It is supported by Contiki, RIOT, OpenWSN, and Texas Instruments.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="about-the-project"><a class="header" href="#about-the-project">About the project</a></h1>
 
                     </main>
@@ -380,5 +490,6 @@ the node will answer with a <em>DAO</em> message with the address of the sender 
         });
         </script>
 
+    </div>
     </body>
 </html>
