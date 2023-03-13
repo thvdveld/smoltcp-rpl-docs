@@ -55,13 +55,13 @@ whenever a new version of the DODAG is created.
 The DODAG is created with the assistance of control messages, specifically ICMPv6 messages. 
 The four types of control messages that RPL uses to construct the DODAG are:
 
-• DODAG Information Object (DIO)
+- DODAG Information Object (**DIO**)
 
-• Destination Advertisement Object (DAO)
+- Destination Advertisement Object (**DAO**)
 
-• Destination Advertisement Object Acknowledgment (DAO-ACK)
+- Destination Advertisement Object Acknowledgment (**DAO-ACK**)
 
-• DODAG Information Solicitation (DIS).
+- DODAG Information Solicitation (**DIS**).
 
 RPL uses two types of routes to enable communication within a network: **upward routes** and **downward routes**. 
 **Upward routes** are used for M2P communication and are discovered and maintained using DIO messages. 
@@ -77,7 +77,7 @@ The exchange of control messages during the construction of the DODAG may vary d
 In some modes of operation, some of these messages may not be sent at all. 
 The mode of operation determines the specific message exchange that occurs during the construction of the DODAG.
 
-There are 4 modes of operation defined in RPL standard:
+There are 4 modes of operation (**MOP**) defined in the RPL standard:
 
 1. **MOP 0 = no downward routes maintained**
 

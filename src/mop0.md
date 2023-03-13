@@ -54,19 +54,21 @@ network is unstable and advertised at a slower pace when it is stable.
 
 There are four parameters that control the functioning of the Trickle Timer:
 
-**• Imin**, which represents the minimum time interval between two *DIO* messages
+- \\(I_{min}\\), which represents the minimum time interval between two *DIO* messages
 
-**• Imax**, which represents the maximun time interval between two *DIO* message
+- \\(I_{max}\\), which represents the maximum time interval between two *DIO* message
 
-**• k**, which represents the redundancy constant (the number of redundant control messages)
+- \\(k\\), which represents the redundancy constant (the number of redundant control messages)
 
-**• I**, which represents the size of the current time-interval
+- \\(I\\), which represents the size of the current time-interval
 
-In the beginning, *I* is set to a random value between *Imin* and *2 x Imin*. *DIO* messages are sent when *I* expires and if the
-counter (c) that keeps track of the consistent received messages is smaller than *k*. 
-If the network is stable, *I* is doubled until it reaches *Imax*. However, if inconsistencies are detected in the network, 
-*I* is reset to a value between *Imin* and *2 x Imin*. This ensures efficient use of resources while still being able to ensure
-the maintainance of the network.
+In the beginning, \\(I\\) is set to a random value between \\(I_{min}\\) and \\(2 \cdot I_{min}\\).
+*DIO* messages are sent when \\(I\\) expires and if the
+counter (\\(c\\)) that keeps track of the consistent received messages is smaller than \\(k\\). 
+If the network is stable, \\(I\\) is doubled until it reaches \\(I_{max}\\).
+However, if inconsistencies are detected in the network, 
+\\(I\\) is reset to a value between \\(I_{min}\\) and \\(2 \cdot I_{min}\\).
+This ensures efficient use of resources while still being able to ensure the maintainance of the network.
 
 ## M2P communication ##
 
