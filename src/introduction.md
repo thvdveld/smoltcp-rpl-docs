@@ -1,6 +1,8 @@
 # Introduction
 
-This website provides comprehensive documentation on how to use [smoltcp](https://github.com/smoltcp-rs/smoltcp) with the Routing Protocol for Low-power and Lossy Networks (RPL).
+This website provides comprehensive documentation on how to use [smoltcp](https://github.com/smoltcp-rs/smoltcp).
+We also discuss how to use the [Routing Protocol for Low-power and lossy networks (RPL)](https://datatracker.ietf.org/doc/html/rfc6550)
+that recently gained support in smoltcp.
 
 # Smoltcp
 
