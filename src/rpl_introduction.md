@@ -79,31 +79,31 @@ The mode of operation determines the specific message exchange that occurs durin
 
 There are 4 modes of operation defined in RPL standard:
 
-**• MOP 0 = no downward routes maintained**
+1. **MOP 0 = no downward routes maintained**
 
-In this MOP, DAO messages are disabled and the DODAG only maintains upward routes. 
-This means that nodes will not transmit or will ignore the DAO messages. 
-However, DIO and DIS messages are still sent. In this MOP, only M2P communication is possible.
+    In this MOP, DAO messages are disabled and the DODAG only maintains upward routes. 
+    This means that nodes will not transmit or will ignore the DAO messages. 
+    However, DIO and DIS messages are still sent. In this MOP, only M2P communication is possible.
 
-**• MOP 1 = non storing mode**
+2. **MOP 1 = non storing mode**
 
-In this MOP, both upward and downward routes are supported within the DODAG. 
-Thus, DIO, DIS, and DAO messages are issued. 
-As this is a non-storing mode, the DAO messages are sent to the root. 
-In this MOP, all three types of communication are possible: M2P, P2M, and P2P. 
-However, multicast is not supported in this MOP.
+    In this MOP, both upward and downward routes are supported within the DODAG. 
+    Thus, DIO, DIS, and DAO messages are issued. 
+    As this is a non-storing mode, the DAO messages are sent to the root. 
+    In this MOP, all three types of communication are possible: M2P, P2M, and P2P. 
+    However, multicast is not supported in this MOP.
 
-**• MOP 2 = storing mode with no multicast support**
+3. **MOP 2 = storing mode with no multicast support**
 
-In this MOP, support is provided for both upward and downward routes within the DODAG. 
-This is achieved through the issuance of DIO, DIS, and DAO messages. 
-As this is a storing mode, the DAO messages are sent to the preferred parent. 
-In this MOP, all three types of communication are possible: M2P, P2M, and P2P.
-However, multicast is not supported in this MOP.
+    In this MOP, support is provided for both upward and downward routes within the DODAG. 
+    This is achieved through the issuance of DIO, DIS, and DAO messages. 
+    As this is a storing mode, the DAO messages are sent to the preferred parent. 
+    In this MOP, all three types of communication are possible: M2P, P2M, and P2P.
+    However, multicast is not supported in this MOP.
 
-**• MOP 3 = storing mode with multicast support**
+4. **MOP 3 = storing mode with multicast support**
 
-This MOP is similar to MOP2, but includes support for multicast. 
+    This MOP is similar to MOP2, but includes support for multicast. 
 
 The root and nodes that are already part of a DODAG advertise this MOP. 
 The MOP is included in the DIO messages. 
