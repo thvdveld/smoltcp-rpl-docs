@@ -186,15 +186,27 @@ However, if there are any inconsistencies in the network, the next <em>DIO</em> 
 possible time interval. In other words, this algorithm ensures that <em>DIOs</em> are aggressively advertised when the 
 network is unstable and advertised at a slower pace when it is stable.</p>
 <p>There are four parameters that control the functioning of the Trickle Timer:</p>
-<p><strong>• Imin</strong>, which represents the minimum time interval between two <em>DIO</em> messages</p>
-<p><strong>• Imax</strong>, which represents the maximun time interval between two <em>DIO</em> message</p>
-<p><strong>• k</strong>, which represents the redundancy constant (the number of redundant control messages)</p>
-<p><strong>• I</strong>, which represents the size of the current time-interval</p>
-<p>In the beginning, <em>I</em> is set to a random value between <em>Imin</em> and <em>2 x Imin</em>. <em>DIO</em> messages are sent when <em>I</em> expires and if the
-counter (c) that keeps track of the consistent received messages is smaller than <em>k</em>. 
-If the network is stable, <em>I</em> is doubled until it reaches <em>Imax</em>. However, if inconsistencies are detected in the network, 
-<em>I</em> is reset to a value between <em>Imin</em> and <em>2 x Imin</em>. This ensures efficient use of resources while still being able to ensure
-the maintainance of the network.</p>
+<ul>
+<li>
+<p>\(I_{min}\), which represents the minimum time interval between two <em>DIO</em> messages</p>
+</li>
+<li>
+<p>\(I_{max}\), which represents the maximum time interval between two <em>DIO</em> message</p>
+</li>
+<li>
+<p>\(k\), which represents the redundancy constant (the number of redundant control messages)</p>
+</li>
+<li>
+<p>\(I\), which represents the size of the current time-interval</p>
+</li>
+</ul>
+<p>In the beginning, \(I\) is set to a random value between \(I_{min}\) and \(2 \cdot I_{min}\).
+<em>DIO</em> messages are sent when \(I\) expires and if the
+counter (\(c\)) that keeps track of the consistent received messages is smaller than \(k\). 
+If the network is stable, \(I\) is doubled until it reaches \(I_{max}\).
+However, if inconsistencies are detected in the network, 
+\(I\) is reset to a value between \(I_{min}\) and \(2 \cdot I_{min}\).
+This ensures efficient use of resources while still being able to ensure the maintainance of the network.</p>
 <h2 id="m2p-communication"><a class="header" href="#m2p-communication">M2P communication</a></h2>
 <p>In <strong>MOP 0</strong>, the network is configured such that only upward routes are established. This means that 
 any node in the network can transmit messages to the root node or any other node on its path towards the root, 

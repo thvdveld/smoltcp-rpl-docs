@@ -190,10 +190,20 @@ whenever a new version of the DODAG is created.</p>
 <h2 id="control-messages-upward-and-downward-routes--modes-of-operation"><a class="header" href="#control-messages-upward-and-downward-routes--modes-of-operation">Control Messages, Upward and Downward Routes,  Modes of Operation</a></h2>
 <p>The DODAG is created with the assistance of control messages, specifically ICMPv6 messages. 
 The four types of control messages that RPL uses to construct the DODAG are:</p>
-<p>• DODAG Information Object (DIO)</p>
-<p>• Destination Advertisement Object (DAO)</p>
-<p>• Destination Advertisement Object Acknowledgment (DAO-ACK)</p>
-<p>• DODAG Information Solicitation (DIS).</p>
+<ul>
+<li>
+<p>DODAG Information Object (<strong>DIO</strong>)</p>
+</li>
+<li>
+<p>Destination Advertisement Object (<strong>DAO</strong>)</p>
+</li>
+<li>
+<p>Destination Advertisement Object Acknowledgment (<strong>DAO-ACK</strong>)</p>
+</li>
+<li>
+<p>DODAG Information Solicitation (<strong>DIS</strong>).</p>
+</li>
+</ul>
 <p>RPL uses two types of routes to enable communication within a network: <strong>upward routes</strong> and <strong>downward routes</strong>. 
 <strong>Upward routes</strong> are used for M2P communication and are discovered and maintained using DIO messages. 
 <strong>Downward routes</strong>, on the other hand, enable P2M and P2P communication and are established using DAO messages.</p>
@@ -205,7 +215,7 @@ on the root node and the latency of the communication.</p>
 <p>The exchange of control messages during the construction of the DODAG may vary depending on the mode of operation that is set for RPL.
 In some modes of operation, some of these messages may not be sent at all. 
 The mode of operation determines the specific message exchange that occurs during the construction of the DODAG.</p>
-<p>There are 4 modes of operation defined in RPL standard:</p>
+<p>There are 4 modes of operation (<strong>MOP</strong>) defined in the RPL standard:</p>
 <ol>
 <li>
 <p><strong>MOP 0 = no downward routes maintained</strong></p>
