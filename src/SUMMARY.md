@@ -24,6 +24,8 @@
     - [MOP1](./mop1.md)
     - [MOP2](./mop2.md)
     - [MOP3](./mop3.md)
+    - [Control Message Formats](./rpl-msg-formats.md)
+    - [Optimizations](./rpl-optimizations.md)
 ---
 
 [About](./about.md)
