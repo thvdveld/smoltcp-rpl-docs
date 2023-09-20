@@ -370,7 +370,7 @@ The DTSN is a sequence counter starting with the default value,
 <li>
 <p>The node is a ROOT node:</p>
 <ul>
-<li>The DIO is ignored.</li>
+<li>The DIO is ignored<sup class="footnote-reference"><a href="#neighbours">1</a></sup>.</li>
 </ul>
 </li>
 <li>
@@ -442,6 +442,11 @@ The node then joins the network:
 </ul>
 </li>
 </ol>
+<blockquote>
+<p><sup class="footnote-reference"><a href="#neighbours">1</a></sup> Note that in smoltcp, we check the DIO, even as a ROOT node.
+If the DIO is part of the ROOTs DODAG, then we add the node to the neighbour list.
+Otherwise we don't have the link-layer address of our neighbours.</p>
+</blockquote>
 <hr />
 <h2 id="destination-advertisement-object-dao"><a class="header" href="#destination-advertisement-object-dao">Destination Advertisement Object (DAO)</a></h2>
 <p>Sent by nodes that have selected a parent.
