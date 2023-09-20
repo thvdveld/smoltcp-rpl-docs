@@ -171,7 +171,7 @@ More information is usually contained in a [DODAG Configuration](#dodag-configur
 #### Receiving a DIO
 
 1. The node is a ROOT node:
-    - The DIO is ignored.
+    - The DIO is ignored[^neighbours].
 
 2. The node **is** part of a DODAG:
     - Ignore if the Rank is higher than ours.
@@ -208,6 +208,10 @@ More information is usually contained in a [DODAG Configuration](#dodag-configur
         - A [DODAG Configuration](#dodag-configuration) option **is not** present:
             - Transmit a <warn>unicast</warn> [DIS](#dodag-information-soliciation-dis) message to gain information about the used objective function.
 
+> [^neighbours] Note that in smoltcp, we check the DIO, even as a ROOT node.
+  If the DIO is part of the ROOTs DODAG, then we add the node to the neighbour list.
+  Otherwise we don't have the link-layer address of our neighbours.
+  
 ---
 
 ## Destination Advertisement Object (DAO)
