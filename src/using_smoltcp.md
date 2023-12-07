@@ -1,31 +1,49 @@
 # Using smoltcp
 
-> We're assuming that the final system configuration will use a stack with RPL routing protocol, 
-using 6LoWPAN to convey IPv6 packets over an IEEE802.15.4 network.
-
 ## 1. Adding `smoltcp` to your `Cargo.toml`
-To be able to use `smoltcp` in your project, you must add it as a dependency in your `Cargo.toml` file.
-However, `smoltcp` uses a lot of feature flags for configuration and therefore the correct ones need to be added.
+
+To use `smoltcp` in your project, you must add it as a dependency in the `Cargo.toml` file.
+`smoltcp` uses a lot of feature flags for configuration and therefore the correct ones need to be added.
+
+Depending on the medium that is used, at least one of the following features must be enabled:
+- `medium-ethernet` for Ethernet devices;
+- `medium-ieee802154` for IEEE802.15.4 devices. Enabling this feature, also enables `proto-sixlowpan`;
+- `medium-ip` for devices without medium.
+ 
+
+For the network layer, at least one of the following features must be enabled:
+- `proto-ipv4` for IPv4;
+- `proto-ipv6` for IPv6;
+- `proto-sixlowpan` for 6LoWPAN.
+
+There are many more feature flags that can be enabled.
+For more information, see the [documentation](https://docs.rs/smoltcp/latest/smoltcp/#feature-flags).
+
+~~~admonish example title="Example: IEEE802.15.4 device using 6LoWPAN and RPL"
 For a IEEE802.15.4 device using 6LoWPAN and RPL, the following is added in the `Cargo.toml` file:
 
 ```toml
 [dependencies.smoltcp]
-version = "0.9"
+version = "0.10"
 default-features = false
 features = [
 	"medium-ieee802154",
 	"proto-sixlowpan",
-	"proto-rpl"
+	"rpl-mop-2"
 ]
 ```
 
-<!--More information about the feature flags can be found [here](./feature_flags.md).-->
+This will use RPL with MOP 2 (Storing Mode of Operation) and 6LoWPAN with the IEEE802.15.4 medium.
+These are the available modes of operation: `rpl-mop-0`, `rpl-mop-1`, `rpl-mop-2` and `rpl-mop-3`.
+~~~
+
 
 ## 2. Implementing `smoltcp::phy::Device` for your platform
 
-`smoltcp` needs to be able to accept incoming packets and transmit packets.
-For `smoltcp` to do this, a connection needs to be made between the TCP/IP stack and the hardware.
-This is done by implementing the [`smoltcp::phy::Device`](https://docs.rs/smoltcp/latest/smoltcp/phy/trait.Device.html) trait for the hardware:
+In order for `smoltcp` to effectively handle incoming and outgoing packets, 
+a connection must be established between the TCP/IP stack and the underlying hardware.
+This essential linkage is achieved by implementing the [`smoltcp::phy::Device`](https://docs.rs/smoltcp/latest/smoltcp/phy/trait.Device.html)
+trait for the hardware:
 
 ```rust
 # extern crate smoltcp;
@@ -60,51 +78,58 @@ pub trait Device {
 
 ## 3. Setting up the `smoltcp` stack
 
-Once you have the `Device` trait implemented, an [`Interface`](https://docs.rs/smoltcp/latest/smoltcp/iface/struct.Interface.html) can be created:
+Once you have the `Device` trait implemented, an [`Interface`](https://docs.rs/smoltcp/latest/smoltcp/iface/struct.Interface.html) can be created.
+The `Interface` is the main entry point for the `smoltcp` stack.
+It is responsible for handling incoming and outgoing packets, as well as managing the sockets.
+The `Interface` is created by passing a [`Config`](https://docs.rs/smoltcp/latest/smoltcp/iface/struct.Config.html)
+and a `Device` to the [`new`](https://docs.rs/smoltcp/latest/smoltcp/iface/struct.Interface.html#method.new) function.
+The `Config` struct contains all the configuration options for the stack.
+The `MyDevice` is the hardware abstraction layer that was implemented in the previous step.
+
 
 ```rust
-#extern crate smoltcp;
-#use smoltcp::wire::Ieee802154Address;
-#fn main() {
-let ll_addr = Ieee802154Address::Extended([0x1, 0x2, 0x3, 0x4, 0x5, 0x6 0x7, 0x8]);
+# extern crate smoltcp;
+use smoltcp::wire::*;
+use smoltcp::iface::{Interface, Config};
+use smoltcp::socket::{SocketSet, SocketStorage};
 
-// Create the device:
-let mut device = MyDevice::new(ll_addr);
+fn main() {
+    // Get the MAC address from the device:
+    let mac_adddr = 
+        Ieee802154Address::Extended([0x1, 0x2, 0x3, 0x4, 0x5, 0x6, 0x7, 0x8]);
 
-// Create the config for RPL:
-let mut rpl_config = smoltcp::iface::RplConfig::new();
+    // Create the device:
+    let mut device = MyDevice::new(mac_adddr);
 
-// Create the configuration for the stack:
-let mut config = smoltcp::iface::Config::new();
-config.hardware_addr =	Some(ll_addr.into());
-config.pan_id = Some(Ieee802154Pan(0xbeef));
+    // Create the configuration for the stack:
+    let mut config = Config::new(mac_addr.into());
+    config.pan_id = Some(Ieee802154Pan(0xbeef));
 
-// Add the RPL config:
-config.rpl = rpl_config;
+    // Create the sockets:
+    let mut sockets_buffer = [SocketStorage::EMPTY; 1];
+    let mut sockets = SocketSet::new(&mut sockets_buffer[..]);
 
-// Create the sockets:
-let mut sockets_buffer = [SocketStorage::EMPTY; 1];
-let mut sockets = SocketSet::new(&mut sockets_buffer[..]);
-
-// Create the interface:
-let mut iface = smoltcp::iface::Interface::new(config, device)?;
-
-#}
+    // Create the interface:
+    let mut iface = Interface::new(config, device)?;
+}
 ```
-
 ## 4. Polling the `smoltcp` stack
 
-After the interface is created, the stack is ready to be polled (by calling the [`poll`](https://docs.rs/smoltcp/latest/smoltcp/iface/struct.Interface.html#method.poll) function on the interface).
-Polling the stack transmits packets that were queued or handles received packets queued by the device.
-If a packet is processed by the stack, the readiness of sockets might have changed.
-Therefore, it is possible that the stack needs to be polled multiple times.
-The [`poll_delay`](https://docs.rs/smoltcp/latest/smoltcp/iface/struct.Interface.html#method.poll_delay) function returns an _advisory wait_ time for calling `poll` the next time. 
+The interface is now ready to be used.
+Polling the interface will handle incoming and outgoing packets.
+For the interface to continue working, it must be polled regularly.
+This is done by calling the [`poll`](https://docs.rs/smoltcp/latest/smoltcp/iface/struct.Interface.html#method.poll)
+function on the interface.
+If a packet is received, it is queued by the device and can be handled by the stack.
+After processing the packet, the stack might have to send a packet.
+
+Calling `poll_at` on the interface returns the time when the next `poll` should be called.
 Calling `poll` before that time is only wasting energy, but is not harmful for the stack.
 Calling `poll` after that duration might be harmful for the stack.
 
 ```rust
 loop {
-	iface.poll(Instant::now(), device, sockets);
+	iface.poll(now, device, sockets);
 
 	match iface.poll_at(Instant::now()) {
 		Some(Instant::ZERO) => continue,
@@ -112,8 +137,11 @@ loop {
 		None => sleep_until_new_packet(),
 	}
 }
+
 ```
 
 ## 5. You're all set 🎉 (for now)
 
-That's it! There is nothing more that needs to be done, if you want a simple TCP/IP stack without sockets.
+That's it! There is nothing more that needs to be done!
+The `smoltcp` stack will now handle all incoming and outgoing packets.
+The next step is to create sockets and use them to send and receive data.

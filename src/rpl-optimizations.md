@@ -26,3 +26,12 @@
 The Trickle timer that is implemented in smoltcp uses the [enhanced Trickle](https://d1wqtxts1xzle7.cloudfront.net/71402623/E-Trickle_Enhanced_Trickle_Algorithm_for20211005-2078-1ckh34a.pdf?1633439582=&response-content-disposition=inline%3B+filename%3DE_Trickle_Enhanced_Trickle_Algorithm_for.pdf&Expires=1690468547&Signature=GWAtYVYOGyXrGmy~PHBDmcjxtgjGv93RuCCTxDcW1x3gWIlGw2DIxXMXluHJhO5vcR8HR~4qW5zMUmYw0fcrYvvoWrbBOAVxWs5MVF3gr8rTFsenuuSdG9Gi8OQFHnHjG8-p7~0RfHlGU5hxednaKu-dt5ECfzhsCfbfeTTCRk4Zm~CjDW4eAimwRpxuGZ9SWoySnnbOCurAtijdcdqw~YVuJV5M7VunKXgDPjEyEnCEAuwpLurPMvg7sAOpJeOaM7Yz7qCvGAe-oG9Cr8xE805TCxCcWRkOlKQHWFq6r1bK3htwgESB6iumT7Y28IbFvCYQZ7gpFviIH13jBeXFNA__&Key-Pair-Id=APKAJLOHF5GGSLRBV4ZA) timer.
 
 Note that Contiki-NG also implements this timer.
+
+## Rank-Error 
+
+The standard sais that the rank-error bit must be set when a Rank error is detected.
+A rank error occurs when a packet is traveling throught the DODAG in the wrong direction.
+Such an error is not considered critical, but a second occurence is.
+The standard provides an example in which case it might occur.
+However, this looks like an edge case that will never occur.
+Therefor, we immediatly drop a packet when a rank error is detected.

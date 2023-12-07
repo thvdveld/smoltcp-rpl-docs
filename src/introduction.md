@@ -1,21 +1,28 @@
 # Introduction
 
-This website provides comprehensive documentation on how to use [smoltcp](https://github.com/smoltcp-rs/smoltcp).
-We also discuss how to use the [Routing Protocol for Low-power and lossy networks (RPL)](https://datatracker.ietf.org/doc/html/rfc6550)
-that recently gained support in smoltcp.
+```admonish warning
+This website is still under construction.
+```
 
-# Smoltcp
+```admonish danger title="Experimental RPL implementation"
+RPL support is not yet available in the main branch of smoltcp.
+The current RPL implementation is available in the `rpl` branch of smoltcp.
+Note that the RPL implementation is still experimental and not yet ready for production.
+```
 
-[smoltcp](https://github.com/smoltcp-rs/smoltcp) is a standalone, event-driven TCP/IP stack that is designed for bare-metal, real-time systems.
-Its design goals are simplicity and robustness.
-Its design anti-goals include complicated compile-time computations,
-such as macro or type tricks, even at cost of performance degradation.
-**smoltcp** is missing many widely deployed features,
-usually because no one implemented them yet.
+The [Routing Protocol for Low-power and lossy networks (RPL)](https://datatracker.ietf.org/doc/html/rfc6550)
+is a routing protocol for low power and lossy networks (LLNs).
+It is designed to be used in various application domains such as industrial monitoring,
+building automation, connected homes, and smart cities.
+RPL is a distance vector routing protocol that builds a Directed Acyclic Graph (DAG) connecting the nodes in the network.
+The DAG is used to route packets in the network.
+RPL is designed to be used in networks where the nodes are constrained in terms of power, memory, and processing resources.
 
-# RPL
+The goal of this website is to better explain how RPL works and how to use it with [smoltcp](https://github.com/smoltcp-rs/smoltcp).
+At the moment, the RPL implementation can be found in the [`rpl` branch](https://github.com/thvdveld/smoltcp/tree/rpl) of smoltcp.
 
-The RPL protocol ([RFC6550](https://datatracker.ietf.org/doc/html/rfc6550))
-is designed for networks that usually consist of low power devices and
-where the network is generally susceptible to packet loss.
-Read [here](./rpl_introduction.md) if you want to know more about how the protocol works.
+## Implementations of RPL
+
+Contiki-NG is an open-source operating system for the Internet of Things.
+It is a fork of the Contiki operating system and supports a wide range of platforms.
+Contiki-NG includes an implementation of RPL.

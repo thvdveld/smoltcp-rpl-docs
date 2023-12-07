@@ -1,43 +1,70 @@
-# Mode of Operation 0: no downward routes maintained
+# MOP0: no downward routes maintained
 
-First, there are constrained devices (nodes) that just woke up. One of this constrained devices
-is assigned to be the root:
+In this mode of operation, the network is configured such that only upward routes are established.
+This means that any node in the network can transmit messages to the root node
+or any other node on its path towards the root, but not to other nodes in the network.
+The default route, represented by the parent of the node,
+is used to transmit data packets in an upward direction.
 
-![Empty RPL network](assets/rpl_mop_0/rpl0.svg)
+```admonish note
+In this mode of operation, **only** DIS and DIO messages are sent.
+```
 
-Then, one node decided that he wants to join a RPL network.
-For that it sends a *DODAG Information Solicitation (DIS)* message.
+## RPL network formation ##
+
+The following network contains 5 nodes.
+The root node (R) and 4 normal nodes.
+They are all using the same RPL Instance ID, Mode of Operation and Objective Function.
+
+![Empty RPL network](assets/rpl/empty-network.webp)
+<small>Figure 1: an empty network with 4 normal nodes and 1 root node.</small>
+
+The root node periodically sends a *DODAG Information Object (DIO)* packet, 
+which contains information about the RPL network, more specifically about the DODAG.
+The *DIO* message is sent using the *all-RPL-node* IPv6 multicast address (`ff02::a1`).
+Nodes that receive this message will join the RPL network and select the root node as their parent.
+These nodes will also set their rank based on the objective function and the information received in the *DIO* message.
+They will also start sending *DIO* messages.
+
+A node that does not hear any *DIO* message but wants to join a RPL network can send a *DODAG Information Solicitation (DIS)* message.
 This message is sent to the *all-RPL-node* IPv6 multicast address (`ff02::a1`).
-This means that all nodes in the radio range of the sending node will receive it.
+A node that is part of a RPL network will respond to this message with a *DIO* message.
 
-In the image below, node 1 is the one that decided to join a RPL network. The root node (R) 
-and nodes 2 and 3 are in its radio range. 
+![First DIO message](assets/rpl/first-dio.webp)
+<small>
+Figure 2: the root transmits a *DIO* and node 1 and 4 receive it.
+Node 3 transmits a *DIS* message.
+</small>
 
-![Empty RPL network](assets/rpl_mop_0/rpl1.svg)
+Nodes 1 and 4 have selected the root node as their parent and have calculated their rank.
+They now start to transmit *DIO* messages as well, based on the Trickle Timer algorithm.
+Since node 2 and 3 are in range of node 1, they will receive the *DIO* message and join the RPL network.
 
-In the begining, only the root node has information about the RPL DODAG.
-Therefore, it is the only one that can respond with a *DODAG Information Object (DIO)* packet.
-The root node is also using the `ff02::a1` multicast address. Thus, the *DIO* message will be received
-by all the nodes in its radio range, including node 1.
+The root node also hears the *DIO* message from node 1 and 4, however, since their rank is higher than the root node's rank,
+the root node will ignore the *DIO* message.
+This guarantees optimal route selection and avoids loops.
 
-![Empty RPL network](assets/rpl_mop_0/rpl2.svg)
+![Next DIO message](assets/rpl/next-dio.webp)
+<small>
+Figure 3: node 2 and 3 receive the *DIO* message from node 1 and 4 and join the RPL network.
+Node 2 and 3 start sending *DIO* messages as well.
+</small>
 
-The nodes that received the *DIO* message and did not yet join a RPL network
-will join this network.
-They do that by selecting the root node (the sender of the *DIO* packet) as their parent. 
-The nodes that join the network will also set their rank. The rank is computed based on the information received 
-in the *DIO* message and link/node metrics with the help of the objective function.
+Every node in the network now has a parent and a rank.
+They will continue to send *DIO* messages based on the Trickle Timer algorithm.
+Other packets, such as data packets, are sent using the default route, which is the parent of the node.
+This means that data packets will always be sent in an upward direction, towards the root node.
+Node 1 will never be able to send a data packet to node 4, since node 4 is not on the path towards the root node.
+Neither will 3 be able to send a data packet to 2.
+However, node 2 can send a data packet to node 1, since node 1 is on the path towards the root node.
+This is not the use case for this mode of operation, but it is possible.
+The use case for this mode of operation is to send data packets to the root node,
+which collects the data and sends it to a server.
 
-![Empty RPL network](assets/rpl_mop_0/rpl3.svg)
-
-Because the nodes have selected a parent, they can start sending *DIO* packets as well. As stated before the *DIO* messages
-are sent via the *all-RPL-node* IPv6 multicast address. This means that all the nodes in the radio range of a node will receive
-the *DIO* message. When node 1 is sending the *DIO* message, the root, its current parent, will also receive it. 
-The root node will ignore this message. This is because all nodes in a DODAG must ignore *DIO* messages from nodes 
-with a higher rank, which guarantees optimal route selection and avoids loops.
-
-
-![Empty RPL network](assets/rpl_mop_0/rpl4.svg)
+![Formed network](assets/rpl/formed.webp)
+<small>
+Figure 4: the network is formed.
+</small>
 
 ## Maintenance of a RPL network ##
 
@@ -70,12 +97,12 @@ However, if inconsistencies are detected in the network,
 \\(I\\) is reset to a value between \\(I_{min}\\) and \\(2 \cdot I_{min}\\).
 This ensures efficient use of resources while still being able to ensure the maintainance of the network.
 
-## M2P communication ##
+# Summary #
 
-In **MOP 0**, the network is configured such that only upward routes are established. This means that 
-any node in the network can transmit messages to the root node or any other node on its path towards the root, 
-but not to other nodes in the network. The default route, represented by the parent of the node, is used to
-transmit data packets in an upward direction. For example, node 5 can transmit messages to the root node 
-or to nodes 2 and 1 (which are on the path towards the root) but cannot send messages to any other nodes within the network.
-
-![Empty RPL network](assets/rpl_mop_0/rpl5.svg)
+- Network is formed by sending *DIO* messages
+- *DIO* messages are sent periodically using the Trickle Timer algorithm
+- *DIO* messages are sent to the *all-RPL-node* IPv6 multicast address (`ff02::a1`)
+- Nodes that receive a *DIO* message will join the RPL network
+- Nodes that do not receive a *DIO* message can send a *DIS* message
+- Packets only travel in an upward direction
+  

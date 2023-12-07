@@ -4,16 +4,17 @@
 
  ---
 
+
 # Using smoltcp
 
+
 - [Setting up a basic stack](./using_smoltcp.md)
-- [Adding sockets]()
-- [Adding RPL]()
+- [Adding sockets](./adding_sockets.md)
+- [Adding RPL](./adding_rpl.md)
 - [Adding DNS]()
 
-- [Feature flags]()
-
 ---
+
 
 # Protocols
 
