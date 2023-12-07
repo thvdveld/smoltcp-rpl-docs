@@ -195,10 +195,14 @@
 </ul>
 <p>There are many more feature flags that can be enabled.
 For more information, see the <a href="https://docs.rs/smoltcp/latest/smoltcp/#feature-flags">documentation</a>.</p>
-<pre><code class="language-admonish example title=&quot;Example: IEEE802.15.4 device using 6LoWPAN and RPL&quot;">For a IEEE802.15.4 device using 6LoWPAN and RPL, the following is added in the `Cargo.toml` file:
-
-```toml
-[dependencies.smoltcp]
+<div id="admonition-example-ieee802154-device-using-6lowpan-and-rpl" class="admonition admonish-example">
+<div class="admonition-title">
+<p>Example: IEEE802.15.4 device using 6LoWPAN and RPL</p>
+<p><a class="admonition-anchor-link" href="#admonition-example-ieee802154-device-using-6lowpan-and-rpl"></a></p>
+</div>
+<div>
+<p>For a IEEE802.15.4 device using 6LoWPAN and RPL, the following is added in the <code>Cargo.toml</code> file:</p>
+<pre><code class="language-toml">[dependencies.smoltcp]
 version = &quot;0.10&quot;
 default-features = false
 features = [
@@ -206,11 +210,11 @@ features = [
 	&quot;proto-sixlowpan&quot;,
 	&quot;rpl-mop-2&quot;
 ]
-```
-
-This will use RPL with MOP 2 (Storing Mode of Operation) and 6LoWPAN with the IEEE802.15.4 medium.
-These are the available modes of operation: `rpl-mop-0`, `rpl-mop-1`, `rpl-mop-2` and `rpl-mop-3`.
 </code></pre>
+<p>This will use RPL with MOP 2 (Storing Mode of Operation) and 6LoWPAN with the IEEE802.15.4 medium.
+These are the available modes of operation: <code>rpl-mop-0</code>, <code>rpl-mop-1</code>, <code>rpl-mop-2</code> and <code>rpl-mop-3</code>.</p>
+</div>
+</div>
 <h2 id="2-implementing-smoltcpphydevice-for-your-platform"><a class="header" href="#2-implementing-smoltcpphydevice-for-your-platform">2. Implementing <code>smoltcp::phy::Device</code> for your platform</a></h2>
 <p>In order for <code>smoltcp</code> to effectively handle incoming and outgoing packets, 
 a connection must be established between the TCP/IP stack and the underlying hardware.

@@ -193,13 +193,21 @@ The transit information option is left empty.
 <p>Nodes can now send data packets to any other node in the network, since they have a downward route to all their descendants.
 When a node receives a packet, it first checks if it has a downward route to the destination of the packet.
 A packet first goes to a common ancestor of the sender and receiver, and then it is forwarded downwards to the receiver.</p>
-<pre><code class="language-admonish example">Node 2 transmits a packet to node 3 (imagine that node 3 is not in range of node 2).
-1. The packet is first transmitted to the preferred parent of node 2 (node 1),
-   since node 2 does not have a downward route to node 3.
-2. Node 1 forwards the packet to node 3, since it has a downward route to node 3.
-
-![Traveling packet](assets/rpl/formed-mop2.webp)
-</code></pre>
+<div id="admonition-example" class="admonition admonish-example">
+<div class="admonition-title">
+<p>Example</p>
+<p><a class="admonition-anchor-link" href="#admonition-example"></a></p>
+</div>
+<div>
+<p>Node 2 transmits a packet to node 3 (imagine that node 3 is not in range of node 2).</p>
+<ol>
+<li>The packet is first transmitted to the preferred parent of node 2 (node 1),
+since node 2 does not have a downward route to node 3.</li>
+<li>Node 1 forwards the packet to node 3, since it has a downward route to node 3.</li>
+</ol>
+<p><img src="assets/rpl/formed-mop2.webp" alt="Traveling packet" /></p>
+</div>
+</div>
 <h1 id="summary"><a class="header" href="#summary">Summary</a></h1>
 <ul>
 <li>Every node in the network has an overview of the network topology.</li>

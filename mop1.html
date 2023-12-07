@@ -181,8 +181,15 @@
 <p>In this mode of operation, the network is configured such that both upward and downward routes are established.
 This means that the root can send data packets to the nodes in the network 
 and that any node in the network can transmit messages to any other node.</p>
-<pre><code class="language-admonish note">In this mode of operation, IPv6 routing headers are used.
-</code></pre>
+<div id="admonition-note" class="admonition admonish-note">
+<div class="admonition-title">
+<p>Note</p>
+<p><a class="admonition-anchor-link" href="#admonition-note"></a></p>
+</div>
+<div>
+<p>In this mode of operation, IPv6 routing headers are used.</p>
+</div>
+</div>
 <h2 id="rpl-network-formation"><a class="header" href="#rpl-network-formation">RPL network formation</a></h2>
 <p>The formation of the network is done in the same way as in <strong>MOP 0</strong>.
 However, in <strong>MOP 1</strong> the <em>DAO</em> messages are sent to the root when joining the network.
@@ -201,14 +208,22 @@ First, the packet is sent to the parent of the node until it reaches the root.
 The root will then add a <strong>source routing header (SRH)</strong> to the packet.
 The SRH contains the path that the packet needs to follow toward the destination.
 It is constructed by the root based on the routing table.</p>
-<pre><code class="language-admonish example">Node 2 transmits a packet to node 3 (imagine that node 3 is not in range of node 2).
-1. The packet is first transmitted to the preferred parent of node 2 (node 1).
-2. Since node 1 is not the root, it will forward the packet to its preferred parent (the root).
-3. The root will add a source routing header to the packet and send it to node 1.
-4. Node 1 uses the source routing header to transmit the packet to node 3.
-
-![Traveling packet](assets/rpl/formed-mop1.webp)
-</code></pre>
+<div id="admonition-example" class="admonition admonish-example">
+<div class="admonition-title">
+<p>Example</p>
+<p><a class="admonition-anchor-link" href="#admonition-example"></a></p>
+</div>
+<div>
+<p>Node 2 transmits a packet to node 3 (imagine that node 3 is not in range of node 2).</p>
+<ol>
+<li>The packet is first transmitted to the preferred parent of node 2 (node 1).</li>
+<li>Since node 1 is not the root, it will forward the packet to its preferred parent (the root).</li>
+<li>The root will add a source routing header to the packet and send it to node 1.</li>
+<li>Node 1 uses the source routing header to transmit the packet to node 3.</li>
+</ol>
+<p><img src="assets/rpl/formed-mop1.webp" alt="Traveling packet" /></p>
+</div>
+</div>
 <h2 id="maintainance-of-the-network"><a class="header" href="#maintainance-of-the-network">Maintainance of the network</a></h2>
 <p>Just like in <strong>MOP 0</strong>, the network is maintained by sending <em>DIO</em> messages based on the <strong>Trickle timer</strong>.
 However, routes also need to be maintained.
