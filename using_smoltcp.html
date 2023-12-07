@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html lang="en" class="sidebar-visible no-js light">
+<html lang="en" class="light" dir="ltr">
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
@@ -11,7 +11,7 @@
 
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="theme-color" content="#ffffff" />
+        <meta name="theme-color" content="#ffffff">
 
         <link rel="icon" href="favicon.svg">
         <link rel="shortcut icon" href="favicon.png">
@@ -30,11 +30,12 @@
         <link rel="stylesheet" href="ayu-highlight.css">
 
         <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="./mdbook-admonish.css">
 
         <!-- MathJax -->
         <script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     </head>
-    <body>
+    <body class="sidebar-visible no-js">
     <div id="body-container">
         <!-- Provide site root to javascript -->
         <script>
@@ -64,31 +65,38 @@
             try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
             if (theme === null || theme === undefined) { theme = default_theme; }
             var html = document.querySelector('html');
-            html.classList.remove('no-js')
             html.classList.remove('light')
             html.classList.add(theme);
-            html.classList.add('js');
+            var body = document.querySelector('body');
+            body.classList.remove('no-js')
+            body.classList.add('js');
         </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
 
         <!-- Hide / unhide sidebar before it is displayed -->
         <script>
-            var html = document.querySelector('html');
+            var body = document.querySelector('body');
             var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
             if (document.body.clientWidth >= 1080) {
                 try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
                 sidebar = sidebar || 'visible';
             } else {
                 sidebar = 'hidden';
             }
-            html.classList.remove('sidebar-visible');
-            html.classList.add("sidebar-" + sidebar);
+            sidebar_toggle.checked = sidebar === 'visible';
+            body.classList.remove('sidebar-visible');
+            body.classList.add("sidebar-" + sidebar);
         </script>
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded affix "><a href="introduction.html">Introduction</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">Using smoltcp</li><li class="chapter-item expanded "><a href="using_smoltcp.html" class="active"><strong aria-hidden="true">1.</strong> Setting up a basic stack</a></li><li class="chapter-item expanded "><div><strong aria-hidden="true">2.</strong> Adding sockets</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.</strong> Adding RPL</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">4.</strong> Adding DNS</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">5.</strong> Feature flags</div></li><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">Protocols</li><li class="chapter-item expanded "><div><strong aria-hidden="true">6.</strong> 6LoWPAN</div></li><li class="chapter-item expanded "><a href="rpl_introduction.html"><strong aria-hidden="true">7.</strong> RPL</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="mop0.html"><strong aria-hidden="true">7.1.</strong> MOP0</a></li><li class="chapter-item expanded "><a href="mop1.html"><strong aria-hidden="true">7.2.</strong> MOP1</a></li><li class="chapter-item expanded "><a href="mop2.html"><strong aria-hidden="true">7.3.</strong> MOP2</a></li><li class="chapter-item expanded "><a href="mop3.html"><strong aria-hidden="true">7.4.</strong> MOP3</a></li><li class="chapter-item expanded "><a href="rpl-msg-formats.html"><strong aria-hidden="true">7.5.</strong> Control Message Formats</a></li><li class="chapter-item expanded "><a href="rpl-optimizations.html"><strong aria-hidden="true">7.6.</strong> Optimizations</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><a href="about.html">About</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="introduction.html">Introduction</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">Using smoltcp</li><li class="chapter-item expanded "><a href="using_smoltcp.html" class="active"><strong aria-hidden="true">1.</strong> Setting up a basic stack</a></li><li class="chapter-item expanded "><a href="adding_sockets.html"><strong aria-hidden="true">2.</strong> Adding sockets</a></li><li class="chapter-item expanded "><a href="adding_rpl.html"><strong aria-hidden="true">3.</strong> Adding RPL</a></li><li class="chapter-item expanded "><div><strong aria-hidden="true">4.</strong> Adding DNS</div></li><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">Protocols</li><li class="chapter-item expanded "><div><strong aria-hidden="true">5.</strong> 6LoWPAN</div></li><li class="chapter-item expanded "><a href="rpl_introduction.html"><strong aria-hidden="true">6.</strong> RPL</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="mop0.html"><strong aria-hidden="true">6.1.</strong> MOP0</a></li><li class="chapter-item expanded "><a href="mop1.html"><strong aria-hidden="true">6.2.</strong> MOP1</a></li><li class="chapter-item expanded "><a href="mop2.html"><strong aria-hidden="true">6.3.</strong> MOP2</a></li><li class="chapter-item expanded "><a href="mop3.html"><strong aria-hidden="true">6.4.</strong> MOP3</a></li><li class="chapter-item expanded "><a href="rpl-msg-formats.html"><strong aria-hidden="true">6.5.</strong> Control Message Formats</a></li><li class="chapter-item expanded "><a href="rpl-optimizations.html"><strong aria-hidden="true">6.6.</strong> Optimizations</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><a href="about.html">About</a></li></ol>
             </div>
-            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
         </nav>
 
         <!-- Track and set sidebar scroll position -->
@@ -119,9 +127,9 @@
                                 <div id="menu-bar-hover-placeholder"></div>
                 <div id="menu-bar" class="menu-bar sticky">
                     <div class="left-buttons">
-                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
                             <i class="fa fa-bars"></i>
-                        </button>
+                        </label>
                         <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
                             <i class="fa fa-paint-brush"></i>
                         </button>
@@ -170,28 +178,44 @@
                 <div id="content" class="content">
                     <main>
                         <h1 id="using-smoltcp"><a class="header" href="#using-smoltcp">Using smoltcp</a></h1>
-<blockquote>
-<p>We're assuming that the final system configuration will use a stack with RPL routing protocol, 
-using 6LoWPAN to convey IPv6 packets over an IEEE802.15.4 network.</p>
-</blockquote>
 <h2 id="1-adding-smoltcp-to-your-cargotoml"><a class="header" href="#1-adding-smoltcp-to-your-cargotoml">1. Adding <code>smoltcp</code> to your <code>Cargo.toml</code></a></h2>
-<p>To be able to use <code>smoltcp</code> in your project, you must add it as a dependency in your <code>Cargo.toml</code> file.
-However, <code>smoltcp</code> uses a lot of feature flags for configuration and therefore the correct ones need to be added.
-For a IEEE802.15.4 device using 6LoWPAN and RPL, the following is added in the <code>Cargo.toml</code> file:</p>
-<pre><code class="language-toml">[dependencies.smoltcp]
-version = &quot;0.9&quot;
+<p>To use <code>smoltcp</code> in your project, you must add it as a dependency in the <code>Cargo.toml</code> file.
+<code>smoltcp</code> uses a lot of feature flags for configuration and therefore the correct ones need to be added.</p>
+<p>Depending on the medium that is used, at least one of the following features must be enabled:</p>
+<ul>
+<li><code>medium-ethernet</code> for Ethernet devices;</li>
+<li><code>medium-ieee802154</code> for IEEE802.15.4 devices. Enabling this feature, also enables <code>proto-sixlowpan</code>;</li>
+<li><code>medium-ip</code> for devices without medium.</li>
+</ul>
+<p>For the network layer, at least one of the following features must be enabled:</p>
+<ul>
+<li><code>proto-ipv4</code> for IPv4;</li>
+<li><code>proto-ipv6</code> for IPv6;</li>
+<li><code>proto-sixlowpan</code> for 6LoWPAN.</li>
+</ul>
+<p>There are many more feature flags that can be enabled.
+For more information, see the <a href="https://docs.rs/smoltcp/latest/smoltcp/#feature-flags">documentation</a>.</p>
+<pre><code class="language-admonish example title=&quot;Example: IEEE802.15.4 device using 6LoWPAN and RPL&quot;">For a IEEE802.15.4 device using 6LoWPAN and RPL, the following is added in the `Cargo.toml` file:
+
+```toml
+[dependencies.smoltcp]
+version = &quot;0.10&quot;
 default-features = false
 features = [
 	&quot;medium-ieee802154&quot;,
 	&quot;proto-sixlowpan&quot;,
-	&quot;proto-rpl&quot;
+	&quot;rpl-mop-2&quot;
 ]
+```
+
+This will use RPL with MOP 2 (Storing Mode of Operation) and 6LoWPAN with the IEEE802.15.4 medium.
+These are the available modes of operation: `rpl-mop-0`, `rpl-mop-1`, `rpl-mop-2` and `rpl-mop-3`.
 </code></pre>
-<!--More information about the feature flags can be found [here](./feature_flags.md).-->
 <h2 id="2-implementing-smoltcpphydevice-for-your-platform"><a class="header" href="#2-implementing-smoltcpphydevice-for-your-platform">2. Implementing <code>smoltcp::phy::Device</code> for your platform</a></h2>
-<p><code>smoltcp</code> needs to be able to accept incoming packets and transmit packets.
-For <code>smoltcp</code> to do this, a connection needs to be made between the TCP/IP stack and the hardware.
-This is done by implementing the <a href="https://docs.rs/smoltcp/latest/smoltcp/phy/trait.Device.html"><code>smoltcp::phy::Device</code></a> trait for the hardware:</p>
+<p>In order for <code>smoltcp</code> to effectively handle incoming and outgoing packets, 
+a connection must be established between the TCP/IP stack and the underlying hardware.
+This essential linkage is achieved by implementing the <a href="https://docs.rs/smoltcp/latest/smoltcp/phy/trait.Device.html"><code>smoltcp::phy::Device</code></a>
+trait for the hardware:</p>
 <pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
 </span><span class="boring">fn main() {
 </span><span class="boring">extern crate smoltcp;
@@ -224,46 +248,52 @@ pub trait Device {
 }
 <span class="boring">}</span></code></pre></pre>
 <h2 id="3-setting-up-the-smoltcp-stack"><a class="header" href="#3-setting-up-the-smoltcp-stack">3. Setting up the <code>smoltcp</code> stack</a></h2>
-<p>Once you have the <code>Device</code> trait implemented, an <a href="https://docs.rs/smoltcp/latest/smoltcp/iface/struct.Interface.html"><code>Interface</code></a> can be created:</p>
+<p>Once you have the <code>Device</code> trait implemented, an <a href="https://docs.rs/smoltcp/latest/smoltcp/iface/struct.Interface.html"><code>Interface</code></a> can be created.
+The <code>Interface</code> is the main entry point for the <code>smoltcp</code> stack.
+It is responsible for handling incoming and outgoing packets, as well as managing the sockets.
+The <code>Interface</code> is created by passing a <a href="https://docs.rs/smoltcp/latest/smoltcp/iface/struct.Config.html"><code>Config</code></a>
+and a <code>Device</code> to the <a href="https://docs.rs/smoltcp/latest/smoltcp/iface/struct.Interface.html#method.new"><code>new</code></a> function.
+The <code>Config</code> struct contains all the configuration options for the stack.
+The <code>MyDevice</code> is the hardware abstraction layer that was implemented in the previous step.</p>
 <pre><pre class="playground"><code class="language-rust"><span class="boring">extern crate smoltcp;
-</span><span class="boring">use smoltcp::wire::Ieee802154Address;
-</span><span class="boring">fn main() {
-</span>let ll_addr = Ieee802154Address::Extended([0x1, 0x2, 0x3, 0x4, 0x5, 0x6 0x7, 0x8]);
+</span>use smoltcp::wire::*;
+use smoltcp::iface::{Interface, Config};
+use smoltcp::socket::{SocketSet, SocketStorage};
 
-// Create the device:
-let mut device = MyDevice::new(ll_addr);
+fn main() {
+    // Get the MAC address from the device:
+    let mac_adddr = 
+        Ieee802154Address::Extended([0x1, 0x2, 0x3, 0x4, 0x5, 0x6, 0x7, 0x8]);
 
-// Create the config for RPL:
-let mut rpl_config = smoltcp::iface::RplConfig::new();
+    // Create the device:
+    let mut device = MyDevice::new(mac_adddr);
 
-// Create the configuration for the stack:
-let mut config = smoltcp::iface::Config::new();
-config.hardware_addr =	Some(ll_addr.into());
-config.pan_id = Some(Ieee802154Pan(0xbeef));
+    // Create the configuration for the stack:
+    let mut config = Config::new(mac_addr.into());
+    config.pan_id = Some(Ieee802154Pan(0xbeef));
 
-// Add the RPL config:
-config.rpl = rpl_config;
+    // Create the sockets:
+    let mut sockets_buffer = [SocketStorage::EMPTY; 1];
+    let mut sockets = SocketSet::new(&amp;mut sockets_buffer[..]);
 
-// Create the sockets:
-let mut sockets_buffer = [SocketStorage::EMPTY; 1];
-let mut sockets = SocketSet::new(&amp;mut sockets_buffer[..]);
-
-// Create the interface:
-let mut iface = smoltcp::iface::Interface::new(config, device)?;
-
-<span class="boring">}</span></code></pre></pre>
+    // Create the interface:
+    let mut iface = Interface::new(config, device)?;
+}</code></pre></pre>
 <h2 id="4-polling-the-smoltcp-stack"><a class="header" href="#4-polling-the-smoltcp-stack">4. Polling the <code>smoltcp</code> stack</a></h2>
-<p>After the interface is created, the stack is ready to be polled (by calling the <a href="https://docs.rs/smoltcp/latest/smoltcp/iface/struct.Interface.html#method.poll"><code>poll</code></a> function on the interface).
-Polling the stack transmits packets that were queued or handles received packets queued by the device.
-If a packet is processed by the stack, the readiness of sockets might have changed.
-Therefore, it is possible that the stack needs to be polled multiple times.
-The <a href="https://docs.rs/smoltcp/latest/smoltcp/iface/struct.Interface.html#method.poll_delay"><code>poll_delay</code></a> function returns an <em>advisory wait</em> time for calling <code>poll</code> the next time. 
+<p>The interface is now ready to be used.
+Polling the interface will handle incoming and outgoing packets.
+For the interface to continue working, it must be polled regularly.
+This is done by calling the <a href="https://docs.rs/smoltcp/latest/smoltcp/iface/struct.Interface.html#method.poll"><code>poll</code></a>
+function on the interface.
+If a packet is received, it is queued by the device and can be handled by the stack.
+After processing the packet, the stack might have to send a packet.</p>
+<p>Calling <code>poll_at</code> on the interface returns the time when the next <code>poll</code> should be called.
 Calling <code>poll</code> before that time is only wasting energy, but is not harmful for the stack.
 Calling <code>poll</code> after that duration might be harmful for the stack.</p>
 <pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
 </span><span class="boring">fn main() {
 </span>loop {
-	iface.poll(Instant::now(), device, sockets);
+	iface.poll(now, device, sockets);
 
 	match iface.poll_at(Instant::now()) {
 		Some(Instant::ZERO) =&gt; continue,
@@ -271,9 +301,12 @@ Calling <code>poll</code> after that duration might be harmful for the stack.</p
 		None =&gt; sleep_until_new_packet(),
 	}
 }
+
 <span class="boring">}</span></code></pre></pre>
 <h2 id="5-youre-all-set--for-now"><a class="header" href="#5-youre-all-set--for-now">5. You're all set 🎉 (for now)</a></h2>
-<p>That's it! There is nothing more that needs to be done, if you want a simple TCP/IP stack without sockets.</p>
+<p>That's it! There is nothing more that needs to be done!
+The <code>smoltcp</code> stack will now handle all incoming and outgoing packets.
+The next step is to create sockets and use them to send and receive data.</p>
 
                     </main>
 
@@ -283,7 +316,7 @@ Calling <code>poll</code> after that duration might be harmful for the stack.</p
                                 <i class="fa fa-angle-left"></i>
                             </a>
 
-                            <a rel="next" href="rpl_introduction.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next prefetch" href="adding_sockets.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
 
@@ -297,7 +330,7 @@ Calling <code>poll</code> after that duration might be harmful for the stack.</p
                         <i class="fa fa-angle-left"></i>
                     </a>
 
-                    <a rel="next" href="rpl_introduction.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a rel="next prefetch" href="adding_sockets.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
             </nav>

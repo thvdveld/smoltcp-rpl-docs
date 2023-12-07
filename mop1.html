@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html lang="en" class="sidebar-visible no-js light">
+<html lang="en" class="light" dir="ltr">
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
@@ -11,7 +11,7 @@
 
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="theme-color" content="#ffffff" />
+        <meta name="theme-color" content="#ffffff">
 
         <link rel="icon" href="favicon.svg">
         <link rel="shortcut icon" href="favicon.png">
@@ -30,11 +30,12 @@
         <link rel="stylesheet" href="ayu-highlight.css">
 
         <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="./mdbook-admonish.css">
 
         <!-- MathJax -->
         <script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     </head>
-    <body>
+    <body class="sidebar-visible no-js">
     <div id="body-container">
         <!-- Provide site root to javascript -->
         <script>
@@ -64,31 +65,38 @@
             try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
             if (theme === null || theme === undefined) { theme = default_theme; }
             var html = document.querySelector('html');
-            html.classList.remove('no-js')
             html.classList.remove('light')
             html.classList.add(theme);
-            html.classList.add('js');
+            var body = document.querySelector('body');
+            body.classList.remove('no-js')
+            body.classList.add('js');
         </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
 
         <!-- Hide / unhide sidebar before it is displayed -->
         <script>
-            var html = document.querySelector('html');
+            var body = document.querySelector('body');
             var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
             if (document.body.clientWidth >= 1080) {
                 try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
                 sidebar = sidebar || 'visible';
             } else {
                 sidebar = 'hidden';
             }
-            html.classList.remove('sidebar-visible');
-            html.classList.add("sidebar-" + sidebar);
+            sidebar_toggle.checked = sidebar === 'visible';
+            body.classList.remove('sidebar-visible');
+            body.classList.add("sidebar-" + sidebar);
         </script>
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded affix "><a href="introduction.html">Introduction</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">Using smoltcp</li><li class="chapter-item expanded "><a href="using_smoltcp.html"><strong aria-hidden="true">1.</strong> Setting up a basic stack</a></li><li class="chapter-item expanded "><div><strong aria-hidden="true">2.</strong> Adding sockets</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.</strong> Adding RPL</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">4.</strong> Adding DNS</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">5.</strong> Feature flags</div></li><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">Protocols</li><li class="chapter-item expanded "><div><strong aria-hidden="true">6.</strong> 6LoWPAN</div></li><li class="chapter-item expanded "><a href="rpl_introduction.html"><strong aria-hidden="true">7.</strong> RPL</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="mop0.html"><strong aria-hidden="true">7.1.</strong> MOP0</a></li><li class="chapter-item expanded "><a href="mop1.html" class="active"><strong aria-hidden="true">7.2.</strong> MOP1</a></li><li class="chapter-item expanded "><a href="mop2.html"><strong aria-hidden="true">7.3.</strong> MOP2</a></li><li class="chapter-item expanded "><a href="mop3.html"><strong aria-hidden="true">7.4.</strong> MOP3</a></li><li class="chapter-item expanded "><a href="rpl-msg-formats.html"><strong aria-hidden="true">7.5.</strong> Control Message Formats</a></li><li class="chapter-item expanded "><a href="rpl-optimizations.html"><strong aria-hidden="true">7.6.</strong> Optimizations</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><a href="about.html">About</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="introduction.html">Introduction</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">Using smoltcp</li><li class="chapter-item expanded "><a href="using_smoltcp.html"><strong aria-hidden="true">1.</strong> Setting up a basic stack</a></li><li class="chapter-item expanded "><a href="adding_sockets.html"><strong aria-hidden="true">2.</strong> Adding sockets</a></li><li class="chapter-item expanded "><a href="adding_rpl.html"><strong aria-hidden="true">3.</strong> Adding RPL</a></li><li class="chapter-item expanded "><div><strong aria-hidden="true">4.</strong> Adding DNS</div></li><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">Protocols</li><li class="chapter-item expanded "><div><strong aria-hidden="true">5.</strong> 6LoWPAN</div></li><li class="chapter-item expanded "><a href="rpl_introduction.html"><strong aria-hidden="true">6.</strong> RPL</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="mop0.html"><strong aria-hidden="true">6.1.</strong> MOP0</a></li><li class="chapter-item expanded "><a href="mop1.html" class="active"><strong aria-hidden="true">6.2.</strong> MOP1</a></li><li class="chapter-item expanded "><a href="mop2.html"><strong aria-hidden="true">6.3.</strong> MOP2</a></li><li class="chapter-item expanded "><a href="mop3.html"><strong aria-hidden="true">6.4.</strong> MOP3</a></li><li class="chapter-item expanded "><a href="rpl-msg-formats.html"><strong aria-hidden="true">6.5.</strong> Control Message Formats</a></li><li class="chapter-item expanded "><a href="rpl-optimizations.html"><strong aria-hidden="true">6.6.</strong> Optimizations</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><a href="about.html">About</a></li></ol>
             </div>
-            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
         </nav>
 
         <!-- Track and set sidebar scroll position -->
@@ -119,9 +127,9 @@
                                 <div id="menu-bar-hover-placeholder"></div>
                 <div id="menu-bar" class="menu-bar sticky">
                     <div class="left-buttons">
-                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
                             <i class="fa fa-bars"></i>
-                        </button>
+                        </label>
                         <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
                             <i class="fa fa-paint-brush"></i>
                         </button>
@@ -169,24 +177,54 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="mode-of-operation-1-downward-routes-non-storing-mode"><a class="header" href="#mode-of-operation-1-downward-routes-non-storing-mode">Mode of Operation 1: downward routes (non-storing mode)</a></h1>
-<p>In <strong>MOP 1</strong> the message exchange for building a network starts the same way as it does in MOP 0:
-a node that wants to join a network will send a <em>DIS</em> message and the nodes that are already
-part of the network will respond with a <em>DIO</em> message.</p>
-<p>In <strong>MOP 1</strong> after receiving a <em>DIO</em> message and selecting the parent and setting the rank,
-the node will answer with a <em>DAO</em> message. In <strong>MOP 1</strong> this message is sent to the root. 
-The <em>DAO</em> message contains information about the parent of the node. The address of the 
-preferred parent is transmitted in the <strong>Transit Information RPL option</strong> of the <em>DAO</em> message.</p>
-<p><img src="assets/rpl_mop_1/rpl_mop1_1.svg" alt="Empty RPL network" /></p>
-<p>The node receiving the <em>DAO</em> message can answer with a <em>DAO-ACK</em> message. </p>
-<h2 id="p2m-and-p2p-communication"><a class="header" href="#p2m-and-p2p-communication">P2M and P2P communication</a></h2>
-<p>In <strong>MOP 1</strong>, the network is configured such that both upward and downward routes are established. This means that 
-the root can send data packets to the nodes in the network and that any node in the network can transmit messages to any other node. </p>
-<p>When forwarding the packet upward the default route is used, until the packet is received by the root. In non-storing mode the root is the only node that has knowledge about all the children-parent relationships 
-in the network. Based on this information the root adds a new header to the packet, the <strong>source
-routing header (SRH)</strong>. In the address field of the SRH the path that the packet needs to follow
-toward the destination is inserted.</p>
-<p><img src="assets/rpl_mop_1/rpl_mop1_2.svg" alt="Empty RPL network" /></p>
+                        <h1 id="mop1-non-storing-mode"><a class="header" href="#mop1-non-storing-mode">MOP1: non-storing mode</a></h1>
+<p>In this mode of operation, the network is configured such that both upward and downward routes are established.
+This means that the root can send data packets to the nodes in the network 
+and that any node in the network can transmit messages to any other node.</p>
+<pre><code class="language-admonish note">In this mode of operation, IPv6 routing headers are used.
+</code></pre>
+<h2 id="rpl-network-formation"><a class="header" href="#rpl-network-formation">RPL network formation</a></h2>
+<p>The formation of the network is done in the same way as in <strong>MOP 0</strong>.
+However, in <strong>MOP 1</strong> the <em>DAO</em> messages are sent to the root when joining the network.
+The root will answer with a <em>DAO-ACK</em> message, if requested by the <em>DAO</em> message.</p>
+<p>A <em>DAO</em> message contains information about the parent of the node.
+The address of the preferred parent is transmitted in the <strong>Transit Information RPL option</strong> of the <em>DAO</em> message.
+The address of the child is transmitted in the <strong>Target RPL option</strong> of the <em>DAO</em> message.</p>
+<p>When the root receives a <em>DAO</em> message, it will add the address of the child to its routing table together with the address of the parent.
+When the network is formed, the root has a complete overview of the network topology.</p>
+<p><img src="assets/rpl/daos.webp" alt="Sending DAO" />
+<small>
+Figure 1: node 1 and 4 send a <em>DAO</em> message to the root after joining the network.
+</small></p>
+<p>Nodes can now send data packets to any other node in the network.
+First, the packet is sent to the parent of the node until it reaches the root.
+The root will then add a <strong>source routing header (SRH)</strong> to the packet.
+The SRH contains the path that the packet needs to follow toward the destination.
+It is constructed by the root based on the routing table.</p>
+<pre><code class="language-admonish example">Node 2 transmits a packet to node 3 (imagine that node 3 is not in range of node 2).
+1. The packet is first transmitted to the preferred parent of node 2 (node 1).
+2. Since node 1 is not the root, it will forward the packet to its preferred parent (the root).
+3. The root will add a source routing header to the packet and send it to node 1.
+4. Node 1 uses the source routing header to transmit the packet to node 3.
+
+![Traveling packet](assets/rpl/formed-mop1.webp)
+</code></pre>
+<h2 id="maintainance-of-the-network"><a class="header" href="#maintainance-of-the-network">Maintainance of the network</a></h2>
+<p>Just like in <strong>MOP 0</strong>, the network is maintained by sending <em>DIO</em> messages based on the <strong>Trickle timer</strong>.
+However, routes also need to be maintained.
+This is done by sending <em>DAO</em> messages to the root.
+The root increments the DTSN in its <em>DIO</em> messages.
+When a node receives a <em>DIO</em> message with a higher DTSN, it will send a <em>DAO</em> message to the root.
+In smoltcp, nodes periodically send <em>DAO</em> messages to the root, without waiting for a <em>DIO</em> message with a higher DTSN.</p>
+<h1 id="summary"><a class="header" href="#summary">Summary</a></h1>
+<ul>
+<li>Network is formed by sending <em>DIO</em> messages</li>
+<li>When a node joins the network, it sends a <em>DAO</em> message to the root</li>
+<li>The root answers with a <em>DAO-ACK</em> message (if requested)</li>
+<li>The root has a complete overview of the network topology</li>
+<li>Nodes can send data packets to any other node in the network</li>
+<li>The root adds a <strong>source routing header (SRH)</strong> to downward packets</li>
+</ul>
 
                     </main>
 
@@ -196,7 +234,7 @@ toward the destination is inserted.</p>
                                 <i class="fa fa-angle-left"></i>
                             </a>
 
-                            <a rel="next" href="mop2.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next prefetch" href="mop2.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
 
@@ -210,7 +248,7 @@ toward the destination is inserted.</p>
                         <i class="fa fa-angle-left"></i>
                     </a>
 
-                    <a rel="next" href="mop2.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a rel="next prefetch" href="mop2.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
             </nav>

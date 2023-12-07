@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html lang="en" class="sidebar-visible no-js light">
+<html lang="en" class="light" dir="ltr">
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
@@ -11,7 +11,7 @@
 
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="theme-color" content="#ffffff" />
+        <meta name="theme-color" content="#ffffff">
 
         <link rel="icon" href="favicon.svg">
         <link rel="shortcut icon" href="favicon.png">
@@ -30,11 +30,12 @@
         <link rel="stylesheet" href="ayu-highlight.css">
 
         <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="./mdbook-admonish.css">
 
         <!-- MathJax -->
         <script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     </head>
-    <body>
+    <body class="sidebar-visible no-js">
     <div id="body-container">
         <!-- Provide site root to javascript -->
         <script>
@@ -64,31 +65,38 @@
             try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
             if (theme === null || theme === undefined) { theme = default_theme; }
             var html = document.querySelector('html');
-            html.classList.remove('no-js')
             html.classList.remove('light')
             html.classList.add(theme);
-            html.classList.add('js');
+            var body = document.querySelector('body');
+            body.classList.remove('no-js')
+            body.classList.add('js');
         </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
 
         <!-- Hide / unhide sidebar before it is displayed -->
         <script>
-            var html = document.querySelector('html');
+            var body = document.querySelector('body');
             var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
             if (document.body.clientWidth >= 1080) {
                 try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
                 sidebar = sidebar || 'visible';
             } else {
                 sidebar = 'hidden';
             }
-            html.classList.remove('sidebar-visible');
-            html.classList.add("sidebar-" + sidebar);
+            sidebar_toggle.checked = sidebar === 'visible';
+            body.classList.remove('sidebar-visible');
+            body.classList.add("sidebar-" + sidebar);
         </script>
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded affix "><a href="introduction.html">Introduction</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">Using smoltcp</li><li class="chapter-item expanded "><a href="using_smoltcp.html"><strong aria-hidden="true">1.</strong> Setting up a basic stack</a></li><li class="chapter-item expanded "><div><strong aria-hidden="true">2.</strong> Adding sockets</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.</strong> Adding RPL</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">4.</strong> Adding DNS</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">5.</strong> Feature flags</div></li><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">Protocols</li><li class="chapter-item expanded "><div><strong aria-hidden="true">6.</strong> 6LoWPAN</div></li><li class="chapter-item expanded "><a href="rpl_introduction.html"><strong aria-hidden="true">7.</strong> RPL</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="mop0.html" class="active"><strong aria-hidden="true">7.1.</strong> MOP0</a></li><li class="chapter-item expanded "><a href="mop1.html"><strong aria-hidden="true">7.2.</strong> MOP1</a></li><li class="chapter-item expanded "><a href="mop2.html"><strong aria-hidden="true">7.3.</strong> MOP2</a></li><li class="chapter-item expanded "><a href="mop3.html"><strong aria-hidden="true">7.4.</strong> MOP3</a></li><li class="chapter-item expanded "><a href="rpl-msg-formats.html"><strong aria-hidden="true">7.5.</strong> Control Message Formats</a></li><li class="chapter-item expanded "><a href="rpl-optimizations.html"><strong aria-hidden="true">7.6.</strong> Optimizations</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><a href="about.html">About</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="introduction.html">Introduction</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">Using smoltcp</li><li class="chapter-item expanded "><a href="using_smoltcp.html"><strong aria-hidden="true">1.</strong> Setting up a basic stack</a></li><li class="chapter-item expanded "><a href="adding_sockets.html"><strong aria-hidden="true">2.</strong> Adding sockets</a></li><li class="chapter-item expanded "><a href="adding_rpl.html"><strong aria-hidden="true">3.</strong> Adding RPL</a></li><li class="chapter-item expanded "><div><strong aria-hidden="true">4.</strong> Adding DNS</div></li><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">Protocols</li><li class="chapter-item expanded "><div><strong aria-hidden="true">5.</strong> 6LoWPAN</div></li><li class="chapter-item expanded "><a href="rpl_introduction.html"><strong aria-hidden="true">6.</strong> RPL</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="mop0.html" class="active"><strong aria-hidden="true">6.1.</strong> MOP0</a></li><li class="chapter-item expanded "><a href="mop1.html"><strong aria-hidden="true">6.2.</strong> MOP1</a></li><li class="chapter-item expanded "><a href="mop2.html"><strong aria-hidden="true">6.3.</strong> MOP2</a></li><li class="chapter-item expanded "><a href="mop3.html"><strong aria-hidden="true">6.4.</strong> MOP3</a></li><li class="chapter-item expanded "><a href="rpl-msg-formats.html"><strong aria-hidden="true">6.5.</strong> Control Message Formats</a></li><li class="chapter-item expanded "><a href="rpl-optimizations.html"><strong aria-hidden="true">6.6.</strong> Optimizations</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><a href="about.html">About</a></li></ol>
             </div>
-            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
         </nav>
 
         <!-- Track and set sidebar scroll position -->
@@ -119,9 +127,9 @@
                                 <div id="menu-bar-hover-placeholder"></div>
                 <div id="menu-bar" class="menu-bar sticky">
                     <div class="left-buttons">
-                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
                             <i class="fa fa-bars"></i>
-                        </button>
+                        </label>
                         <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
                             <i class="fa fa-paint-brush"></i>
                         </button>
@@ -169,34 +177,59 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="mode-of-operation-0-no-downward-routes-maintained"><a class="header" href="#mode-of-operation-0-no-downward-routes-maintained">Mode of Operation 0: no downward routes maintained</a></h1>
-<p>First, there are constrained devices (nodes) that just woke up. One of this constrained devices
-is assigned to be the root:</p>
-<p><img src="assets/rpl_mop_0/rpl0.svg" alt="Empty RPL network" /></p>
-<p>Then, one node decided that he wants to join a RPL network.
-For that it sends a <em>DODAG Information Solicitation (DIS)</em> message.
+                        <h1 id="mop0-no-downward-routes-maintained"><a class="header" href="#mop0-no-downward-routes-maintained">MOP0: no downward routes maintained</a></h1>
+<p>In this mode of operation, the network is configured such that only upward routes are established.
+This means that any node in the network can transmit messages to the root node
+or any other node on its path towards the root, but not to other nodes in the network.
+The default route, represented by the parent of the node,
+is used to transmit data packets in an upward direction.</p>
+<pre><code class="language-admonish note">In this mode of operation, **only** DIS and DIO messages are sent.
+</code></pre>
+<h2 id="rpl-network-formation"><a class="header" href="#rpl-network-formation">RPL network formation</a></h2>
+<p>The following network contains 5 nodes.
+The root node (R) and 4 normal nodes.
+They are all using the same RPL Instance ID, Mode of Operation and Objective Function.</p>
+<p><img src="assets/rpl/empty-network.webp" alt="Empty RPL network" />
+<small>Figure 1: an empty network with 4 normal nodes and 1 root node.</small></p>
+<p>The root node periodically sends a <em>DODAG Information Object (DIO)</em> packet, 
+which contains information about the RPL network, more specifically about the DODAG.
+The <em>DIO</em> message is sent using the <em>all-RPL-node</em> IPv6 multicast address (<code>ff02::a1</code>).
+Nodes that receive this message will join the RPL network and select the root node as their parent.
+These nodes will also set their rank based on the objective function and the information received in the <em>DIO</em> message.
+They will also start sending <em>DIO</em> messages.</p>
+<p>A node that does not hear any <em>DIO</em> message but wants to join a RPL network can send a <em>DODAG Information Solicitation (DIS)</em> message.
 This message is sent to the <em>all-RPL-node</em> IPv6 multicast address (<code>ff02::a1</code>).
-This means that all nodes in the radio range of the sending node will receive it.</p>
-<p>In the image below, node 1 is the one that decided to join a RPL network. The root node (R) 
-and nodes 2 and 3 are in its radio range. </p>
-<p><img src="assets/rpl_mop_0/rpl1.svg" alt="Empty RPL network" /></p>
-<p>In the begining, only the root node has information about the RPL DODAG.
-Therefore, it is the only one that can respond with a <em>DODAG Information Object (DIO)</em> packet.
-The root node is also using the <code>ff02::a1</code> multicast address. Thus, the <em>DIO</em> message will be received
-by all the nodes in its radio range, including node 1.</p>
-<p><img src="assets/rpl_mop_0/rpl2.svg" alt="Empty RPL network" /></p>
-<p>The nodes that received the <em>DIO</em> message and did not yet join a RPL network
-will join this network.
-They do that by selecting the root node (the sender of the <em>DIO</em> packet) as their parent. 
-The nodes that join the network will also set their rank. The rank is computed based on the information received 
-in the <em>DIO</em> message and link/node metrics with the help of the objective function.</p>
-<p><img src="assets/rpl_mop_0/rpl3.svg" alt="Empty RPL network" /></p>
-<p>Because the nodes have selected a parent, they can start sending <em>DIO</em> packets as well. As stated before the <em>DIO</em> messages
-are sent via the <em>all-RPL-node</em> IPv6 multicast address. This means that all the nodes in the radio range of a node will receive
-the <em>DIO</em> message. When node 1 is sending the <em>DIO</em> message, the root, its current parent, will also receive it. 
-The root node will ignore this message. This is because all nodes in a DODAG must ignore <em>DIO</em> messages from nodes 
-with a higher rank, which guarantees optimal route selection and avoids loops.</p>
-<p><img src="assets/rpl_mop_0/rpl4.svg" alt="Empty RPL network" /></p>
+A node that is part of a RPL network will respond to this message with a <em>DIO</em> message.</p>
+<p><img src="assets/rpl/first-dio.webp" alt="First DIO message" />
+<small>
+Figure 2: the root transmits a <em>DIO</em> and node 1 and 4 receive it.
+Node 3 transmits a <em>DIS</em> message.
+</small></p>
+<p>Nodes 1 and 4 have selected the root node as their parent and have calculated their rank.
+They now start to transmit <em>DIO</em> messages as well, based on the Trickle Timer algorithm.
+Since node 2 and 3 are in range of node 1, they will receive the <em>DIO</em> message and join the RPL network.</p>
+<p>The root node also hears the <em>DIO</em> message from node 1 and 4, however, since their rank is higher than the root node's rank,
+the root node will ignore the <em>DIO</em> message.
+This guarantees optimal route selection and avoids loops.</p>
+<p><img src="assets/rpl/next-dio.webp" alt="Next DIO message" />
+<small>
+Figure 3: node 2 and 3 receive the <em>DIO</em> message from node 1 and 4 and join the RPL network.
+Node 2 and 3 start sending <em>DIO</em> messages as well.
+</small></p>
+<p>Every node in the network now has a parent and a rank.
+They will continue to send <em>DIO</em> messages based on the Trickle Timer algorithm.
+Other packets, such as data packets, are sent using the default route, which is the parent of the node.
+This means that data packets will always be sent in an upward direction, towards the root node.
+Node 1 will never be able to send a data packet to node 4, since node 4 is not on the path towards the root node.
+Neither will 3 be able to send a data packet to 2.
+However, node 2 can send a data packet to node 1, since node 1 is on the path towards the root node.
+This is not the use case for this mode of operation, but it is possible.
+The use case for this mode of operation is to send data packets to the root node,
+which collects the data and sends it to a server.</p>
+<p><img src="assets/rpl/formed.webp" alt="Formed network" />
+<small>
+Figure 4: the network is formed.
+</small></p>
 <h2 id="maintenance-of-a-rpl-network"><a class="header" href="#maintenance-of-a-rpl-network">Maintenance of a RPL network</a></h2>
 <p>The <em>DIO</em> messages will be sent by nodes even after the DODAG is formed. The goal of sending <em>DIO</em> messages for the whole 
 life of a RPL network is to maintain or upgrade the formed DODAG. However, the constant generation of control messages 
@@ -229,13 +262,15 @@ If the network is stable, \(I\) is doubled until it reaches \(I_{max}\).
 However, if inconsistencies are detected in the network, 
 \(I\) is reset to a value between \(I_{min}\) and \(2 \cdot I_{min}\).
 This ensures efficient use of resources while still being able to ensure the maintainance of the network.</p>
-<h2 id="m2p-communication"><a class="header" href="#m2p-communication">M2P communication</a></h2>
-<p>In <strong>MOP 0</strong>, the network is configured such that only upward routes are established. This means that 
-any node in the network can transmit messages to the root node or any other node on its path towards the root, 
-but not to other nodes in the network. The default route, represented by the parent of the node, is used to
-transmit data packets in an upward direction. For example, node 5 can transmit messages to the root node 
-or to nodes 2 and 1 (which are on the path towards the root) but cannot send messages to any other nodes within the network.</p>
-<p><img src="assets/rpl_mop_0/rpl5.svg" alt="Empty RPL network" /></p>
+<h1 id="summary"><a class="header" href="#summary">Summary</a></h1>
+<ul>
+<li>Network is formed by sending <em>DIO</em> messages</li>
+<li><em>DIO</em> messages are sent periodically using the Trickle Timer algorithm</li>
+<li><em>DIO</em> messages are sent to the <em>all-RPL-node</em> IPv6 multicast address (<code>ff02::a1</code>)</li>
+<li>Nodes that receive a <em>DIO</em> message will join the RPL network</li>
+<li>Nodes that do not receive a <em>DIO</em> message can send a <em>DIS</em> message</li>
+<li>Packets only travel in an upward direction</li>
+</ul>
 
                     </main>
 
@@ -245,7 +280,7 @@ or to nodes 2 and 1 (which are on the path towards the root) but cannot send mes
                                 <i class="fa fa-angle-left"></i>
                             </a>
 
-                            <a rel="next" href="mop1.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next prefetch" href="mop1.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
 
@@ -259,7 +294,7 @@ or to nodes 2 and 1 (which are on the path towards the root) but cannot send mes
                         <i class="fa fa-angle-left"></i>
                     </a>
 
-                    <a rel="next" href="mop1.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a rel="next prefetch" href="mop1.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
             </nav>

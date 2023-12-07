@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Optimizations - Using smoltcp RPL</title>
+        <title>Adding sockets - Using smoltcp RPL</title>
 
 
         <!-- Custom HTML head -->
@@ -92,7 +92,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded affix "><a href="introduction.html">Introduction</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">Using smoltcp</li><li class="chapter-item expanded "><a href="using_smoltcp.html"><strong aria-hidden="true">1.</strong> Setting up a basic stack</a></li><li class="chapter-item expanded "><a href="adding_sockets.html"><strong aria-hidden="true">2.</strong> Adding sockets</a></li><li class="chapter-item expanded "><a href="adding_rpl.html"><strong aria-hidden="true">3.</strong> Adding RPL</a></li><li class="chapter-item expanded "><div><strong aria-hidden="true">4.</strong> Adding DNS</div></li><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">Protocols</li><li class="chapter-item expanded "><div><strong aria-hidden="true">5.</strong> 6LoWPAN</div></li><li class="chapter-item expanded "><a href="rpl_introduction.html"><strong aria-hidden="true">6.</strong> RPL</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="mop0.html"><strong aria-hidden="true">6.1.</strong> MOP0</a></li><li class="chapter-item expanded "><a href="mop1.html"><strong aria-hidden="true">6.2.</strong> MOP1</a></li><li class="chapter-item expanded "><a href="mop2.html"><strong aria-hidden="true">6.3.</strong> MOP2</a></li><li class="chapter-item expanded "><a href="mop3.html"><strong aria-hidden="true">6.4.</strong> MOP3</a></li><li class="chapter-item expanded "><a href="rpl-msg-formats.html"><strong aria-hidden="true">6.5.</strong> Control Message Formats</a></li><li class="chapter-item expanded "><a href="rpl-optimizations.html" class="active"><strong aria-hidden="true">6.6.</strong> Optimizations</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><a href="about.html">About</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="introduction.html">Introduction</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">Using smoltcp</li><li class="chapter-item expanded "><a href="using_smoltcp.html"><strong aria-hidden="true">1.</strong> Setting up a basic stack</a></li><li class="chapter-item expanded "><a href="adding_sockets.html" class="active"><strong aria-hidden="true">2.</strong> Adding sockets</a></li><li class="chapter-item expanded "><a href="adding_rpl.html"><strong aria-hidden="true">3.</strong> Adding RPL</a></li><li class="chapter-item expanded "><div><strong aria-hidden="true">4.</strong> Adding DNS</div></li><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">Protocols</li><li class="chapter-item expanded "><div><strong aria-hidden="true">5.</strong> 6LoWPAN</div></li><li class="chapter-item expanded "><a href="rpl_introduction.html"><strong aria-hidden="true">6.</strong> RPL</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="mop0.html"><strong aria-hidden="true">6.1.</strong> MOP0</a></li><li class="chapter-item expanded "><a href="mop1.html"><strong aria-hidden="true">6.2.</strong> MOP1</a></li><li class="chapter-item expanded "><a href="mop2.html"><strong aria-hidden="true">6.3.</strong> MOP2</a></li><li class="chapter-item expanded "><a href="mop3.html"><strong aria-hidden="true">6.4.</strong> MOP3</a></li><li class="chapter-item expanded "><a href="rpl-msg-formats.html"><strong aria-hidden="true">6.5.</strong> Control Message Formats</a></li><li class="chapter-item expanded "><a href="rpl-optimizations.html"><strong aria-hidden="true">6.6.</strong> Optimizations</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><a href="about.html">About</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle">
                 <div class="sidebar-resize-indicator"></div>
@@ -177,40 +177,94 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="optimizations"><a class="header" href="#optimizations">Optimizations</a></h1>
-<!--## DODAG Configuration in DIO-->
-<!--DIO messages MAY contain a DODAG configuration option (16 bytes).-->
-<!--In smoltcp, we only add this option when a multicast DIO message is sent when the Trickle timer is in the first interval.-->
-<!--A Trickle timer is in the first interval at startup or when it is reset.-->
-<!--When a node receives a DIO without the DODAG Configuration option as a response on a multicast DIS,-->
-<!--the node will send a unicast DIS.-->
-<!--Responding on a unicast DIS is always a unicast DIO containing a DODAG Configuration option.-->
-<!--It is important for a node to receive a DODAG Configuration option when it has never joined a network.-->
-<!--This option contains information related to the objective function and trickle timer.-->
-<!--If the objective function is different, this node can only join as a leaf and not act as a router in the network.-->
-<!--Note that Contiki-NG always sends DIO messages containing a DODAG Configuration option.-->
-<!--However, we think that this is a (tiny) waste of power.-->
-<!--This is something that we need to measure.-->
-<h2 id="trickle-timer-implementation"><a class="header" href="#trickle-timer-implementation">Trickle timer implementation</a></h2>
-<p>The Trickle timer that is implemented in smoltcp uses the <a href="https://d1wqtxts1xzle7.cloudfront.net/71402623/E-Trickle_Enhanced_Trickle_Algorithm_for20211005-2078-1ckh34a.pdf?1633439582=&amp;response-content-disposition=inline%3B+filename%3DE_Trickle_Enhanced_Trickle_Algorithm_for.pdf&amp;Expires=1690468547&amp;Signature=GWAtYVYOGyXrGmy~PHBDmcjxtgjGv93RuCCTxDcW1x3gWIlGw2DIxXMXluHJhO5vcR8HR~4qW5zMUmYw0fcrYvvoWrbBOAVxWs5MVF3gr8rTFsenuuSdG9Gi8OQFHnHjG8-p7~0RfHlGU5hxednaKu-dt5ECfzhsCfbfeTTCRk4Zm~CjDW4eAimwRpxuGZ9SWoySnnbOCurAtijdcdqw~YVuJV5M7VunKXgDPjEyEnCEAuwpLurPMvg7sAOpJeOaM7Yz7qCvGAe-oG9Cr8xE805TCxCcWRkOlKQHWFq6r1bK3htwgESB6iumT7Y28IbFvCYQZ7gpFviIH13jBeXFNA__&amp;Key-Pair-Id=APKAJLOHF5GGSLRBV4ZA">enhanced Trickle</a> timer.</p>
-<p>Note that Contiki-NG also implements this timer.</p>
-<h2 id="rank-error"><a class="header" href="#rank-error">Rank-Error</a></h2>
-<p>The standard sais that the rank-error bit must be set when a Rank error is detected.
-A rank error occurs when a packet is traveling throught the DODAG in the wrong direction.
-Such an error is not considered critical, but a second occurence is.
-The standard provides an example in which case it might occur.
-However, this looks like an edge case that will never occur.
-Therefor, we immediatly drop a packet when a rank error is detected.</p>
+                        <h1 id="adding-sockets"><a class="header" href="#adding-sockets">Adding sockets</a></h1>
+<p>In the previous section, we created device with an interface.
+We already used a <code>SocketSet</code>, however, this one was empty.
+Let's create a <code>TcpSocket</code> and add it to the <code>SocketSet</code>:</p>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>let mut sockets = SocketSet::new(vec![]);
+
+let tcp_socket = TcpSocket::new(
+    TcpSocketBuffer::new(vec![0;1500]),
+    TcpSocketBuffer::new(vec![0;1500]),
+);
+
+let tcp_handle = sockets.add(tcp_socket);
+<span class="boring">}</span></code></pre></pre>
+<p>Now, we can use the <code>TcpSocket</code> to connect to a remote host:</p>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>let remote_addr = Ipv6Address::new(0xfe80, 0, 0, 0, 0, 0, 0, 2);
+let remote_port = 4242;
+let host_port = 4343;
+
+let socket = socket.get_mut::&lt;tcp::Socket&gt;(tcp_handle);
+socket.connect(iface.context(), (remote_addr, remote_port), host_port).unwrap();
+<span class="boring">}</span></code></pre></pre>
+<p>The <code>TcpSocket</code> will now try to connect to the remote host.
+However, we still need to poll the interface to make sure that the <code>TcpSocket</code> can send and receive packets.</p>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>loop {
+    if let Err(e) = iface.poll(&amp;mut sockets, Instant::now()) {
+        println!(&quot;Network error: {:?}&quot;, e);
+        continue;
+    }
+}
+<span class="boring">}</span></code></pre></pre>
+<p>The <code>TcpSocket</code> is now ready to send and receive data.</p>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>loop {
+    if let Err(e) = iface.poll(&amp;mut sockets, Instant::now()) {
+        println!(&quot;Network error: {:?}&quot;, e);
+        continue;
+    }
+
+    let mut socket = sockets.get::&lt;TcpSocket&gt;(tcp_handle);
+    
+    if !socket.is_open() {
+        println!(&quot;Connection closed&quot;);
+        break;
+    }
+    
+    if socket.can_send() {
+        socket.send_slice(b&quot;Hello world!&quot;).unwrap();
+    }
+    
+    if socket.can_recv() {
+        let data = socket.recv(|data| {
+            println!(&quot;Received data: {:?}&quot;, data);
+            (data.len(), data)
+        }).unwrap();
+    }
+}
+<span class="boring">}</span></code></pre></pre>
+<h2 id="other-socket-types"><a class="header" href="#other-socket-types">Other socket types</a></h2>
+<p>The <a href="https://docs.rs/smoltcp/latest/smoltcp/socket/tcp/struct.Socket.html"><code>TcpSocket</code></a> is not the only socket type available.
+There are also the following types:</p>
+<ul>
+<li><a href="https://docs.rs/smoltcp/latest/smoltcp/socket/dhcpv4/struct.Socket.html"><code>Dhcpv4Socket</code></a>: a DHCPv4 client socket;</li>
+<li><a href="https://docs.rs/smoltcp/latest/smoltcp/socket/udp/struct.Socket.html"><code>UdpSocket</code></a>: a UDP socket;</li>
+<li><a href="https://docs.rs/smoltcp/latest/smoltcp/socket/dns/struct.Socket.html"><code>DnsSocket</code></a>: a DNS client socket;</li>
+<li><a href="https://docs.rs/smoltcp/latest/smoltcp/socket/icmp/struct.Socket.html"><code>IcmpSocket</code></a>: an ICMP socket.
+This socket type is used to send and receive ICMP packets and might listen for specific ICMP error messages related to a UDP/TCP port;</li>
+<li><a href="https://docs.rs/smoltcp/latest/smoltcp/socket/raw/struct.Socket.html"><code>RawSocket</code></a>: a raw socket.
+This socket type is used to send and receive raw packets.</li>
+</ul>
+<pre><code class="language-admonish note title=&quot;Feature flags&quot;">Every socket type requires to enable the corresponding feature.
+</code></pre>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
-                            <a rel="prev" href="rpl-msg-formats.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                            <a rel="prev" href="using_smoltcp.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
 
-                            <a rel="next prefetch" href="about.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next prefetch" href="adding_rpl.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
 
@@ -220,11 +274,11 @@ Therefor, we immediatly drop a packet when a rank error is detected.</p>
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
-                    <a rel="prev" href="rpl-msg-formats.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                    <a rel="prev" href="using_smoltcp.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
 
-                    <a rel="next prefetch" href="about.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a rel="next prefetch" href="adding_rpl.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
             </nav>

@@ -1,10 +1,10 @@
 <!DOCTYPE HTML>
-<html lang="en" class="sidebar-visible no-js light">
+<html lang="en" class="light" dir="ltr">
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
         <title>Using smoltcp RPL</title>
-        <meta name="robots" content="noindex" />
+        <meta name="robots" content="noindex">
 
 
         <!-- Custom HTML head -->
@@ -12,7 +12,7 @@
 
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="theme-color" content="#ffffff" />
+        <meta name="theme-color" content="#ffffff">
 
         <link rel="icon" href="favicon.svg">
         <link rel="shortcut icon" href="favicon.png">
@@ -31,11 +31,12 @@
         <link rel="stylesheet" href="ayu-highlight.css">
 
         <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="./mdbook-admonish.css">
 
         <!-- MathJax -->
         <script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     </head>
-    <body>
+    <body class="sidebar-visible no-js">
     <div id="body-container">
         <!-- Provide site root to javascript -->
         <script>
@@ -65,31 +66,38 @@
             try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
             if (theme === null || theme === undefined) { theme = default_theme; }
             var html = document.querySelector('html');
-            html.classList.remove('no-js')
             html.classList.remove('light')
             html.classList.add(theme);
-            html.classList.add('js');
+            var body = document.querySelector('body');
+            body.classList.remove('no-js')
+            body.classList.add('js');
         </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
 
         <!-- Hide / unhide sidebar before it is displayed -->
         <script>
-            var html = document.querySelector('html');
+            var body = document.querySelector('body');
             var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
             if (document.body.clientWidth >= 1080) {
                 try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
                 sidebar = sidebar || 'visible';
             } else {
                 sidebar = 'hidden';
             }
-            html.classList.remove('sidebar-visible');
-            html.classList.add("sidebar-" + sidebar);
+            sidebar_toggle.checked = sidebar === 'visible';
+            body.classList.remove('sidebar-visible');
+            body.classList.add("sidebar-" + sidebar);
         </script>
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded affix "><a href="introduction.html">Introduction</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">Using smoltcp</li><li class="chapter-item expanded "><a href="using_smoltcp.html"><strong aria-hidden="true">1.</strong> Setting up a basic stack</a></li><li class="chapter-item expanded "><div><strong aria-hidden="true">2.</strong> Adding sockets</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.</strong> Adding RPL</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">4.</strong> Adding DNS</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">5.</strong> Feature flags</div></li><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">Protocols</li><li class="chapter-item expanded "><div><strong aria-hidden="true">6.</strong> 6LoWPAN</div></li><li class="chapter-item expanded "><a href="rpl_introduction.html"><strong aria-hidden="true">7.</strong> RPL</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="mop0.html"><strong aria-hidden="true">7.1.</strong> MOP0</a></li><li class="chapter-item expanded "><a href="mop1.html"><strong aria-hidden="true">7.2.</strong> MOP1</a></li><li class="chapter-item expanded "><a href="mop2.html"><strong aria-hidden="true">7.3.</strong> MOP2</a></li><li class="chapter-item expanded "><a href="mop3.html"><strong aria-hidden="true">7.4.</strong> MOP3</a></li><li class="chapter-item expanded "><a href="rpl-msg-formats.html"><strong aria-hidden="true">7.5.</strong> Control Message Formats</a></li><li class="chapter-item expanded "><a href="rpl-optimizations.html"><strong aria-hidden="true">7.6.</strong> Optimizations</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><a href="about.html">About</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="introduction.html">Introduction</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">Using smoltcp</li><li class="chapter-item expanded "><a href="using_smoltcp.html"><strong aria-hidden="true">1.</strong> Setting up a basic stack</a></li><li class="chapter-item expanded "><a href="adding_sockets.html"><strong aria-hidden="true">2.</strong> Adding sockets</a></li><li class="chapter-item expanded "><a href="adding_rpl.html"><strong aria-hidden="true">3.</strong> Adding RPL</a></li><li class="chapter-item expanded "><div><strong aria-hidden="true">4.</strong> Adding DNS</div></li><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">Protocols</li><li class="chapter-item expanded "><div><strong aria-hidden="true">5.</strong> 6LoWPAN</div></li><li class="chapter-item expanded "><a href="rpl_introduction.html"><strong aria-hidden="true">6.</strong> RPL</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="mop0.html"><strong aria-hidden="true">6.1.</strong> MOP0</a></li><li class="chapter-item expanded "><a href="mop1.html"><strong aria-hidden="true">6.2.</strong> MOP1</a></li><li class="chapter-item expanded "><a href="mop2.html"><strong aria-hidden="true">6.3.</strong> MOP2</a></li><li class="chapter-item expanded "><a href="mop3.html"><strong aria-hidden="true">6.4.</strong> MOP3</a></li><li class="chapter-item expanded "><a href="rpl-msg-formats.html"><strong aria-hidden="true">6.5.</strong> Control Message Formats</a></li><li class="chapter-item expanded "><a href="rpl-optimizations.html"><strong aria-hidden="true">6.6.</strong> Optimizations</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><a href="about.html">About</a></li></ol>
             </div>
-            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
         </nav>
 
         <!-- Track and set sidebar scroll position -->
@@ -120,9 +128,9 @@
                                 <div id="menu-bar-hover-placeholder"></div>
                 <div id="menu-bar" class="menu-bar sticky">
                     <div class="left-buttons">
-                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
                             <i class="fa fa-bars"></i>
-                        </button>
+                        </label>
                         <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
                             <i class="fa fa-paint-brush"></i>
                         </button>
@@ -171,44 +179,64 @@
                 <div id="content" class="content">
                     <main>
                         <h1 id="introduction"><a class="header" href="#introduction">Introduction</a></h1>
-<p>This website provides comprehensive documentation on how to use <a href="https://github.com/smoltcp-rs/smoltcp">smoltcp</a>.
-We also discuss how to use the <a href="https://datatracker.ietf.org/doc/html/rfc6550">Routing Protocol for Low-power and lossy networks (RPL)</a>
-that recently gained support in smoltcp.</p>
-<h1 id="smoltcp"><a class="header" href="#smoltcp">Smoltcp</a></h1>
-<p><a href="https://github.com/smoltcp-rs/smoltcp">smoltcp</a> is a standalone, event-driven TCP/IP stack that is designed for bare-metal, real-time systems.
-Its design goals are simplicity and robustness.
-Its design anti-goals include complicated compile-time computations,
-such as macro or type tricks, even at cost of performance degradation.
-<strong>smoltcp</strong> is missing many widely deployed features,
-usually because no one implemented them yet.</p>
-<h1 id="rpl"><a class="header" href="#rpl">RPL</a></h1>
-<p>The RPL protocol (<a href="https://datatracker.ietf.org/doc/html/rfc6550">RFC6550</a>)
-is designed for networks that usually consist of low power devices and
-where the network is generally susceptible to packet loss.
-Read <a href="./rpl_introduction.html">here</a> if you want to know more about how the protocol works.</p>
+<pre><code class="language-admonish warning">This website is still under construction.
+</code></pre>
+<pre><code class="language-admonish danger title=&quot;Experimental RPL implementation&quot;">RPL support is not yet available in the main branch of smoltcp.
+The current RPL implementation is available in the `rpl` branch of smoltcp.
+Note that the RPL implementation is still experimental and not yet ready for production.
+</code></pre>
+<p>The <a href="https://datatracker.ietf.org/doc/html/rfc6550">Routing Protocol for Low-power and lossy networks (RPL)</a>
+is a routing protocol for low power and lossy networks (LLNs).
+It is designed to be used in various application domains such as industrial monitoring,
+building automation, connected homes, and smart cities.
+RPL is a distance vector routing protocol that builds a Directed Acyclic Graph (DAG) connecting the nodes in the network.
+The DAG is used to route packets in the network.
+RPL is designed to be used in networks where the nodes are constrained in terms of power, memory, and processing resources.</p>
+<p>The goal of this website is to better explain how RPL works and how to use it with <a href="https://github.com/smoltcp-rs/smoltcp">smoltcp</a>.
+At the moment, the RPL implementation can be found in the <a href="https://github.com/thvdveld/smoltcp/tree/rpl"><code>rpl</code> branch</a> of smoltcp.</p>
+<h2 id="implementations-of-rpl"><a class="header" href="#implementations-of-rpl">Implementations of RPL</a></h2>
+<p>Contiki-NG is an open-source operating system for the Internet of Things.
+It is a fork of the Contiki operating system and supports a wide range of platforms.
+Contiki-NG includes an implementation of RPL.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="using-smoltcp"><a class="header" href="#using-smoltcp">Using smoltcp</a></h1>
-<blockquote>
-<p>We're assuming that the final system configuration will use a stack with RPL routing protocol, 
-using 6LoWPAN to convey IPv6 packets over an IEEE802.15.4 network.</p>
-</blockquote>
 <h2 id="1-adding-smoltcp-to-your-cargotoml"><a class="header" href="#1-adding-smoltcp-to-your-cargotoml">1. Adding <code>smoltcp</code> to your <code>Cargo.toml</code></a></h2>
-<p>To be able to use <code>smoltcp</code> in your project, you must add it as a dependency in your <code>Cargo.toml</code> file.
-However, <code>smoltcp</code> uses a lot of feature flags for configuration and therefore the correct ones need to be added.
-For a IEEE802.15.4 device using 6LoWPAN and RPL, the following is added in the <code>Cargo.toml</code> file:</p>
-<pre><code class="language-toml">[dependencies.smoltcp]
-version = &quot;0.9&quot;
+<p>To use <code>smoltcp</code> in your project, you must add it as a dependency in the <code>Cargo.toml</code> file.
+<code>smoltcp</code> uses a lot of feature flags for configuration and therefore the correct ones need to be added.</p>
+<p>Depending on the medium that is used, at least one of the following features must be enabled:</p>
+<ul>
+<li><code>medium-ethernet</code> for Ethernet devices;</li>
+<li><code>medium-ieee802154</code> for IEEE802.15.4 devices. Enabling this feature, also enables <code>proto-sixlowpan</code>;</li>
+<li><code>medium-ip</code> for devices without medium.</li>
+</ul>
+<p>For the network layer, at least one of the following features must be enabled:</p>
+<ul>
+<li><code>proto-ipv4</code> for IPv4;</li>
+<li><code>proto-ipv6</code> for IPv6;</li>
+<li><code>proto-sixlowpan</code> for 6LoWPAN.</li>
+</ul>
+<p>There are many more feature flags that can be enabled.
+For more information, see the <a href="https://docs.rs/smoltcp/latest/smoltcp/#feature-flags">documentation</a>.</p>
+<pre><code class="language-admonish example title=&quot;Example: IEEE802.15.4 device using 6LoWPAN and RPL&quot;">For a IEEE802.15.4 device using 6LoWPAN and RPL, the following is added in the `Cargo.toml` file:
+
+```toml
+[dependencies.smoltcp]
+version = &quot;0.10&quot;
 default-features = false
 features = [
 	&quot;medium-ieee802154&quot;,
 	&quot;proto-sixlowpan&quot;,
-	&quot;proto-rpl&quot;
+	&quot;rpl-mop-2&quot;
 ]
+```
+
+This will use RPL with MOP 2 (Storing Mode of Operation) and 6LoWPAN with the IEEE802.15.4 medium.
+These are the available modes of operation: `rpl-mop-0`, `rpl-mop-1`, `rpl-mop-2` and `rpl-mop-3`.
 </code></pre>
-<!--More information about the feature flags can be found [here](./feature_flags.md).-->
 <h2 id="2-implementing-smoltcpphydevice-for-your-platform"><a class="header" href="#2-implementing-smoltcpphydevice-for-your-platform">2. Implementing <code>smoltcp::phy::Device</code> for your platform</a></h2>
-<p><code>smoltcp</code> needs to be able to accept incoming packets and transmit packets.
-For <code>smoltcp</code> to do this, a connection needs to be made between the TCP/IP stack and the hardware.
-This is done by implementing the <a href="https://docs.rs/smoltcp/latest/smoltcp/phy/trait.Device.html"><code>smoltcp::phy::Device</code></a> trait for the hardware:</p>
+<p>In order for <code>smoltcp</code> to effectively handle incoming and outgoing packets, 
+a connection must be established between the TCP/IP stack and the underlying hardware.
+This essential linkage is achieved by implementing the <a href="https://docs.rs/smoltcp/latest/smoltcp/phy/trait.Device.html"><code>smoltcp::phy::Device</code></a>
+trait for the hardware:</p>
 <pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
 </span><span class="boring">fn main() {
 </span><span class="boring">extern crate smoltcp;
@@ -241,46 +269,52 @@ pub trait Device {
 }
 <span class="boring">}</span></code></pre></pre>
 <h2 id="3-setting-up-the-smoltcp-stack"><a class="header" href="#3-setting-up-the-smoltcp-stack">3. Setting up the <code>smoltcp</code> stack</a></h2>
-<p>Once you have the <code>Device</code> trait implemented, an <a href="https://docs.rs/smoltcp/latest/smoltcp/iface/struct.Interface.html"><code>Interface</code></a> can be created:</p>
+<p>Once you have the <code>Device</code> trait implemented, an <a href="https://docs.rs/smoltcp/latest/smoltcp/iface/struct.Interface.html"><code>Interface</code></a> can be created.
+The <code>Interface</code> is the main entry point for the <code>smoltcp</code> stack.
+It is responsible for handling incoming and outgoing packets, as well as managing the sockets.
+The <code>Interface</code> is created by passing a <a href="https://docs.rs/smoltcp/latest/smoltcp/iface/struct.Config.html"><code>Config</code></a>
+and a <code>Device</code> to the <a href="https://docs.rs/smoltcp/latest/smoltcp/iface/struct.Interface.html#method.new"><code>new</code></a> function.
+The <code>Config</code> struct contains all the configuration options for the stack.
+The <code>MyDevice</code> is the hardware abstraction layer that was implemented in the previous step.</p>
 <pre><pre class="playground"><code class="language-rust"><span class="boring">extern crate smoltcp;
-</span><span class="boring">use smoltcp::wire::Ieee802154Address;
-</span><span class="boring">fn main() {
-</span>let ll_addr = Ieee802154Address::Extended([0x1, 0x2, 0x3, 0x4, 0x5, 0x6 0x7, 0x8]);
+</span>use smoltcp::wire::*;
+use smoltcp::iface::{Interface, Config};
+use smoltcp::socket::{SocketSet, SocketStorage};
 
-// Create the device:
-let mut device = MyDevice::new(ll_addr);
+fn main() {
+    // Get the MAC address from the device:
+    let mac_adddr = 
+        Ieee802154Address::Extended([0x1, 0x2, 0x3, 0x4, 0x5, 0x6, 0x7, 0x8]);
 
-// Create the config for RPL:
-let mut rpl_config = smoltcp::iface::RplConfig::new();
+    // Create the device:
+    let mut device = MyDevice::new(mac_adddr);
 
-// Create the configuration for the stack:
-let mut config = smoltcp::iface::Config::new();
-config.hardware_addr =	Some(ll_addr.into());
-config.pan_id = Some(Ieee802154Pan(0xbeef));
+    // Create the configuration for the stack:
+    let mut config = Config::new(mac_addr.into());
+    config.pan_id = Some(Ieee802154Pan(0xbeef));
 
-// Add the RPL config:
-config.rpl = rpl_config;
+    // Create the sockets:
+    let mut sockets_buffer = [SocketStorage::EMPTY; 1];
+    let mut sockets = SocketSet::new(&amp;mut sockets_buffer[..]);
 
-// Create the sockets:
-let mut sockets_buffer = [SocketStorage::EMPTY; 1];
-let mut sockets = SocketSet::new(&amp;mut sockets_buffer[..]);
-
-// Create the interface:
-let mut iface = smoltcp::iface::Interface::new(config, device)?;
-
-<span class="boring">}</span></code></pre></pre>
+    // Create the interface:
+    let mut iface = Interface::new(config, device)?;
+}</code></pre></pre>
 <h2 id="4-polling-the-smoltcp-stack"><a class="header" href="#4-polling-the-smoltcp-stack">4. Polling the <code>smoltcp</code> stack</a></h2>
-<p>After the interface is created, the stack is ready to be polled (by calling the <a href="https://docs.rs/smoltcp/latest/smoltcp/iface/struct.Interface.html#method.poll"><code>poll</code></a> function on the interface).
-Polling the stack transmits packets that were queued or handles received packets queued by the device.
-If a packet is processed by the stack, the readiness of sockets might have changed.
-Therefore, it is possible that the stack needs to be polled multiple times.
-The <a href="https://docs.rs/smoltcp/latest/smoltcp/iface/struct.Interface.html#method.poll_delay"><code>poll_delay</code></a> function returns an <em>advisory wait</em> time for calling <code>poll</code> the next time. 
+<p>The interface is now ready to be used.
+Polling the interface will handle incoming and outgoing packets.
+For the interface to continue working, it must be polled regularly.
+This is done by calling the <a href="https://docs.rs/smoltcp/latest/smoltcp/iface/struct.Interface.html#method.poll"><code>poll</code></a>
+function on the interface.
+If a packet is received, it is queued by the device and can be handled by the stack.
+After processing the packet, the stack might have to send a packet.</p>
+<p>Calling <code>poll_at</code> on the interface returns the time when the next <code>poll</code> should be called.
 Calling <code>poll</code> before that time is only wasting energy, but is not harmful for the stack.
 Calling <code>poll</code> after that duration might be harmful for the stack.</p>
 <pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
 </span><span class="boring">fn main() {
 </span>loop {
-	iface.poll(Instant::now(), device, sockets);
+	iface.poll(now, device, sockets);
 
 	match iface.poll_at(Instant::now()) {
 		Some(Instant::ZERO) =&gt; continue,
@@ -288,138 +322,236 @@ Calling <code>poll</code> after that duration might be harmful for the stack.</p
 		None =&gt; sleep_until_new_packet(),
 	}
 }
+
 <span class="boring">}</span></code></pre></pre>
 <h2 id="5-youre-all-set--for-now"><a class="header" href="#5-youre-all-set--for-now">5. You're all set 🎉 (for now)</a></h2>
-<p>That's it! There is nothing more that needs to be done, if you want a simple TCP/IP stack without sockets.</p>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="routing-protocol-for-low-power-and-lossy-networks"><a class="header" href="#routing-protocol-for-low-power-and-lossy-networks">Routing Protocol for Low-Power and Lossy Networks</a></h1>
-<p>A Wireless Sensor Network (WSN) is a type of Low-Power and Lossy Network (LLN) 
-that consists of small, constrained devices equipped with sensors and/or actuators. 
-These devices are connected to the Internet and an end user through a central node 
-known as the sink node. 
-WSNs may include hundreds of these tiny, battery-powered devices that communicate 
-with each other using short-range radio transmissions. 
-In order to transmit data from one device to another, intermediate nodes act as relay nodes, 
-forwarding the data along a multi-hop path towards the sink node. 
-The use of low-power, lossy radio links, battery-powered nodes, 
-and mesh topologies creates significant routing challenges for LLNs and WSNs.</p>
-<p><img src="assets/rpl_intro/rpl_intro2.svg" alt="Empty RPL network" /></p>
-<p>To address these challenges, the IETF Routing over Low-Power and Lossy Networks working group developed 
-<a href="https://datatracker.ietf.org/doc/html/rfc6550"><strong>IPv6 Routing protocol for Low-power and Lossy Networks (RPL)</strong></a>. RPL supports <em>Point to Point (<strong>P2P</strong>)</em>, <em>Multipoint to Point (<strong>M2P</strong>)</em> and <em>Point to Multipoint (<strong>P2M</strong>)</em> traffic. 
+<p>That's it! There is nothing more that needs to be done!
+The <code>smoltcp</code> stack will now handle all incoming and outgoing packets.
+The next step is to create sockets and use them to send and receive data.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="adding-sockets"><a class="header" href="#adding-sockets">Adding sockets</a></h1>
+<p>In the previous section, we created device with an interface.
+We already used a <code>SocketSet</code>, however, this one was empty.
+Let's create a <code>TcpSocket</code> and add it to the <code>SocketSet</code>:</p>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>let mut sockets = SocketSet::new(vec![]);
+
+let tcp_socket = TcpSocket::new(
+    TcpSocketBuffer::new(vec![0;1500]),
+    TcpSocketBuffer::new(vec![0;1500]),
+);
+
+let tcp_handle = sockets.add(tcp_socket);
+<span class="boring">}</span></code></pre></pre>
+<p>Now, we can use the <code>TcpSocket</code> to connect to a remote host:</p>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>let remote_addr = Ipv6Address::new(0xfe80, 0, 0, 0, 0, 0, 0, 2);
+let remote_port = 4242;
+let host_port = 4343;
+
+let socket = socket.get_mut::&lt;tcp::Socket&gt;(tcp_handle);
+socket.connect(iface.context(), (remote_addr, remote_port), host_port).unwrap();
+<span class="boring">}</span></code></pre></pre>
+<p>The <code>TcpSocket</code> will now try to connect to the remote host.
+However, we still need to poll the interface to make sure that the <code>TcpSocket</code> can send and receive packets.</p>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>loop {
+    if let Err(e) = iface.poll(&amp;mut sockets, Instant::now()) {
+        println!(&quot;Network error: {:?}&quot;, e);
+        continue;
+    }
+}
+<span class="boring">}</span></code></pre></pre>
+<p>The <code>TcpSocket</code> is now ready to send and receive data.</p>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>loop {
+    if let Err(e) = iface.poll(&amp;mut sockets, Instant::now()) {
+        println!(&quot;Network error: {:?}&quot;, e);
+        continue;
+    }
+
+    let mut socket = sockets.get::&lt;TcpSocket&gt;(tcp_handle);
+    
+    if !socket.is_open() {
+        println!(&quot;Connection closed&quot;);
+        break;
+    }
+    
+    if socket.can_send() {
+        socket.send_slice(b&quot;Hello world!&quot;).unwrap();
+    }
+    
+    if socket.can_recv() {
+        let data = socket.recv(|data| {
+            println!(&quot;Received data: {:?}&quot;, data);
+            (data.len(), data)
+        }).unwrap();
+    }
+}
+<span class="boring">}</span></code></pre></pre>
+<h2 id="other-socket-types"><a class="header" href="#other-socket-types">Other socket types</a></h2>
+<p>The <a href="https://docs.rs/smoltcp/latest/smoltcp/socket/tcp/struct.Socket.html"><code>TcpSocket</code></a> is not the only socket type available.
+There are also the following types:</p>
+<ul>
+<li><a href="https://docs.rs/smoltcp/latest/smoltcp/socket/dhcpv4/struct.Socket.html"><code>Dhcpv4Socket</code></a>: a DHCPv4 client socket;</li>
+<li><a href="https://docs.rs/smoltcp/latest/smoltcp/socket/udp/struct.Socket.html"><code>UdpSocket</code></a>: a UDP socket;</li>
+<li><a href="https://docs.rs/smoltcp/latest/smoltcp/socket/dns/struct.Socket.html"><code>DnsSocket</code></a>: a DNS client socket;</li>
+<li><a href="https://docs.rs/smoltcp/latest/smoltcp/socket/icmp/struct.Socket.html"><code>IcmpSocket</code></a>: an ICMP socket.
+This socket type is used to send and receive ICMP packets and might listen for specific ICMP error messages related to a UDP/TCP port;</li>
+<li><a href="https://docs.rs/smoltcp/latest/smoltcp/socket/raw/struct.Socket.html"><code>RawSocket</code></a>: a raw socket.
+This socket type is used to send and receive raw packets.</li>
+</ul>
+<pre><code class="language-admonish note title=&quot;Feature flags&quot;">Every socket type requires to enable the corresponding feature.
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="adding-rpl"><a class="header" href="#adding-rpl">Adding RPL</a></h1>
+<p>To enable RPL, one of the following feature flags must be enabled:</p>
+<ul>
+<li><code>rpl-mop-0</code>: Enables RPL in only upward messages (MOP0);</li>
+<li><code>rpl-mop-1</code>: Enables RPL in non-storing mode (MOP1);</li>
+<li><code>rpl-mop-2</code>: Enables RPL in storing mode (MOP2);</li>
+<li><code>rpl-mop-3</code>: Enables RPL in storing mode with multicast (MOP3).</li>
+</ul>
+<p>When enabling one of these feature flags, it is required to add a RPL configuration to the the interface.</p>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>use smoltcp::iface::{Interface, Config, RplConfig, RplModeOfOperation};
+
+let mut config = Config::new(mac_addr.into());
+config.rpl = RplConfig::new(RplModeOfOperation::StoringMode);
+<span class="boring">}</span></code></pre></pre>
+<p>For a RPL root node, the root configuration must be added:</p>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>let mut config = Config::new(mac_addr.into());
+config.rpl = RplConfig::new(RplModeOfOperation::StoringMode).add_root_config(
+    RplRootConfig::new(
+        RplInstanceId::new(30),                         // Instance ID
+        Ipv6Address::new(0xfd00, 0, 0, 0, 0, 0, 0, 1),  // DODAG ID
+    )
+);
+<span class="boring">}</span></code></pre></pre>
+<h2 id="thats-it-the-interface-is-now-using-rpl-"><a class="header" href="#thats-it-the-interface-is-now-using-rpl-">That's it! The interface is now using RPL 🎉</a></h2>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="rpl"><a class="header" href="#rpl">RPL</a></h1>
+<p>Routing Protocol for Low-Power and lossy networks (RPL), defined in <a href="">RFC 6550</a>,
+is a routing protocol for Low-Power and Lossy Networks (LLNs)
+These networks are characterized by:</p>
+<ul>
+<li>low bandwidth;</li>
+<li>high packet loss rates;</li>
+<li>hgih latency.</li>
+</ul>
+<p>RPL is a distance vector routing protocol that builds a
+Destination Oriented Directed Acyclic Graph (DODAG) rooted at a single destination.
+The DODAG is built using control messages, specifically ICMPv6 messages.
+RPL supports <em>Point to Point (<strong>P2P</strong>)</em>, <em>Multipoint to Point (<strong>M2P</strong>)</em> and <em>Point to Multipoint (<strong>P2M</strong>)</em> traffic. 
 <strong>P2P</strong> communication occurs between two nodes, <strong>M2P</strong> communication involves 
 data being sent from multiple nodes to a central node, and <strong>P2M</strong> communication 
-involves data being sent from a central node to multiple nodes. RPL uses <strong>upward</strong> 
-and <strong>downward routes</strong> to facilitate these different types of traffic. Upward routes 
-lead towards the root of the network, while downward routes start at the root and lead 
-towards other nodes in the network.</p>
-<h2 id="destination-oriented-directed-acyclic-graph-dodag"><a class="header" href="#destination-oriented-directed-acyclic-graph-dodag">Destination Oriented Directed Acyclic Graph (DODAG)</a></h2>
+involves data being sent from a central node to multiple nodes.
+RPL uses <strong>upward</strong> and <strong>downward routes</strong> to facilitate these different types of traffic.
+Upward routes lead towards the root of the network,
+while downward routes start at the root and lead towards other nodes in the network.</p>
+<h4 id="destination-oriented-directed-acyclic-graph-dodag"><a class="header" href="#destination-oriented-directed-acyclic-graph-dodag">Destination Oriented Directed Acyclic Graph (DODAG)</a></h4>
 <p>RPL specifies how to construct a Directed Acyclic Graph (DAG) rooted at a single destination, 
 known as a Destination-Oriented DAG (DODAG), using an objective function and a set of metrics and constraints. 
 The objective function evaluates a combination of metrics and constraints to determine 
-the &quot;best&quot; path for packets to follow.</p>
-<h2 id="general-concepts"><a class="header" href="#general-concepts">General Concepts</a></h2>
-<p>In a WSN, the <strong>neighbors</strong> of a particular node are all the nodes that can be reached via single hop radio links.
-In the example below, the neighbors of node 3 are: node 1, 2, 4, and 5. </p>
-<p>The <strong>parents</strong> of a node are all its neighbors that are part of a possible route to the sink node. 
-In the example below the parents of node 3 are node 1 and 2. The <strong>preferred parent</strong> 
-of a node is the neighbor that is on the best route from the node to the sink, such as node 1 for node 3.</p>
-<p><img src="assets/rpl_intro/rpl_intro1.svg" alt="Empty RPL network" /></p>
-<p>In a network using RPL, the <strong>rank</strong> of each node is a measure of its distance from the root node. 
-This rank is determined using <strong>routing metrics</strong>, which include characteristics of both 
-the <strong>links</strong> (such as throughput, latency, link reliability, expected transmission count, 
-link quality level) and the <strong>nodes</strong> (such as energy state). 
-These metrics are used in <strong>objective functions</strong> to calculate the cost of a route between nodes. </p>
-<p>A <strong>RPL instance</strong> is a group of DODAGs that have the same RPL instance ID and share a common root node, 
-identified by a DODAG ID. The <strong>DODAG version number</strong> is a counter that is incremented by the root node 
-whenever a new version of the DODAG is created.</p>
-<h2 id="control-messages-upward-and-downward-routes--modes-of-operation"><a class="header" href="#control-messages-upward-and-downward-routes--modes-of-operation">Control Messages, Upward and Downward Routes,  Modes of Operation</a></h2>
-<p>The DODAG is created with the assistance of control messages, specifically ICMPv6 messages. 
+the <em>best</em> path for packets to follow.</p>
+<h4 id="rank"><a class="header" href="#rank">Rank</a></h4>
+<p>The Rank of a node is a measure of its distance from the root node.
+The rank is determined using routing metrics, which include characteristics of both the links
+(such as throughput, latency, link reliability, expected transmission count, link quality level)
+and the nodes (such as energy state).
+These metrics are used in objective functions to calculate the cost of a route between nodes.</p>
+<h4 id="parents"><a class="header" href="#parents">Parents</a></h4>
+<p>The parents of a node are all its neighbors that are part of a possible route to the sink node.
+A neighbor is a node that can be reached via single hop radio link.
+The preferred parent of a node is the neighbor that is on the best route from the node to the sink,
+depending on the objective function used.</p>
+<h4 id="rpl-instance"><a class="header" href="#rpl-instance">RPL Instance</a></h4>
+<p>The RPL Instance is a group of DODAGs that have the same RPL Instance ID.
+All DODAGs in the same RPL Instance share the same objective function.</p>
+<h4 id="dodag-id"><a class="header" href="#dodag-id">DODAG ID</a></h4>
+<p>The DODAG ID is a globally unique identifier for the DODAG.
+This is one of the routable IPv6 address of the root node of the DODAG.</p>
+<h4 id="version-number"><a class="header" href="#version-number">Version number</a></h4>
+<p>The version number is a counter that is incremented by the root node whenever a new version of the DODAG is created.</p>
+<h2 id="mode-of-operations"><a class="header" href="#mode-of-operations">Mode of Operations</a></h2>
+<p>RPL supports 4 mode of operations (MOPs):</p>
+<ul>
+<li>MOP 0: No downward routes maintained</li>
+<li>MOP 1: Non-storing mode</li>
+<li>MOP 2: Storing mode with no multicast supports</li>
+<li>MOP 3: Storing mode with multicast support</li>
+</ul>
+<p>In MOP0, only upward routes are maintained.
+In MOP1, MOP2 and MOP3, both upward and downward routes are maintained.
+In MOP1, only the root node maintains downward routes.
+In MOP2 and MOP3, all nodes maintain downward routes.
+In MOP3, multicast is supported.</p>
+<h2 id="control-messages"><a class="header" href="#control-messages">Control Messages</a></h2>
+<p>The DODAG is created with the assistance of control messages, specifically ICMPv6 messages.
 The four types of control messages that RPL uses to construct the DODAG are:</p>
 <ul>
-<li>
-<p>DODAG Information Object (<strong>DIO</strong>)</p>
-</li>
-<li>
-<p>Destination Advertisement Object (<strong>DAO</strong>)</p>
-</li>
-<li>
-<p>Destination Advertisement Object Acknowledgment (<strong>DAO-ACK</strong>)</p>
-</li>
-<li>
-<p>DODAG Information Solicitation (<strong>DIS</strong>).</p>
-</li>
+<li>DODAG Information Solicitation (<strong>DIS</strong>).</li>
+<li>DODAG Information Object (<strong>DIO</strong>)</li>
+<li>Destination Advertisement Object (<strong>DAO</strong>)</li>
+<li>Destination Advertisement Object Acknowledgment (<strong>DAO-ACK</strong>)</li>
 </ul>
-<p>RPL uses two types of routes to enable communication within a network: <strong>upward routes</strong> and <strong>downward routes</strong>. 
-<strong>Upward routes</strong> are used for M2P communication and are discovered and maintained using DIO messages. 
-<strong>Downward routes</strong>, on the other hand, enable P2M and P2P communication and are established using DAO messages.</p>
-<p>RPL supports two modes of downward traffic: <strong>storing</strong> and <strong>non-storing</strong>. In the <strong>storing (fully stateful) mode</strong>, 
-each node maintains a downward <strong>routing table</strong> and traffic travels only as far as a common parent node. 
-In the <strong>non-storing (fully source routed) mode</strong>, all traffic is sent to the root node, which then uses <strong>source routes</strong> to send 
-the traffic to its destination. This mode does not require each node to maintain a routing table, but it increases the dependency 
-on the root node and the latency of the communication.</p>
-<p>The exchange of control messages during the construction of the DODAG may vary depending on the mode of operation that is set for RPL.
-In some modes of operation, some of these messages may not be sent at all. 
-The mode of operation determines the specific message exchange that occurs during the construction of the DODAG.</p>
-<p>There are 4 modes of operation (<strong>MOP</strong>) defined in the RPL standard:</p>
-<ol>
-<li>
-<p><strong>MOP 0 = no downward routes maintained</strong></p>
-<p>In this MOP, DAO messages are disabled and the DODAG only maintains upward routes. 
-This means that nodes will not transmit or will ignore the DAO messages. 
-However, DIO and DIS messages are still sent. In this MOP, only M2P communication is possible.</p>
-</li>
-<li>
-<p><strong>MOP 1 = non storing mode</strong></p>
-<p>In this MOP, both upward and downward routes are supported within the DODAG. 
-Thus, DIO, DIS, and DAO messages are issued. 
-As this is a non-storing mode, the DAO messages are sent to the root. 
-In this MOP, all three types of communication are possible: M2P, P2M, and P2P. 
-However, multicast is not supported in this MOP.</p>
-</li>
-<li>
-<p><strong>MOP 2 = storing mode with no multicast support</strong></p>
-<p>In this MOP, support is provided for both upward and downward routes within the DODAG. 
-This is achieved through the issuance of DIO, DIS, and DAO messages. 
-As this is a storing mode, the DAO messages are sent to the preferred parent. 
-In this MOP, all three types of communication are possible: M2P, P2M, and P2P.
-However, multicast is not supported in this MOP.</p>
-</li>
-<li>
-<p><strong>MOP 3 = storing mode with multicast support</strong></p>
-<p>This MOP is similar to MOP2, but includes support for multicast. </p>
-</li>
-</ol>
-<p>The root and nodes that are already part of a DODAG advertise this MOP. 
-The MOP is included in the DIO messages. 
-In order to join the network, nodes must support the MOP advertised in the DIO messages, 
-otherwise, they can only join the network as leaf nodes.</p>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="mode-of-operation-0-no-downward-routes-maintained"><a class="header" href="#mode-of-operation-0-no-downward-routes-maintained">Mode of Operation 0: no downward routes maintained</a></h1>
-<p>First, there are constrained devices (nodes) that just woke up. One of this constrained devices
-is assigned to be the root:</p>
-<p><img src="assets/rpl_mop_0/rpl0.svg" alt="Empty RPL network" /></p>
-<p>Then, one node decided that he wants to join a RPL network.
-For that it sends a <em>DODAG Information Solicitation (DIS)</em> message.
+<div style="break-before: page; page-break-before: always;"></div><h1 id="mop0-no-downward-routes-maintained"><a class="header" href="#mop0-no-downward-routes-maintained">MOP0: no downward routes maintained</a></h1>
+<p>In this mode of operation, the network is configured such that only upward routes are established.
+This means that any node in the network can transmit messages to the root node
+or any other node on its path towards the root, but not to other nodes in the network.
+The default route, represented by the parent of the node,
+is used to transmit data packets in an upward direction.</p>
+<pre><code class="language-admonish note">In this mode of operation, **only** DIS and DIO messages are sent.
+</code></pre>
+<h2 id="rpl-network-formation"><a class="header" href="#rpl-network-formation">RPL network formation</a></h2>
+<p>The following network contains 5 nodes.
+The root node (R) and 4 normal nodes.
+They are all using the same RPL Instance ID, Mode of Operation and Objective Function.</p>
+<p><img src="assets/rpl/empty-network.webp" alt="Empty RPL network" />
+<small>Figure 1: an empty network with 4 normal nodes and 1 root node.</small></p>
+<p>The root node periodically sends a <em>DODAG Information Object (DIO)</em> packet, 
+which contains information about the RPL network, more specifically about the DODAG.
+The <em>DIO</em> message is sent using the <em>all-RPL-node</em> IPv6 multicast address (<code>ff02::a1</code>).
+Nodes that receive this message will join the RPL network and select the root node as their parent.
+These nodes will also set their rank based on the objective function and the information received in the <em>DIO</em> message.
+They will also start sending <em>DIO</em> messages.</p>
+<p>A node that does not hear any <em>DIO</em> message but wants to join a RPL network can send a <em>DODAG Information Solicitation (DIS)</em> message.
 This message is sent to the <em>all-RPL-node</em> IPv6 multicast address (<code>ff02::a1</code>).
-This means that all nodes in the radio range of the sending node will receive it.</p>
-<p>In the image below, node 1 is the one that decided to join a RPL network. The root node (R) 
-and nodes 2 and 3 are in its radio range. </p>
-<p><img src="assets/rpl_mop_0/rpl1.svg" alt="Empty RPL network" /></p>
-<p>In the begining, only the root node has information about the RPL DODAG.
-Therefore, it is the only one that can respond with a <em>DODAG Information Object (DIO)</em> packet.
-The root node is also using the <code>ff02::a1</code> multicast address. Thus, the <em>DIO</em> message will be received
-by all the nodes in its radio range, including node 1.</p>
-<p><img src="assets/rpl_mop_0/rpl2.svg" alt="Empty RPL network" /></p>
-<p>The nodes that received the <em>DIO</em> message and did not yet join a RPL network
-will join this network.
-They do that by selecting the root node (the sender of the <em>DIO</em> packet) as their parent. 
-The nodes that join the network will also set their rank. The rank is computed based on the information received 
-in the <em>DIO</em> message and link/node metrics with the help of the objective function.</p>
-<p><img src="assets/rpl_mop_0/rpl3.svg" alt="Empty RPL network" /></p>
-<p>Because the nodes have selected a parent, they can start sending <em>DIO</em> packets as well. As stated before the <em>DIO</em> messages
-are sent via the <em>all-RPL-node</em> IPv6 multicast address. This means that all the nodes in the radio range of a node will receive
-the <em>DIO</em> message. When node 1 is sending the <em>DIO</em> message, the root, its current parent, will also receive it. 
-The root node will ignore this message. This is because all nodes in a DODAG must ignore <em>DIO</em> messages from nodes 
-with a higher rank, which guarantees optimal route selection and avoids loops.</p>
-<p><img src="assets/rpl_mop_0/rpl4.svg" alt="Empty RPL network" /></p>
+A node that is part of a RPL network will respond to this message with a <em>DIO</em> message.</p>
+<p><img src="assets/rpl/first-dio.webp" alt="First DIO message" />
+<small>
+Figure 2: the root transmits a <em>DIO</em> and node 1 and 4 receive it.
+Node 3 transmits a <em>DIS</em> message.
+</small></p>
+<p>Nodes 1 and 4 have selected the root node as their parent and have calculated their rank.
+They now start to transmit <em>DIO</em> messages as well, based on the Trickle Timer algorithm.
+Since node 2 and 3 are in range of node 1, they will receive the <em>DIO</em> message and join the RPL network.</p>
+<p>The root node also hears the <em>DIO</em> message from node 1 and 4, however, since their rank is higher than the root node's rank,
+the root node will ignore the <em>DIO</em> message.
+This guarantees optimal route selection and avoids loops.</p>
+<p><img src="assets/rpl/next-dio.webp" alt="Next DIO message" />
+<small>
+Figure 3: node 2 and 3 receive the <em>DIO</em> message from node 1 and 4 and join the RPL network.
+Node 2 and 3 start sending <em>DIO</em> messages as well.
+</small></p>
+<p>Every node in the network now has a parent and a rank.
+They will continue to send <em>DIO</em> messages based on the Trickle Timer algorithm.
+Other packets, such as data packets, are sent using the default route, which is the parent of the node.
+This means that data packets will always be sent in an upward direction, towards the root node.
+Node 1 will never be able to send a data packet to node 4, since node 4 is not on the path towards the root node.
+Neither will 3 be able to send a data packet to 2.
+However, node 2 can send a data packet to node 1, since node 1 is on the path towards the root node.
+This is not the use case for this mode of operation, but it is possible.
+The use case for this mode of operation is to send data packets to the root node,
+which collects the data and sends it to a server.</p>
+<p><img src="assets/rpl/formed.webp" alt="Formed network" />
+<small>
+Figure 4: the network is formed.
+</small></p>
 <h2 id="maintenance-of-a-rpl-network"><a class="header" href="#maintenance-of-a-rpl-network">Maintenance of a RPL network</a></h2>
 <p>The <em>DIO</em> messages will be sent by nodes even after the DODAG is formed. The goal of sending <em>DIO</em> messages for the whole 
 life of a RPL network is to maintain or upgrade the formed DODAG. However, the constant generation of control messages 
@@ -452,56 +584,94 @@ If the network is stable, \(I\) is doubled until it reaches \(I_{max}\).
 However, if inconsistencies are detected in the network, 
 \(I\) is reset to a value between \(I_{min}\) and \(2 \cdot I_{min}\).
 This ensures efficient use of resources while still being able to ensure the maintainance of the network.</p>
-<h2 id="m2p-communication"><a class="header" href="#m2p-communication">M2P communication</a></h2>
-<p>In <strong>MOP 0</strong>, the network is configured such that only upward routes are established. This means that 
-any node in the network can transmit messages to the root node or any other node on its path towards the root, 
-but not to other nodes in the network. The default route, represented by the parent of the node, is used to
-transmit data packets in an upward direction. For example, node 5 can transmit messages to the root node 
-or to nodes 2 and 1 (which are on the path towards the root) but cannot send messages to any other nodes within the network.</p>
-<p><img src="assets/rpl_mop_0/rpl5.svg" alt="Empty RPL network" /></p>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="mode-of-operation-1-downward-routes-non-storing-mode"><a class="header" href="#mode-of-operation-1-downward-routes-non-storing-mode">Mode of Operation 1: downward routes (non-storing mode)</a></h1>
-<p>In <strong>MOP 1</strong> the message exchange for building a network starts the same way as it does in MOP 0:
-a node that wants to join a network will send a <em>DIS</em> message and the nodes that are already
-part of the network will respond with a <em>DIO</em> message.</p>
-<p>In <strong>MOP 1</strong> after receiving a <em>DIO</em> message and selecting the parent and setting the rank,
-the node will answer with a <em>DAO</em> message. In <strong>MOP 1</strong> this message is sent to the root. 
-The <em>DAO</em> message contains information about the parent of the node. The address of the 
-preferred parent is transmitted in the <strong>Transit Information RPL option</strong> of the <em>DAO</em> message.</p>
-<p><img src="assets/rpl_mop_1/rpl_mop1_1.svg" alt="Empty RPL network" /></p>
-<p>The node receiving the <em>DAO</em> message can answer with a <em>DAO-ACK</em> message. </p>
-<h2 id="p2m-and-p2p-communication"><a class="header" href="#p2m-and-p2p-communication">P2M and P2P communication</a></h2>
-<p>In <strong>MOP 1</strong>, the network is configured such that both upward and downward routes are established. This means that 
-the root can send data packets to the nodes in the network and that any node in the network can transmit messages to any other node. </p>
-<p>When forwarding the packet upward the default route is used, until the packet is received by the root. In non-storing mode the root is the only node that has knowledge about all the children-parent relationships 
-in the network. Based on this information the root adds a new header to the packet, the <strong>source
-routing header (SRH)</strong>. In the address field of the SRH the path that the packet needs to follow
-toward the destination is inserted.</p>
-<p><img src="assets/rpl_mop_1/rpl_mop1_2.svg" alt="Empty RPL network" /></p>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="mode-of-operation-2-downward-routes-storing-mode-without-multicast"><a class="header" href="#mode-of-operation-2-downward-routes-storing-mode-without-multicast">Mode of Operation 2: downward routes (storing mode, without multicast)</a></h1>
-<p>In <strong>MOP 2</strong> the message exchange for building a network starts the same way as it does in MOP 0: 
-a node that wants to join a network will send a <em>DIS</em> message and the nodes that are already 
-part of the network will respond with a <em>DIO</em> message.</p>
-<p>In <strong>MOP 2</strong> after receiving a <em>DIO</em> message and selecting the parent and setting the rank, 
-the node will answer with a <em>DAO</em> message. In <strong>MOP 2</strong> this message is sent to the preferred parent. 
-Based on the uinformation received through the <em>DAO</em> messages, all the nodes in the network 
-will store a routing table containing information on how to reach all their descendants 
-(all the nodes in their subtree). </p>
-<p><img src="assets/rpl_mop_2/rpl_mop2_1.svg" alt="Empty RPL network" /></p>
-<p>The node receiving the <em>DAO</em> message can answer with a <em>DAO-ACK</em> message. </p>
-<h2 id="p2m-and-p2p-communication-1"><a class="header" href="#p2m-and-p2p-communication-1">P2M and P2P communication</a></h2>
-<p>In <strong>MOP 2</strong>, the network is configured such that both upward and downward routes are established. This means that 
-the root can send data packets to the nodes in the network and that any node in the network can transmit messages to any other node. </p>
-<p>When forwarding the packet upward the default route is used, until the packet is received by a common ancestor
-of the sender and receiver. The common ancestor will redirect the packet based on the information stored in its
-routing table.</p>
-<p><img src="assets/rpl_mop_2/rpl_mop2_2.svg" alt="Empty RPL network" /></p>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="mode-of-operation-3-downward-routes-storing-mode-with-multicast"><a class="header" href="#mode-of-operation-3-downward-routes-storing-mode-with-multicast">Mode of Operation 3: downward routes (storing mode, with multicast)</a></h1>
-<p>In <strong>MOP 3</strong> the message exchange for building a network starts the same way as it does in MOP 0: 
-a node that wants to join a network will send a <em>DIS</em> message and the nodes that are already 
-part of the network will respond with a <em>DIO</em> message.</p>
-<p>In <strong>MOP 3</strong> after receiving a <em>DIO</em> message and selecting the parent and setting the rank, 
-the node will answer with a <em>DAO</em> message with the address of the sender in the RPL Target Option. In <strong>MOP 3</strong> this message is sent to the preferred parent and is then propagated towards the root. If the node is part of a multicast group (node 6 in the picture below), a second <strong>DAO</strong> message is sent to the preferred parent and propagated to the root. This message will contain in the RPL Target Option the multicast group address. This allows the root to know which nodes are part of a multicast group. </p>
-<p><img src="assets/rpl_mop_3/rpl_mop3_1.svg" alt="Empty RPL network" /></p>
+<h1 id="summary"><a class="header" href="#summary">Summary</a></h1>
+<ul>
+<li>Network is formed by sending <em>DIO</em> messages</li>
+<li><em>DIO</em> messages are sent periodically using the Trickle Timer algorithm</li>
+<li><em>DIO</em> messages are sent to the <em>all-RPL-node</em> IPv6 multicast address (<code>ff02::a1</code>)</li>
+<li>Nodes that receive a <em>DIO</em> message will join the RPL network</li>
+<li>Nodes that do not receive a <em>DIO</em> message can send a <em>DIS</em> message</li>
+<li>Packets only travel in an upward direction</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="mop1-non-storing-mode"><a class="header" href="#mop1-non-storing-mode">MOP1: non-storing mode</a></h1>
+<p>In this mode of operation, the network is configured such that both upward and downward routes are established.
+This means that the root can send data packets to the nodes in the network 
+and that any node in the network can transmit messages to any other node.</p>
+<pre><code class="language-admonish note">In this mode of operation, IPv6 routing headers are used.
+</code></pre>
+<h2 id="rpl-network-formation-1"><a class="header" href="#rpl-network-formation-1">RPL network formation</a></h2>
+<p>The formation of the network is done in the same way as in <strong>MOP 0</strong>.
+However, in <strong>MOP 1</strong> the <em>DAO</em> messages are sent to the root when joining the network.
+The root will answer with a <em>DAO-ACK</em> message, if requested by the <em>DAO</em> message.</p>
+<p>A <em>DAO</em> message contains information about the parent of the node.
+The address of the preferred parent is transmitted in the <strong>Transit Information RPL option</strong> of the <em>DAO</em> message.
+The address of the child is transmitted in the <strong>Target RPL option</strong> of the <em>DAO</em> message.</p>
+<p>When the root receives a <em>DAO</em> message, it will add the address of the child to its routing table together with the address of the parent.
+When the network is formed, the root has a complete overview of the network topology.</p>
+<p><img src="assets/rpl/daos.webp" alt="Sending DAO" />
+<small>
+Figure 1: node 1 and 4 send a <em>DAO</em> message to the root after joining the network.
+</small></p>
+<p>Nodes can now send data packets to any other node in the network.
+First, the packet is sent to the parent of the node until it reaches the root.
+The root will then add a <strong>source routing header (SRH)</strong> to the packet.
+The SRH contains the path that the packet needs to follow toward the destination.
+It is constructed by the root based on the routing table.</p>
+<pre><code class="language-admonish example">Node 2 transmits a packet to node 3 (imagine that node 3 is not in range of node 2).
+1. The packet is first transmitted to the preferred parent of node 2 (node 1).
+2. Since node 1 is not the root, it will forward the packet to its preferred parent (the root).
+3. The root will add a source routing header to the packet and send it to node 1.
+4. Node 1 uses the source routing header to transmit the packet to node 3.
+
+![Traveling packet](assets/rpl/formed-mop1.webp)
+</code></pre>
+<h2 id="maintainance-of-the-network"><a class="header" href="#maintainance-of-the-network">Maintainance of the network</a></h2>
+<p>Just like in <strong>MOP 0</strong>, the network is maintained by sending <em>DIO</em> messages based on the <strong>Trickle timer</strong>.
+However, routes also need to be maintained.
+This is done by sending <em>DAO</em> messages to the root.
+The root increments the DTSN in its <em>DIO</em> messages.
+When a node receives a <em>DIO</em> message with a higher DTSN, it will send a <em>DAO</em> message to the root.
+In smoltcp, nodes periodically send <em>DAO</em> messages to the root, without waiting for a <em>DIO</em> message with a higher DTSN.</p>
+<h1 id="summary-1"><a class="header" href="#summary-1">Summary</a></h1>
+<ul>
+<li>Network is formed by sending <em>DIO</em> messages</li>
+<li>When a node joins the network, it sends a <em>DAO</em> message to the root</li>
+<li>The root answers with a <em>DAO-ACK</em> message (if requested)</li>
+<li>The root has a complete overview of the network topology</li>
+<li>Nodes can send data packets to any other node in the network</li>
+<li>The root adds a <strong>source routing header (SRH)</strong> to downward packets</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="mop2-storing-mode-without-multicast"><a class="header" href="#mop2-storing-mode-without-multicast">MOP2: storing mode without multicast</a></h1>
+<p>In this mode of operation, the network is formed like non-storing mode, but the <em>DAO</em> messages are sent to the preferred parent.
+Each node stores a routing table containing information on how to reach all their descendants (all the nodes in their subtree).
+A node receiving a <em>DAO</em> transmits a new <em>DAO</em> message to its own preffered parent.
+The route information is propagated upwards until it reaches the root.</p>
+<p>Since the <em>DAO</em> messages are sent in one hop, the transit information option,
+usually used to indicate the parent of the node, is left empty.
+Instead, the destination address of the <em>DAO</em> message is used as the address of the preferred parent.</p>
+<p><img src="assets/rpl/daos-mop2.webp" alt="Sending DAO with transit information empty" />
+<small>
+Figure 1: node 1 and 4 send a <em>DAO</em> message to the root after joining the network.
+The transit information option is left empty.
+</small></p>
+<p>Nodes can now send data packets to any other node in the network, since they have a downward route to all their descendants.
+When a node receives a packet, it first checks if it has a downward route to the destination of the packet.
+A packet first goes to a common ancestor of the sender and receiver, and then it is forwarded downwards to the receiver.</p>
+<pre><code class="language-admonish example">Node 2 transmits a packet to node 3 (imagine that node 3 is not in range of node 2).
+1. The packet is first transmitted to the preferred parent of node 2 (node 1),
+   since node 2 does not have a downward route to node 3.
+2. Node 1 forwards the packet to node 3, since it has a downward route to node 3.
+
+![Traveling packet](assets/rpl/formed-mop2.webp)
+</code></pre>
+<h1 id="summary-2"><a class="header" href="#summary-2">Summary</a></h1>
+<ul>
+<li>Every node in the network has an overview of the network topology.</li>
+<li>Packets travel via a common ancestor of the sender and receiver.</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="mop3-storing-mode-with-multicast"><a class="header" href="#mop3-storing-mode-with-multicast">MOP3: storing mode with multicast</a></h1>
+<pre><code class="language-admonish warning">This is a work in progress!
+</code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="control-message-formats"><a class="header" href="#control-message-formats">Control Message Formats</a></h1>
 <script> document.createElement("warn"); </script>
 <script> document.createElement("success"); </script>
@@ -1238,6 +1408,13 @@ It must be copied by other nodes in the network and not modified.
 <h2 id="trickle-timer-implementation"><a class="header" href="#trickle-timer-implementation">Trickle timer implementation</a></h2>
 <p>The Trickle timer that is implemented in smoltcp uses the <a href="https://d1wqtxts1xzle7.cloudfront.net/71402623/E-Trickle_Enhanced_Trickle_Algorithm_for20211005-2078-1ckh34a.pdf?1633439582=&amp;response-content-disposition=inline%3B+filename%3DE_Trickle_Enhanced_Trickle_Algorithm_for.pdf&amp;Expires=1690468547&amp;Signature=GWAtYVYOGyXrGmy~PHBDmcjxtgjGv93RuCCTxDcW1x3gWIlGw2DIxXMXluHJhO5vcR8HR~4qW5zMUmYw0fcrYvvoWrbBOAVxWs5MVF3gr8rTFsenuuSdG9Gi8OQFHnHjG8-p7~0RfHlGU5hxednaKu-dt5ECfzhsCfbfeTTCRk4Zm~CjDW4eAimwRpxuGZ9SWoySnnbOCurAtijdcdqw~YVuJV5M7VunKXgDPjEyEnCEAuwpLurPMvg7sAOpJeOaM7Yz7qCvGAe-oG9Cr8xE805TCxCcWRkOlKQHWFq6r1bK3htwgESB6iumT7Y28IbFvCYQZ7gpFviIH13jBeXFNA__&amp;Key-Pair-Id=APKAJLOHF5GGSLRBV4ZA">enhanced Trickle</a> timer.</p>
 <p>Note that Contiki-NG also implements this timer.</p>
+<h2 id="rank-error"><a class="header" href="#rank-error">Rank-Error</a></h2>
+<p>The standard sais that the rank-error bit must be set when a Rank error is detected.
+A rank error occurs when a packet is traveling throught the DODAG in the wrong direction.
+Such an error is not considered critical, but a second occurence is.
+The standard provides an example in which case it might occur.
+However, this looks like an edge case that will never occur.
+Therefor, we immediatly drop a packet when a rank error is detected.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="about-the-project"><a class="header" href="#about-the-project">About the project</a></h1>
 <p>The goal of this project is to add the RPL protocol to the <code>smoltcp</code> Rust library.
 The project is funded by <a href="https://nlnet.nl/thema/NGIAssure.html">NLnet NGI Assure</a>.
