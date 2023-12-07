@@ -20,10 +20,9 @@ jobs:
           # mdbook-version: '0.4.10'
           mdbook-version: 'latest'
 
-      - run: 
-          cargo install mdbook-admonish
-          mdbook-admonish install
-          mdbook build
+      - run: cargo install mdbook-admonish;
+      - run: mdbook-admonish install
+      - run: mdbook build
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
