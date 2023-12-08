@@ -1,7 +1,7 @@
 # RPL
 
 Routing Protocol for Low-Power and lossy networks (RPL), defined in [RFC 6550](),
-is a routing protocol for Low-Power and Lossy Networks (LLNs)
+is a routing protocol for Low-Power and Lossy Networks (LLNs).
 These networks are characterized by:
 - low bandwidth;
 - high packet loss rates;
