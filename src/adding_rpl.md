@@ -1,7 +1,7 @@
 # Adding RPL
 
 To enable RPL, one of the following feature flags must be enabled:
-- `rpl-mop-0`: Enables RPL in only upward messages (MOP0);
+- `rpl-mop-0`: Enables RPL in only mainting upward routes mode (MOP0);
 - `rpl-mop-1`: Enables RPL in non-storing mode (MOP1);
 - `rpl-mop-2`: Enables RPL in storing mode (MOP2);
 - `rpl-mop-3`: Enables RPL in storing mode with multicast (MOP3).
