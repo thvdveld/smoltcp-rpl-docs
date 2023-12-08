@@ -5,7 +5,7 @@ is a routing protocol for Low-Power and Lossy Networks (LLNs).
 These networks are characterized by:
 - low bandwidth;
 - high packet loss rates;
-- hgih latency.
+- high latency.
 
 RPL is a distance vector routing protocol that builds a
 Destination Oriented Directed Acyclic Graph (DODAG) rooted at a single destination.
