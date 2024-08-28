@@ -93,7 +93,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded affix "><a href="introduction.html">Introduction</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">Using smoltcp</li><li class="chapter-item expanded "><a href="using_smoltcp.html"><strong aria-hidden="true">1.</strong> Setting up a basic stack</a></li><li class="chapter-item expanded "><a href="adding_sockets.html"><strong aria-hidden="true">2.</strong> Adding sockets</a></li><li class="chapter-item expanded "><a href="adding_rpl.html"><strong aria-hidden="true">3.</strong> Adding RPL</a></li><li class="chapter-item expanded "><div><strong aria-hidden="true">4.</strong> Adding DNS</div></li><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">Protocols</li><li class="chapter-item expanded "><div><strong aria-hidden="true">5.</strong> 6LoWPAN</div></li><li class="chapter-item expanded "><a href="rpl_introduction.html"><strong aria-hidden="true">6.</strong> RPL</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="mop0.html"><strong aria-hidden="true">6.1.</strong> MOP0</a></li><li class="chapter-item expanded "><a href="mop1.html"><strong aria-hidden="true">6.2.</strong> MOP1</a></li><li class="chapter-item expanded "><a href="mop2.html"><strong aria-hidden="true">6.3.</strong> MOP2</a></li><li class="chapter-item expanded "><a href="mop3.html"><strong aria-hidden="true">6.4.</strong> MOP3</a></li><li class="chapter-item expanded "><a href="rpl-msg-formats.html"><strong aria-hidden="true">6.5.</strong> Control Message Formats</a></li><li class="chapter-item expanded "><a href="rpl-optimizations.html"><strong aria-hidden="true">6.6.</strong> Optimizations</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><a href="about.html">About</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="introduction.html">Introduction</a></li><li class="chapter-item expanded affix "><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">Using smoltcp</li><li class="chapter-item expanded "><a href="smoltcp.html"><strong aria-hidden="true">1.</strong> smoltcp</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="using_smoltcp.html"><strong aria-hidden="true">1.1.</strong> Setting up a basic stack</a></li><li class="chapter-item expanded "><a href="adding_sockets.html"><strong aria-hidden="true">1.2.</strong> Adding sockets</a></li><li class="chapter-item expanded "><a href="adding_rpl.html"><strong aria-hidden="true">1.3.</strong> Adding RPL</a></li><li class="chapter-item expanded "><div><strong aria-hidden="true">1.4.</strong> Adding DNS</div></li></ol></li><li class="chapter-item expanded "><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">IEEE 802.15.4</li><li class="chapter-item expanded "><div><strong aria-hidden="true">2.</strong> IEEE 802.15.4</div></li><li class="chapter-item expanded affix "><li class="part-title">6LoWPAN</li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.</strong> 6LoWPAN</div></li><li class="chapter-item expanded affix "><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">RPL</li><li class="chapter-item expanded "><a href="rpl_introduction.html"><strong aria-hidden="true">4.</strong> RPL</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="mop0.html"><strong aria-hidden="true">4.1.</strong> MOP0</a></li><li class="chapter-item expanded "><a href="mop1.html"><strong aria-hidden="true">4.2.</strong> MOP1</a></li><li class="chapter-item expanded "><a href="mop2.html"><strong aria-hidden="true">4.3.</strong> MOP2</a></li><li class="chapter-item expanded "><a href="mop3.html"><strong aria-hidden="true">4.4.</strong> MOP3</a></li><li class="chapter-item expanded "><a href="rpl-msg-formats.html"><strong aria-hidden="true">4.5.</strong> Control Message Formats</a></li><li class="chapter-item expanded "><a href="rpl-terminology.html"><strong aria-hidden="true">4.6.</strong> Terminology</a></li><li class="chapter-item expanded "><a href="rpl-optimizations.html"><strong aria-hidden="true">4.7.</strong> Optimizations</a></li></ol></li><li class="chapter-item expanded "><li class="spacer"></li><li class="chapter-item expanded affix "><a href="about.html">About</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle">
                 <div class="sidebar-resize-indicator"></div>
@@ -179,19 +179,23 @@
                 <div id="content" class="content">
                     <main>
                         <h1 id="introduction"><a class="header" href="#introduction">Introduction</a></h1>
-<div id="admonition-warning" class="admonition admonish-warning">
+<div id="admonition-warning" class="admonition admonish-warning" role="note" aria-labelledby="admonition-warning-title">
 <div class="admonition-title">
+<div id="admonition-warning-title">
 <p>Warning</p>
-<p><a class="admonition-anchor-link" href="introduction.html#admonition-warning"></a></p>
+</div>
+<a class="admonition-anchor-link" href="introduction.html#admonition-warning"></a>
 </div>
 <div>
 <p>This website is still under construction.</p>
 </div>
 </div>
-<div id="admonition-experimental-rpl-implementation" class="admonition admonish-danger">
+<div id="admonition-experimental-rpl-implementation" class="admonition admonish-danger" role="note" aria-labelledby="admonition-experimental-rpl-implementation-title">
 <div class="admonition-title">
+<div id="admonition-experimental-rpl-implementation-title">
 <p>Experimental RPL implementation</p>
-<p><a class="admonition-anchor-link" href="introduction.html#admonition-experimental-rpl-implementation"></a></p>
+</div>
+<a class="admonition-anchor-link" href="introduction.html#admonition-experimental-rpl-implementation"></a>
 </div>
 <div>
 <p>RPL support is not yet available in the main branch of smoltcp.
@@ -212,7 +216,8 @@ At the moment, the RPL implementation can be found in the <a href="https://githu
 <p>Contiki-NG is an open-source operating system for the Internet of Things.
 It is a fork of the Contiki operating system and supports a wide range of platforms.
 Contiki-NG includes an implementation of RPL.</p>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="using-smoltcp"><a class="header" href="#using-smoltcp">Using smoltcp</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="smoltcp"><a class="header" href="#smoltcp">smoltcp</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="setting-up-smoltcp"><a class="header" href="#setting-up-smoltcp">Setting up smoltcp</a></h1>
 <h2 id="1-adding-smoltcp-to-your-cargotoml"><a class="header" href="#1-adding-smoltcp-to-your-cargotoml">1. Adding <code>smoltcp</code> to your <code>Cargo.toml</code></a></h2>
 <p>To use <code>smoltcp</code> in your project, you must add it as a dependency in the <code>Cargo.toml</code> file.
 <code>smoltcp</code> uses a lot of feature flags for configuration and therefore the correct ones need to be added.</p>
@@ -230,20 +235,22 @@ Contiki-NG includes an implementation of RPL.</p>
 </ul>
 <p>There are many more feature flags that can be enabled.
 For more information, see the <a href="https://docs.rs/smoltcp/latest/smoltcp/#feature-flags">documentation</a>.</p>
-<div id="admonition-example-ieee802154-device-using-6lowpan-and-rpl" class="admonition admonish-example">
+<div id="admonition-example-ieee802154-device-using-6lowpan-and-rpl" class="admonition admonish-example" role="note" aria-labelledby="admonition-example-ieee802154-device-using-6lowpan-and-rpl-title">
 <div class="admonition-title">
+<div id="admonition-example-ieee802154-device-using-6lowpan-and-rpl-title">
 <p>Example: IEEE802.15.4 device using 6LoWPAN and RPL</p>
-<p><a class="admonition-anchor-link" href="using_smoltcp.html#admonition-example-ieee802154-device-using-6lowpan-and-rpl"></a></p>
+</div>
+<a class="admonition-anchor-link" href="using_smoltcp.html#admonition-example-ieee802154-device-using-6lowpan-and-rpl"></a>
 </div>
 <div>
 <p>For a IEEE802.15.4 device using 6LoWPAN and RPL, the following is added in the <code>Cargo.toml</code> file:</p>
 <pre><code class="language-toml">[dependencies.smoltcp]
-version = &quot;0.10&quot;
+version = "0.10"
 default-features = false
 features = [
-	&quot;medium-ieee802154&quot;,
-	&quot;proto-sixlowpan&quot;,
-	&quot;rpl-mop-2&quot;
+	"medium-ieee802154",
+	"proto-sixlowpan",
+	"rpl-mop-2"
 ]
 </code></pre>
 <p>This will use RPL with MOP 2 (Storing Mode of Operation) and 6LoWPAN with the IEEE802.15.4 medium.
@@ -251,7 +258,7 @@ These are the available modes of operation: <code>rpl-mop-0</code>, <code>rpl-mo
 </div>
 </div>
 <h2 id="2-implementing-smoltcpphydevice-for-your-platform"><a class="header" href="#2-implementing-smoltcpphydevice-for-your-platform">2. Implementing <code>smoltcp::phy::Device</code> for your platform</a></h2>
-<p>In order for <code>smoltcp</code> to effectively handle incoming and outgoing packets, 
+<p>In order for <code>smoltcp</code> to effectively handle incoming and outgoing packets,
 a connection must be established between the TCP/IP stack and the underlying hardware.
 This essential linkage is achieved by implementing the <a href="https://docs.rs/smoltcp/latest/smoltcp/phy/trait.Device.html"><code>smoltcp::phy::Device</code></a>
 trait for the hardware:</p>
@@ -377,7 +384,7 @@ However, we still need to poll the interface to make sure that the <code>TcpSock
 </span><span class="boring">fn main() {
 </span>loop {
     if let Err(e) = iface.poll(&amp;mut sockets, Instant::now()) {
-        println!(&quot;Network error: {:?}&quot;, e);
+        println!("Network error: {:?}", e);
         continue;
     }
 }
@@ -387,24 +394,24 @@ However, we still need to poll the interface to make sure that the <code>TcpSock
 </span><span class="boring">fn main() {
 </span>loop {
     if let Err(e) = iface.poll(&amp;mut sockets, Instant::now()) {
-        println!(&quot;Network error: {:?}&quot;, e);
+        println!("Network error: {:?}", e);
         continue;
     }
 
     let mut socket = sockets.get::&lt;TcpSocket&gt;(tcp_handle);
     
     if !socket.is_open() {
-        println!(&quot;Connection closed&quot;);
+        println!("Connection closed");
         break;
     }
     
     if socket.can_send() {
-        socket.send_slice(b&quot;Hello world!&quot;).unwrap();
+        socket.send_slice(b"Hello world!").unwrap();
     }
     
     if socket.can_recv() {
         let data = socket.recv(|data| {
-            println!(&quot;Received data: {:?}&quot;, data);
+            println!("Received data: {:?}", data);
             (data.len(), data)
         }).unwrap();
     }
@@ -422,10 +429,12 @@ This socket type is used to send and receive ICMP packets and might listen for s
 <li><a href="https://docs.rs/smoltcp/latest/smoltcp/socket/raw/struct.Socket.html"><code>RawSocket</code></a>: a raw socket.
 This socket type is used to send and receive raw packets.</li>
 </ul>
-<div id="admonition-feature-flags" class="admonition admonish-note">
+<div id="admonition-feature-flags" class="admonition admonish-note" role="note" aria-labelledby="admonition-feature-flags-title">
 <div class="admonition-title">
+<div id="admonition-feature-flags-title">
 <p>Feature flags</p>
-<p><a class="admonition-anchor-link" href="adding_sockets.html#admonition-feature-flags"></a></p>
+</div>
+<a class="admonition-anchor-link" href="adding_sockets.html#admonition-feature-flags"></a>
 </div>
 <div>
 <p>Every socket type requires to enable the corresponding feature.</p>
@@ -471,17 +480,17 @@ These networks are characterized by:</p>
 <p>RPL is a distance vector routing protocol that builds a
 Destination Oriented Directed Acyclic Graph (DODAG) rooted at a single destination.
 The DODAG is built using control messages, specifically ICMPv6 messages.
-RPL supports <em>Point to Point (<strong>P2P</strong>)</em>, <em>Multipoint to Point (<strong>M2P</strong>)</em> and <em>Point to Multipoint (<strong>P2M</strong>)</em> traffic. 
-<strong>P2P</strong> communication occurs between two nodes, <strong>M2P</strong> communication involves 
-data being sent from multiple nodes to a central node, and <strong>P2M</strong> communication 
+RPL supports <em>Point to Point (<strong>P2P</strong>)</em>, <em>Multipoint to Point (<strong>M2P</strong>)</em> and <em>Point to Multipoint (<strong>P2M</strong>)</em> traffic.
+<strong>P2P</strong> communication occurs between two nodes, <strong>M2P</strong> communication involves
+data being sent from multiple nodes to a central node, and <strong>P2M</strong> communication
 involves data being sent from a central node to multiple nodes.
 RPL uses <strong>upward</strong> and <strong>downward routes</strong> to facilitate these different types of traffic.
 Upward routes lead towards the root of the network,
 while downward routes start at the root and lead towards other nodes in the network.</p>
 <h4 id="destination-oriented-directed-acyclic-graph-dodag"><a class="header" href="#destination-oriented-directed-acyclic-graph-dodag">Destination Oriented Directed Acyclic Graph (DODAG)</a></h4>
-<p>RPL specifies how to construct a Directed Acyclic Graph (DAG) rooted at a single destination, 
-known as a Destination-Oriented DAG (DODAG), using an objective function and a set of metrics and constraints. 
-The objective function evaluates a combination of metrics and constraints to determine 
+<p>RPL specifies how to construct a Directed Acyclic Graph (DAG) rooted at a single destination,
+known as a Destination-Oriented DAG (DODAG), using an objective function and a set of metrics and constraints.
+The objective function evaluates a combination of metrics and constraints to determine
 the <em>best</em> path for packets to follow.</p>
 <h4 id="rank"><a class="header" href="#rank">Rank</a></h4>
 <p>The Rank of a node is a measure of its distance from the root node.
@@ -530,22 +539,25 @@ This means that any node in the network can transmit messages to the root node
 or any other node on its path towards the root, but not to other nodes in the network.
 The default route, represented by the parent of the node,
 is used to transmit data packets in an upward direction.</p>
-<div id="admonition-note" class="admonition admonish-note">
+<div id="admonition-note" class="admonition admonish-note" role="note" aria-labelledby="admonition-note-title">
 <div class="admonition-title">
+<div id="admonition-note-title">
 <p>Note</p>
-<p><a class="admonition-anchor-link" href="mop0.html#admonition-note"></a></p>
+</div>
+<a class="admonition-anchor-link" href="mop0.html#admonition-note"></a>
 </div>
 <div>
-<p>In this mode of operation, <strong>only</strong> DIS and DIO messages are sent.</p>
+<p>In this mode of operation, <strong>only</strong> <a href="./rpl-msg-formats.html#dodag-information-solicitation-dis">DIS</a>
+and <a href="./rpl-msg-formats.html#dodag-information-object-dio">DIO</a> messages are sent.</p>
 </div>
 </div>
 <h2 id="rpl-network-formation"><a class="header" href="#rpl-network-formation">RPL network formation</a></h2>
 <p>The following network contains 5 nodes.
 The root node (R) and 4 normal nodes.
-They are all using the same RPL Instance ID, Mode of Operation and Objective Function.</p>
+They are all using the same RPL Instance ID, Mode of Operation and <a href="./rpl-objective-function.html">Objective Function</a>.</p>
 <p><img src="assets/rpl/empty-network.webp" alt="Empty RPL network" />
 <small>Figure 1: an empty network with 4 normal nodes and 1 root node.</small></p>
-<p>The root node periodically sends a <em>DODAG Information Object (DIO)</em> packet, 
+<p>The root node periodically sends a <em>DODAG Information Object (DIO)</em> packet,
 which contains information about the RPL network, more specifically about the DODAG.
 The <em>DIO</em> message is sent using the <em>all-RPL-node</em> IPv6 multicast address (<code>ff02::a1</code>).
 Nodes that receive this message will join the RPL network and select the root node as their parent.
@@ -585,14 +597,14 @@ which collects the data and sends it to a server.</p>
 Figure 4: the network is formed.
 </small></p>
 <h2 id="maintenance-of-a-rpl-network"><a class="header" href="#maintenance-of-a-rpl-network">Maintenance of a RPL network</a></h2>
-<p>The <em>DIO</em> messages will be sent by nodes even after the DODAG is formed. The goal of sending <em>DIO</em> messages for the whole 
-life of a RPL network is to maintain or upgrade the formed DODAG. However, the constant generation of control messages 
+<p>The <em>DIO</em> messages will be sent by nodes even after the DODAG is formed. The goal of sending <em>DIO</em> messages for the whole
+life of a RPL network is to maintain or upgrade the formed DODAG. However, the constant generation of control messages
 can consume a lot of energy. To preserve resources, the sending of control messages is minimized and only done when necessary,
 through the use of the <strong>Trickle Timer algorithm</strong>.</p>
-<p>The <strong>Trickle Timer algorithm</strong> monitors the consistency of packet exchange in the network. If the pattern is consistent 
+<p>The <strong>Trickle Timer algorithm</strong> monitors the consistency of packet exchange in the network. If the pattern is consistent
 and free of redundant or outdated data, the Trickle Timer decreases the rate of sending <em>DIO</em> messages exponentially.
-However, if there are any inconsistencies in the network, the next <em>DIO</em> message is rescheduled and sent at the shortest 
-possible time interval. In other words, this algorithm ensures that <em>DIOs</em> are aggressively advertised when the 
+However, if there are any inconsistencies in the network, the next <em>DIO</em> message is rescheduled and sent at the shortest
+possible time interval. In other words, this algorithm ensures that <em>DIOs</em> are aggressively advertised when the
 network is unstable and advertised at a slower pace when it is stable.</p>
 <p>There are four parameters that control the functioning of the Trickle Timer:</p>
 <ul>
@@ -611,9 +623,9 @@ network is unstable and advertised at a slower pace when it is stable.</p>
 </ul>
 <p>In the beginning, \(I\) is set to a random value between \(I_{min}\) and \(2 \cdot I_{min}\).
 <em>DIO</em> messages are sent when \(I\) expires and if the
-counter (\(c\)) that keeps track of the consistent received messages is smaller than \(k\). 
+counter (\(c\)) that keeps track of the consistent received messages is smaller than \(k\).
 If the network is stable, \(I\) is doubled until it reaches \(I_{max}\).
-However, if inconsistencies are detected in the network, 
+However, if inconsistencies are detected in the network,
 \(I\) is reset to a value between \(I_{min}\) and \(2 \cdot I_{min}\).
 This ensures efficient use of resources while still being able to ensure the maintainance of the network.</p>
 <h1 id="summary"><a class="header" href="#summary">Summary</a></h1>
@@ -627,12 +639,14 @@ This ensures efficient use of resources while still being able to ensure the mai
 </ul>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="mop1-non-storing-mode"><a class="header" href="#mop1-non-storing-mode">MOP1: non-storing mode</a></h1>
 <p>In this mode of operation, the network is configured such that both upward and downward routes are established.
-This means that the root can send data packets to the nodes in the network 
+This means that the root can send data packets to the nodes in the network
 and that any node in the network can transmit messages to any other node.</p>
-<div id="admonition-note" class="admonition admonish-note">
+<div id="admonition-note" class="admonition admonish-note" role="note" aria-labelledby="admonition-note-title">
 <div class="admonition-title">
+<div id="admonition-note-title">
 <p>Note</p>
-<p><a class="admonition-anchor-link" href="mop1.html#admonition-note"></a></p>
+</div>
+<a class="admonition-anchor-link" href="mop1.html#admonition-note"></a>
 </div>
 <div>
 <p>In this mode of operation, IPv6 routing headers are used.</p>
@@ -656,10 +670,12 @@ First, the packet is sent to the parent of the node until it reaches the root.
 The root will then add a <strong>source routing header (SRH)</strong> to the packet.
 The SRH contains the path that the packet needs to follow toward the destination.
 It is constructed by the root based on the routing table.</p>
-<div id="admonition-example" class="admonition admonish-example">
+<div id="admonition-example" class="admonition admonish-example" role="note" aria-labelledby="admonition-example-title">
 <div class="admonition-title">
+<div id="admonition-example-title">
 <p>Example</p>
-<p><a class="admonition-anchor-link" href="mop1.html#admonition-example"></a></p>
+</div>
+<a class="admonition-anchor-link" href="mop1.html#admonition-example"></a>
 </div>
 <div>
 <p>Node 2 transmits a packet to node 3 (imagine that node 3 is not in range of node 2).</p>
@@ -704,10 +720,12 @@ The transit information option is left empty.
 <p>Nodes can now send data packets to any other node in the network, since they have a downward route to all their descendants.
 When a node receives a packet, it first checks if it has a downward route to the destination of the packet.
 A packet first goes to a common ancestor of the sender and receiver, and then it is forwarded downwards to the receiver.</p>
-<div id="admonition-example" class="admonition admonish-example">
+<div id="admonition-example" class="admonition admonish-example" role="note" aria-labelledby="admonition-example-title">
 <div class="admonition-title">
+<div id="admonition-example-title">
 <p>Example</p>
-<p><a class="admonition-anchor-link" href="mop2.html#admonition-example"></a></p>
+</div>
+<a class="admonition-anchor-link" href="mop2.html#admonition-example"></a>
 </div>
 <div>
 <p>Node 2 transmits a packet to node 3 (imagine that node 3 is not in range of node 2).</p>
@@ -725,15 +743,69 @@ since node 2 does not have a downward route to node 3.</li>
 <li>Packets travel via a common ancestor of the sender and receiver.</li>
 </ul>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="mop3-storing-mode-with-multicast"><a class="header" href="#mop3-storing-mode-with-multicast">MOP3: storing mode with multicast</a></h1>
-<div id="admonition-warning" class="admonition admonish-warning">
+<p>Mode of Operation 3 (MOP3) extends MOP2 by adding support for multicast.
+In MOP3, the network is formed like in MOP2, but an extra <em>DAO</em> message is transmitted.
+This <em>DAO</em> message contains a multicast group address that the node wants to join.
+The node transmits the <em>DAO</em> message to its preferred parent.</p>
+<p>The <em>DAO</em> message is propagated upwards until it reaches the root.
+Every node that receives the <em>DAO</em> message keeps track of which children are part of the multicast group
+(adding this information in the routing table).
+When a node receives a multicast packet, it forwards the packet to all children that are part of the multicast group
+(except the originator of the packet).
+On link-layer level, the frames are sent using unicast addresses.
+This means that every packet is duplicated for every child that is part of the multicast group.
+To avoid duplication, other mechanisms can be used.
+However, these are not part of the RPL standard.</p>
+<ul>
+<li>Multicast Protocol for Low-Power and Lossy Networks (MPL/TM)</li>
+<li>(Enhanced) Sateless Multicast RPL Forwarding (ESMRF/SMRF)</li>
+<li>Proactive Multicast RPL Forwarding (PMRF)</li>
+<li>Bidirectional Multicast RPL Forwarding (BMRF)</li>
+</ul>
+<p><img src="assets/rpl/daos-mop3.webp" alt="Sending DAO with multicast target address" />
+<small>
+Figure 1: node 2 and 3 subscribe to the <code>FF12::ABCD</code> multicast group by sending a <em>DAO</em> message to their preferred parent.
+The transit information option is left empty.
+Even though node 1 is not interested in the multicast group,
+it has to transmit a <em>DAO</em> message to its preferred parent.
+It has to subscribe to the multicast group to be able to forward multicast packets to its children.
+</small></p>
+<div id="admonition-node-2-transmits-a-packet-to-the-multicast-group" class="admonition admonish-example" role="note" aria-labelledby="admonition-node-2-transmits-a-packet-to-the-multicast-group-title">
 <div class="admonition-title">
-<p>Warning</p>
-<p><a class="admonition-anchor-link" href="mop3.html#admonition-warning"></a></p>
+<div id="admonition-node-2-transmits-a-packet-to-the-multicast-group-title">
+<p>Node 2 transmits a packet to the multicast group</p>
+</div>
+<a class="admonition-anchor-link" href="mop3.html#admonition-node-2-transmits-a-packet-to-the-multicast-group"></a>
 </div>
 <div>
-<p>This is a work in progress!</p>
+<ol>
+<li>The packet is first transmitted to the preferred parent of node 2.
+Node 2 does not have a downward route to the multicast group.</li>
+<li>Node 1 duplicates the packet to all children that are part of the multicast group (except for the originator).
+It also forwards the packet to its preferred parent, the root.</li>
+</ol>
+<p>The root only has 1 child subscribed to the multicast group (node 1).
+However, it does not forward the packet to node 1, since it is the originator of just received packet.</p>
+<p><img src="assets/rpl/formed-mop3.webp" alt="Traveling packet" /></p>
 </div>
 </div>
+<div id="admonition-unsubscribing-from-a-multicast-group" class="admonition admonish-danger" role="note" aria-labelledby="admonition-unsubscribing-from-a-multicast-group-title">
+<div class="admonition-title">
+<div id="admonition-unsubscribing-from-a-multicast-group-title">
+<p>Unsubscribing from a multicast group</p>
+</div>
+<a class="admonition-anchor-link" href="mop3.html#admonition-unsubscribing-from-a-multicast-group"></a>
+</div>
+<div>
+<p>The RPL standard does not specify how to unsubscribe from a multicast group.</p>
+</div>
+</div>
+<h2 id="summary-3"><a class="header" href="#summary-3">Summary</a></h2>
+<ul>
+<li>An extra <em>DAO</em> message is sent to join a multicast group.</li>
+<li>Packets are forwarded to all children that are part of the multicast group, duplicating packets, except for the originator.
+The packet is also forwarded to the preferred parent.</li>
+</ul>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="control-message-formats"><a class="header" href="#control-message-formats">Control Message Formats</a></h1>
 <script> document.createElement("warn"); </script>
 <script> document.createElement("success"); </script>
@@ -860,7 +932,7 @@ More information is usually contained in a <a href="rpl-msg-formats.html#dodag-c
 +-+-+-+-+-+-+-+-+
 </code></pre>
 <ul>
-<li><strong>RplInstanceId</strong>: the RPL instance ID.</li>
+<li><strong>RPLInstanceId</strong>: the RPL instance ID.</li>
 <li><strong>Version Number</strong> the version of the RPL isntance, specifies an iteration (<a href="">Section 8.2</a>).</li>
 <li><strong>Rank</strong>: shows a relative distance from the advertising node to the root (<a href="">Section 8.2</a>).</li>
 <li><strong>G (Grounded)</strong>: indicates if the scope of the application is met or not (application specific and in our case always 0).</li>
@@ -888,9 +960,9 @@ objective function.</p>
 <p>If nodes in range, not connected to a DODAG, are interested in this option
 (they require to know the objective function that is used),
 then they will send a <warn>unicast</warn> <a href="rpl-msg-formats.html#dodag-information-solicitation-dis">DIS</a> message.
-As a response, a <warn>unicast</warn> DIO message is sent, which MUST contain a 
+As a response, a <warn>unicast</warn> DIO message is sent, which MUST contain a
 <a href="rpl-msg-formats.html#dodag-configuration">DODAG Configuration</a> option.
-If the number of interested nodes is high, then the overhead of the exchange of 
+If the number of interested nodes is high, then the overhead of the exchange of
 <warn>unicast</warn> messages might be significant.</p>
 <p>The following values are set by the user of the library:</p>
 <ul>
@@ -902,8 +974,8 @@ If the number of interested nodes is high, then the overhead of the exchange of
 <li>DODAG ID</li>
 </ul>
 <p>The Rank is equal to the ROOT Rank value.
-The DTSN is a sequence counter starting with the default value, 
-[incremented] when new route information is required. </p>
+The DTSN is a sequence counter starting with the default value,
+[incremented] when new route information is required.</p>
 </li>
 </ul>
 </li>
@@ -917,12 +989,12 @@ The DTSN is a sequence counter starting with the default value,
 <p>The node <strong>is not</strong> a LEAF node:</p>
 <ul>
 <li>
-<p>The node <strong>is</strong> part of a DODAG: 
+<p>The node <strong>is</strong> part of a DODAG:
 behave as the ROOT node, however, the DIO information was obtained when receiving a DIO message
 from a node with a lower Rank.
 The Rank was computed when selecting a parent.
 The DTSN is a sequence counter starting with the default value,
-[incremented] when new route information is required. </p>
+[incremented] when new route information is required.</p>
 </li>
 <li>
 <p>The node <strong>is not</strong> part of a DODAG: the node does not send a DIO.</p>
@@ -935,7 +1007,7 @@ The DTSN is a sequence counter starting with the default value,
 <li>
 <p>The node is a ROOT node:</p>
 <ul>
-<li>The DIO is ignored<sup class="footnote-reference"><a href="#neighbours">1</a></sup>.</li>
+<li>The DIO is ignored[^neighbours].</li>
 </ul>
 </li>
 <li>
@@ -947,11 +1019,11 @@ The DTSN is a sequence counter starting with the default value,
 <li>Selected a new preferred parent:
 <ul>
 <li>MOP 1: Send DAO message to the ROOT node. The parent address is in the DAO <a href="rpl-msg-formats.html#transit-information">Transit Information</a> option.</li>
-<li>MOP 2-3: 
+<li>MOP 2-3:
 <ul>
 <li>Send No-path DAO message to old preferred parent.</li>
 <li>Send DAO message to the new preferred parent (which is forwarded to the ROOT node).
-The destination needs to be the preferred parent, since this contains the 
+The destination needs to be the preferred parent, since this contains the
 information about who the parent is.
 There is no <a href="rpl-msg-formats.html#transit-information">Transit Information</a> option.</li>
 </ul>
@@ -1008,7 +1080,7 @@ The node then joins the network:
 </li>
 </ol>
 <blockquote>
-<p><sup class="footnote-reference"><a href="#neighbours">1</a></sup> Note that in smoltcp, we check the DIO, even as a ROOT node.
+<p>[^neighbours] Note that in smoltcp, we check the DIO, even as a ROOT node.
 If the DIO is part of the ROOTs DODAG, then we add the node to the neighbour list.
 Otherwise we don't have the link-layer address of our neighbours.</p>
 </blockquote>
@@ -1036,7 +1108,7 @@ It is sent to propagate routing information.</p>
 +-+-+-+-+-+-+-+-+
 </code></pre>
 <ul>
-<li><strong>RplInstanceId</strong>: the RPL instance ID.</li>
+<li><strong>RPLInstanceId</strong>: the RPL instance ID.</li>
 <li><strong>K</strong>: if set, an acknowledgement is requested.</li>
 <li><strong>D</strong>: if set, the DODAGID is present in the message.</li>
 <li><strong>Flags</strong>: unused field, must be set to zero.</li>
@@ -1088,7 +1160,7 @@ The Transit Information option copntians the parent and the route lifetime.
 The RPL Target option contains the original sender IPv6 prefix <strong>?</strong> address of the DAO message.</p>
 </li>
 <li>
-<p><strong>MOP 2 - 3</strong>: </p>
+<p><strong>MOP 2 - 3</strong>:</p>
 <ul>
 <li>Send a No-Path DAO to the old parent,
 containing a <a href="rpl-msg-formats.html#transit-information">Transit Information</a> option and a <a href="rpl-msg-formats.html#rpl-target">RPL Target</a> option.
@@ -1122,7 +1194,7 @@ The DAO retransmition should be one or two minutes before the expriation of the 
 </li>
 </ul>
 <p>Every time a DAO message is transmitted, the DAO Sequence number is incremented.
-<warn>smoltcp always enables the acknowledgement request flag. The lifetime of the route is 30 minutes. Missing 
+<warn>smoltcp always enables the acknowledgement request flag. The lifetime of the route is 30 minutes. Missing
 a DAO is significant</warn>.</p>
 </li>
 <li>
@@ -1198,7 +1270,7 @@ They are unicast messages.</p>
 +-+-+-+-+-+-+-+-+
 </code></pre>
 <ul>
-<li><strong>RplInstanceId</strong>: the RPL instance ID.</li>
+<li><strong>RPLInstanceId</strong>: the RPL instance ID.</li>
 <li><strong>D</strong>: if set, the DODAGID is present in the message.</li>
 <li><strong>Reserved</strong>: unused field, must be set to zero.</li>
 <li><strong>DAOSequence</strong>: correlates to the DAO message.</li>
@@ -1359,7 +1431,7 @@ An External Target is a Target that has been learned through an alternate protoc
 preference among the parents.</li>
 <li><strong>Path Sequence</strong>: increased whenever information in this option is newer information.</li>
 <li><strong>Path Lifetime</strong>: the length of time in Lifetime Units that the prefix is valid for route determination.</li>
-<li><strong>Parent Address</strong>: 
+<li><strong>Parent Address</strong>:
 <ul>
 <li><strong>MOP 1</strong>: the address of the parent.</li>
 <li><strong>MOP 2 - 3</strong>: field is not present.</li>
@@ -1396,7 +1468,7 @@ When receiving such an option, a node will check if it matches the predicates.</
 <li><strong>Version Number</strong>: The Version Number predicate.</li>
 </ul>
 <h3 id="prefix-information"><a class="header" href="#prefix-information">Prefix Information</a></h3>
-<p>This option is used by a router to indicate nodes in the DODAG what 
+<p>This option is used by a router to indicate nodes in the DODAG what
 prefix to use.</p>
 <pre><code class="language-txt"> 0                   1                   2                   3
  0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
@@ -1453,6 +1525,14 @@ It must be copied by other nodes in the network and not modified.
 <p><strong>MOP 1</strong>: If the DIO from the parent of a node has increased DTSN, then the node itself has to increment its DTSN.</p>
 <p><strong>MOP 2 - 3</strong>: If the DIO from the parent of a node has increased DTSN, it is not</p>
 <h2 id="incrementing-the-path-sequence-number"><a class="header" href="#incrementing-the-path-sequence-number">Incrementing the Path Sequence Number</a></h2>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="terminology"><a class="header" href="#terminology">Terminology</a></h1>
+<h2 id="dodag"><a class="header" href="#dodag">DODAG</a></h2>
+<h2 id="objective-function"><a class="header" href="#objective-function">Objective Function</a></h2>
+<h2 id="rpl-instance-id"><a class="header" href="#rpl-instance-id">RPL Instance ID</a></h2>
+<h2 id="dodag-id-1"><a class="header" href="#dodag-id-1">DODAG ID</a></h2>
+<h2 id="version-number-1"><a class="header" href="#version-number-1">Version Number</a></h2>
+<h2 id="rank-1"><a class="header" href="#rank-1">Rank</a></h2>
+<h2 id="mode-of-operation"><a class="header" href="#mode-of-operation">Mode of Operation</a></h2>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="optimizations"><a class="header" href="#optimizations">Optimizations</a></h1>
 <!--## DODAG Configuration in DIO-->
 <!--DIO messages MAY contain a DODAG configuration option (16 bytes).-->

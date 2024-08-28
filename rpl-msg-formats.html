@@ -92,7 +92,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded affix "><a href="introduction.html">Introduction</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">Using smoltcp</li><li class="chapter-item expanded "><a href="using_smoltcp.html"><strong aria-hidden="true">1.</strong> Setting up a basic stack</a></li><li class="chapter-item expanded "><a href="adding_sockets.html"><strong aria-hidden="true">2.</strong> Adding sockets</a></li><li class="chapter-item expanded "><a href="adding_rpl.html"><strong aria-hidden="true">3.</strong> Adding RPL</a></li><li class="chapter-item expanded "><div><strong aria-hidden="true">4.</strong> Adding DNS</div></li><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">Protocols</li><li class="chapter-item expanded "><div><strong aria-hidden="true">5.</strong> 6LoWPAN</div></li><li class="chapter-item expanded "><a href="rpl_introduction.html"><strong aria-hidden="true">6.</strong> RPL</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="mop0.html"><strong aria-hidden="true">6.1.</strong> MOP0</a></li><li class="chapter-item expanded "><a href="mop1.html"><strong aria-hidden="true">6.2.</strong> MOP1</a></li><li class="chapter-item expanded "><a href="mop2.html"><strong aria-hidden="true">6.3.</strong> MOP2</a></li><li class="chapter-item expanded "><a href="mop3.html"><strong aria-hidden="true">6.4.</strong> MOP3</a></li><li class="chapter-item expanded "><a href="rpl-msg-formats.html" class="active"><strong aria-hidden="true">6.5.</strong> Control Message Formats</a></li><li class="chapter-item expanded "><a href="rpl-optimizations.html"><strong aria-hidden="true">6.6.</strong> Optimizations</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><a href="about.html">About</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="introduction.html">Introduction</a></li><li class="chapter-item expanded affix "><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">Using smoltcp</li><li class="chapter-item expanded "><a href="smoltcp.html"><strong aria-hidden="true">1.</strong> smoltcp</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="using_smoltcp.html"><strong aria-hidden="true">1.1.</strong> Setting up a basic stack</a></li><li class="chapter-item expanded "><a href="adding_sockets.html"><strong aria-hidden="true">1.2.</strong> Adding sockets</a></li><li class="chapter-item expanded "><a href="adding_rpl.html"><strong aria-hidden="true">1.3.</strong> Adding RPL</a></li><li class="chapter-item expanded "><div><strong aria-hidden="true">1.4.</strong> Adding DNS</div></li></ol></li><li class="chapter-item expanded "><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">IEEE 802.15.4</li><li class="chapter-item expanded "><div><strong aria-hidden="true">2.</strong> IEEE 802.15.4</div></li><li class="chapter-item expanded affix "><li class="part-title">6LoWPAN</li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.</strong> 6LoWPAN</div></li><li class="chapter-item expanded affix "><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">RPL</li><li class="chapter-item expanded "><a href="rpl_introduction.html"><strong aria-hidden="true">4.</strong> RPL</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="mop0.html"><strong aria-hidden="true">4.1.</strong> MOP0</a></li><li class="chapter-item expanded "><a href="mop1.html"><strong aria-hidden="true">4.2.</strong> MOP1</a></li><li class="chapter-item expanded "><a href="mop2.html"><strong aria-hidden="true">4.3.</strong> MOP2</a></li><li class="chapter-item expanded "><a href="mop3.html"><strong aria-hidden="true">4.4.</strong> MOP3</a></li><li class="chapter-item expanded "><a href="rpl-msg-formats.html" class="active"><strong aria-hidden="true">4.5.</strong> Control Message Formats</a></li><li class="chapter-item expanded "><a href="rpl-terminology.html"><strong aria-hidden="true">4.6.</strong> Terminology</a></li><li class="chapter-item expanded "><a href="rpl-optimizations.html"><strong aria-hidden="true">4.7.</strong> Optimizations</a></li></ol></li><li class="chapter-item expanded "><li class="spacer"></li><li class="chapter-item expanded affix "><a href="about.html">About</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle">
                 <div class="sidebar-resize-indicator"></div>
@@ -303,7 +303,7 @@ More information is usually contained in a <a href="#dodag-configuration">DODAG 
 +-+-+-+-+-+-+-+-+
 </code></pre>
 <ul>
-<li><strong>RplInstanceId</strong>: the RPL instance ID.</li>
+<li><strong>RPLInstanceId</strong>: the RPL instance ID.</li>
 <li><strong>Version Number</strong> the version of the RPL isntance, specifies an iteration (<a href="">Section 8.2</a>).</li>
 <li><strong>Rank</strong>: shows a relative distance from the advertising node to the root (<a href="">Section 8.2</a>).</li>
 <li><strong>G (Grounded)</strong>: indicates if the scope of the application is met or not (application specific and in our case always 0).</li>
@@ -331,9 +331,9 @@ objective function.</p>
 <p>If nodes in range, not connected to a DODAG, are interested in this option
 (they require to know the objective function that is used),
 then they will send a <warn>unicast</warn> <a href="#dodag-information-solicitation-dis">DIS</a> message.
-As a response, a <warn>unicast</warn> DIO message is sent, which MUST contain a 
+As a response, a <warn>unicast</warn> DIO message is sent, which MUST contain a
 <a href="#dodag-configuration">DODAG Configuration</a> option.
-If the number of interested nodes is high, then the overhead of the exchange of 
+If the number of interested nodes is high, then the overhead of the exchange of
 <warn>unicast</warn> messages might be significant.</p>
 <p>The following values are set by the user of the library:</p>
 <ul>
@@ -345,8 +345,8 @@ If the number of interested nodes is high, then the overhead of the exchange of
 <li>DODAG ID</li>
 </ul>
 <p>The Rank is equal to the ROOT Rank value.
-The DTSN is a sequence counter starting with the default value, 
-[incremented] when new route information is required. </p>
+The DTSN is a sequence counter starting with the default value,
+[incremented] when new route information is required.</p>
 </li>
 </ul>
 </li>
@@ -360,12 +360,12 @@ The DTSN is a sequence counter starting with the default value,
 <p>The node <strong>is not</strong> a LEAF node:</p>
 <ul>
 <li>
-<p>The node <strong>is</strong> part of a DODAG: 
+<p>The node <strong>is</strong> part of a DODAG:
 behave as the ROOT node, however, the DIO information was obtained when receiving a DIO message
 from a node with a lower Rank.
 The Rank was computed when selecting a parent.
 The DTSN is a sequence counter starting with the default value,
-[incremented] when new route information is required. </p>
+[incremented] when new route information is required.</p>
 </li>
 <li>
 <p>The node <strong>is not</strong> part of a DODAG: the node does not send a DIO.</p>
@@ -378,7 +378,7 @@ The DTSN is a sequence counter starting with the default value,
 <li>
 <p>The node is a ROOT node:</p>
 <ul>
-<li>The DIO is ignored<sup class="footnote-reference"><a href="#neighbours">1</a></sup>.</li>
+<li>The DIO is ignored[^neighbours].</li>
 </ul>
 </li>
 <li>
@@ -390,11 +390,11 @@ The DTSN is a sequence counter starting with the default value,
 <li>Selected a new preferred parent:
 <ul>
 <li>MOP 1: Send DAO message to the ROOT node. The parent address is in the DAO <a href="#transit-information">Transit Information</a> option.</li>
-<li>MOP 2-3: 
+<li>MOP 2-3:
 <ul>
 <li>Send No-path DAO message to old preferred parent.</li>
 <li>Send DAO message to the new preferred parent (which is forwarded to the ROOT node).
-The destination needs to be the preferred parent, since this contains the 
+The destination needs to be the preferred parent, since this contains the
 information about who the parent is.
 There is no <a href="#transit-information">Transit Information</a> option.</li>
 </ul>
@@ -451,7 +451,7 @@ The node then joins the network:
 </li>
 </ol>
 <blockquote>
-<p><sup class="footnote-reference"><a href="#neighbours">1</a></sup> Note that in smoltcp, we check the DIO, even as a ROOT node.
+<p>[^neighbours] Note that in smoltcp, we check the DIO, even as a ROOT node.
 If the DIO is part of the ROOTs DODAG, then we add the node to the neighbour list.
 Otherwise we don't have the link-layer address of our neighbours.</p>
 </blockquote>
@@ -479,7 +479,7 @@ It is sent to propagate routing information.</p>
 +-+-+-+-+-+-+-+-+
 </code></pre>
 <ul>
-<li><strong>RplInstanceId</strong>: the RPL instance ID.</li>
+<li><strong>RPLInstanceId</strong>: the RPL instance ID.</li>
 <li><strong>K</strong>: if set, an acknowledgement is requested.</li>
 <li><strong>D</strong>: if set, the DODAGID is present in the message.</li>
 <li><strong>Flags</strong>: unused field, must be set to zero.</li>
@@ -531,7 +531,7 @@ The Transit Information option copntians the parent and the route lifetime.
 The RPL Target option contains the original sender IPv6 prefix <strong>?</strong> address of the DAO message.</p>
 </li>
 <li>
-<p><strong>MOP 2 - 3</strong>: </p>
+<p><strong>MOP 2 - 3</strong>:</p>
 <ul>
 <li>Send a No-Path DAO to the old parent,
 containing a <a href="#transit-information">Transit Information</a> option and a <a href="#rpl-target">RPL Target</a> option.
@@ -565,7 +565,7 @@ The DAO retransmition should be one or two minutes before the expriation of the 
 </li>
 </ul>
 <p>Every time a DAO message is transmitted, the DAO Sequence number is incremented.
-<warn>smoltcp always enables the acknowledgement request flag. The lifetime of the route is 30 minutes. Missing 
+<warn>smoltcp always enables the acknowledgement request flag. The lifetime of the route is 30 minutes. Missing
 a DAO is significant</warn>.</p>
 </li>
 <li>
@@ -641,7 +641,7 @@ They are unicast messages.</p>
 +-+-+-+-+-+-+-+-+
 </code></pre>
 <ul>
-<li><strong>RplInstanceId</strong>: the RPL instance ID.</li>
+<li><strong>RPLInstanceId</strong>: the RPL instance ID.</li>
 <li><strong>D</strong>: if set, the DODAGID is present in the message.</li>
 <li><strong>Reserved</strong>: unused field, must be set to zero.</li>
 <li><strong>DAOSequence</strong>: correlates to the DAO message.</li>
@@ -802,7 +802,7 @@ An External Target is a Target that has been learned through an alternate protoc
 preference among the parents.</li>
 <li><strong>Path Sequence</strong>: increased whenever information in this option is newer information.</li>
 <li><strong>Path Lifetime</strong>: the length of time in Lifetime Units that the prefix is valid for route determination.</li>
-<li><strong>Parent Address</strong>: 
+<li><strong>Parent Address</strong>:
 <ul>
 <li><strong>MOP 1</strong>: the address of the parent.</li>
 <li><strong>MOP 2 - 3</strong>: field is not present.</li>
@@ -839,7 +839,7 @@ When receiving such an option, a node will check if it matches the predicates.</
 <li><strong>Version Number</strong>: The Version Number predicate.</li>
 </ul>
 <h3 id="prefix-information"><a class="header" href="#prefix-information">Prefix Information</a></h3>
-<p>This option is used by a router to indicate nodes in the DODAG what 
+<p>This option is used by a router to indicate nodes in the DODAG what
 prefix to use.</p>
 <pre><code class="language-txt"> 0                   1                   2                   3
  0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
@@ -905,7 +905,7 @@ It must be copied by other nodes in the network and not modified.
                                 <i class="fa fa-angle-left"></i>
                             </a>
 
-                            <a rel="next prefetch" href="rpl-optimizations.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next prefetch" href="rpl-terminology.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
 
@@ -919,7 +919,7 @@ It must be copied by other nodes in the network and not modified.
                         <i class="fa fa-angle-left"></i>
                     </a>
 
-                    <a rel="next prefetch" href="rpl-optimizations.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a rel="next prefetch" href="rpl-terminology.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
             </nav>
