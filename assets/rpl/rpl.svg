@@ -28,9 +28,9 @@
      inkscape:deskcolor="#d1d1d1"
      inkscape:document-units="mm"
      showgrid="false"
-     inkscape:zoom="12.827781"
-     inkscape:cx="3148.7129"
-     inkscape:cy="1896.3529"
+     inkscape:zoom="2.2676528"
+     inkscape:cx="3142.8974"
+     inkscape:cy="1918.7241"
      inkscape:window-width="2540"
      inkscape:window-height="1389"
      inkscape:window-x="0"
@@ -154,7 +154,10 @@
        id="page59"
        margin="0"
        bleed="0"
-       inkscape:label="formed-mop3" />
+       inkscape:label="formed-mop3"
+       inkscape:export-filename="./formed-mop3.webp"
+       inkscape:export-xdpi="480"
+       inkscape:export-ydpi="480" />
   </sodipodi:namedview>
   <defs
      id="defs1372">
