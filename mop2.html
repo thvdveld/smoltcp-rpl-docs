@@ -210,6 +210,25 @@ since node 2 does not have a downward route to node 3.</li>
 <p><img src="assets/rpl/formed-mop2.webp" alt="Traveling packet" /></p>
 </div>
 </div>
+<h2 id="usage-with-smoltcp"><a class="header" href="#usage-with-smoltcp">Usage with smoltcp</a></h2>
+<p>The RPL network can be formed using the <code>smoltcp</code> library.
+The following feature flags need to be enabled: <code>rpl-mop-2</code> and <code>proto-sixlowpan</code>.
+Additionally, the <code>proto-sixlowpan-fragmentation</code> feature can be enabled to allow for fragmentation of 6LoWPAN packets.</p>
+<p>The following configuration should be added to the configuration struct for the interface:</p>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>config.rpl = RplConfig::new(RplModeOfOperation::StoringMode);
+<span class="boring">}</span></code></pre></pre>
+<p>When using RPL as a root node, the following configuration should be added:</p>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>config.rpl = RplConfig::new(RplModeOfOperation::StoringMode)
+    .add_root_config(RplRootConfig::new(
+        RplInstanceId::from(30), // Change this to the desired RPL Instance ID
+        Ipv6Address::default(),  // Change this to the desired DODAG ID
+    ));
+<span class="boring">}</span></code></pre></pre>
+<p>The interface should now behave like a RPL node in MOP2.</p>
 <h1 id="summary"><a class="header" href="#summary">Summary</a></h1>
 <ul>
 <li>Every node in the network has an overview of the network topology.</li>

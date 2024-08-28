@@ -235,6 +235,26 @@ This is done by sending <em>DAO</em> messages to the root.
 The root increments the DTSN in its <em>DIO</em> messages.
 When a node receives a <em>DIO</em> message with a higher DTSN, it will send a <em>DAO</em> message to the root.
 In smoltcp, nodes periodically send <em>DAO</em> messages to the root, without waiting for a <em>DIO</em> message with a higher DTSN.</p>
+<h2 id="usage-with-smoltcp"><a class="header" href="#usage-with-smoltcp">Usage with smoltcp</a></h2>
+<p>The RPL network can be formed using the <code>smoltcp</code> library.
+The following feature flags need to be enabled: <code>rpl-mop-1</code> and <code>proto-sixlowpan</code>.
+Additionally, the <code>proto-sixlowpan-fragmentation</code> feature can be enabled to allow for fragmentation of 6LoWPAN packets.</p>
+<p>The following configuration should be added to the configuration struct for the interface:</p>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>config.rpl = RplConfig::new(RplModeOfOperation::NonStoringMode);
+<span class="boring">}</span></code></pre></pre>
+<p>When using RPL as a root node, the following configuration should be added:</p>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>config.rpl = RplConfig::new(RplModeOfOperation::NonStoringMode)
+    .add_root_config(RplRootConfig::new(
+        RplInstanceId::from(30), // Change this to the desired RPL Instance ID
+        Ipv6Address::default(),  // Change this to the desired DODAG ID
+    ));
+
+<span class="boring">}</span></code></pre></pre>
+<p>The interface should now behave like a RPL node in MOP1.</p>
 <h1 id="summary"><a class="header" href="#summary">Summary</a></h1>
 <ul>
 <li>Network is formed by sending <em>DIO</em> messages</li>
