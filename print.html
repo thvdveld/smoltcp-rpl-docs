@@ -856,26 +856,38 @@ However, it does not forward the packet to node 1, since it is the originator of
 <a class="admonition-anchor-link" href="mop3.html#admonition-unsubscribing-from-a-multicast-group"></a>
 </div>
 <div>
-<p>The RPL standard does not specify how to unsubscribe from a multicast group.</p>
+<p>The RPL standard does not specify how to unsubscribe from a multicast group.
+The implementation, however, provides a mechanism through <code>No-Path DAO</code> messages.</p>
 </div>
 </div>
 <h2 id="usage-with-smoltcp-3"><a class="header" href="#usage-with-smoltcp-3">Usage with smoltcp</a></h2>
 <p>The RPL network can be formed using the <code>smoltcp</code> library.
-The following feature flags need to be enabled: <code>rpl-mop-2</code> and <code>proto-sixlowpan</code>.
+The following feature flags need to be enabled: <code>rpl-mop-3</code> and <code>proto-sixlowpan</code>.
 Additionally, the <code>proto-sixlowpan-fragmentation</code> feature can be enabled to allow for fragmentation of 6LoWPAN packets.</p>
 <p>The following configuration should be added to the configuration struct for the interface:</p>
 <pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
 </span><span class="boring">fn main() {
-</span>config.rpl = RplConfig::new(RplModeOfOperation::StoringMode);
+</span>config.rpl = RplConfig::new(RplModeOfOperation::StoringModeWithMulticast);
 <span class="boring">}</span></code></pre></pre>
 <p>When using RPL as a root node, the following configuration should be added:</p>
 <pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
 </span><span class="boring">fn main() {
-</span>config.rpl = RplConfig::new(RplModeOfOperation::StoringMode)
+</span>config.rpl = RplConfig::new(RplModeOfOperation::StoringModeWithMulticast)
     .add_root_config(RplRootConfig::new(
         RplInstanceId::from(30), // Change this to the desired RPL Instance ID
         Ipv6Address::default(),  // Change this to the desired DODAG ID
     ));
+<span class="boring">}</span></code></pre></pre>
+<p>To allow <code>smoltcp</code> to do the duplication, a non-empty buffer needs to be allocated specifically for multicast:</p>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>let mut interface = Interface::&lt;'static&gt;::new(
+    config,
+    &amp;mut device,
+    vec![PacketMetadata::EMPTY; 16], // the multicast buffer
+    vec![0; 2048],
+    Instant::now(),
+);
 <span class="boring">}</span></code></pre></pre>
 <p>The interface should join a multicast group:</p>
 <pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
