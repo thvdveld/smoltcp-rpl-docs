@@ -44,26 +44,38 @@ However, it does not forward the packet to node 1, since it is the originator of
 
 ```admonish danger title="Unsubscribing from a multicast group"
 The RPL standard does not specify how to unsubscribe from a multicast group.
+The implementation, however, provides a mechanism through `No-Path DAO` messages.
 ```
 
 ## Usage with smoltcp ##
 
 The RPL network can be formed using the `smoltcp` library.
-The following feature flags need to be enabled: `rpl-mop-2` and `proto-sixlowpan`.
+The following feature flags need to be enabled: `rpl-mop-3` and `proto-sixlowpan`.
 Additionally, the `proto-sixlowpan-fragmentation` feature can be enabled to allow for fragmentation of 6LoWPAN packets.
 
 The following configuration should be added to the configuration struct for the interface:
 ```rust
-config.rpl = RplConfig::new(RplModeOfOperation::StoringMode);
+config.rpl = RplConfig::new(RplModeOfOperation::StoringModeWithMulticast);
 ```
 
 When using RPL as a root node, the following configuration should be added:
 ```rust
-config.rpl = RplConfig::new(RplModeOfOperation::StoringMode)
+config.rpl = RplConfig::new(RplModeOfOperation::StoringModeWithMulticast)
     .add_root_config(RplRootConfig::new(
         RplInstanceId::from(30), // Change this to the desired RPL Instance ID
         Ipv6Address::default(),  // Change this to the desired DODAG ID
     ));
+```
+
+To allow `smoltcp` to do the duplication, a non-empty buffer needs to be allocated specifically for multicast:
+```rust
+let mut interface = Interface::<'static>::new(
+    config,
+    &mut device,
+    vec![PacketMetadata::EMPTY; 16], // the multicast buffer
+    vec![0; 2048],
+    Instant::now(),
+);
 ```
 
 The interface should join a multicast group:
